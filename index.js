@@ -79,6 +79,9 @@ app.get("/ipresale", (req, res) => res.render("./pages/presale"))
 // Roadmap pass route for User Domain
 app.get("/roadmap", (req, res) => res.render("./pages/roadmap"))
 
+// White pass route for User Domain
+app.get("/white", (req, res) => res.render("./pages/white"))
+
 
 
 // DASHBOARD ROUTES

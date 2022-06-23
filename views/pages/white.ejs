@@ -1,0 +1,212 @@
+<%# include('partials/header.ejs') %>
+
+	<%- include('partials/mainheader.ejs') %>
+
+			<body>
+        <style>
+
+          .greenBg{
+		
+			height: 137px;
+			/* Gradient 02 */
+			background: linear-gradient(52.09deg, #40D00D -11.18%, #40D00D 58.92%, #EDF3A9 98.44%);
+			border-radius: 0px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+          }
+
+		  .roadTitle{
+			/* position: absolute; */
+			
+			font-family: 'Space Grotesk';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 1.3rem;
+			line-height: 130%;
+			margin-left: 20px;
+		  }
+
+		  .coin1 {
+			position: absolute;
+			width: 62.59px;
+			height: 61.69px;
+			left: 40px;
+			top: 174.12px;
+		  }
+
+		  .coin2 {
+				
+			position: absolute;
+			width: 62.59px;
+			height: 61.69px;
+			left: 62.07px;
+			top: 145.3px;
+		  }
+
+		  .pride {
+	
+			font-family: 'Space Grotesk';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 6.75463px;
+			line-height: 130%;
+			letter-spacing: 4.50309px;
+		  }
+
+		  .road{
+			position: absolute;
+			right: 28.12px;
+			top: 15.21px
+		  }
+
+		  .roadmap {
+			font-family: 'Space Grotesk';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 22.5764px;
+			line-height: 130%;
+			/* or 29px */
+
+			display: flex;
+			align-items: center;
+		  }
+
+		  .whiteBg {
+			background-color: white;
+			padding: 20px; 
+			width: 90%; 
+			margin: 10px auto;
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+		  }
+
+		  .date {
+			color: black;
+			font-size: 10px; 
+			text-align: left;
+		  }
+
+		  .textRoad {
+			color: black;
+			font-size: 14px; 
+			text-align: left;
+		  }
+
+		  .coloredBg {
+			padding: 5px; width: 80px; font-size: 10px; font-weight: 700;
+		  }
+
+		  .details {
+			  display: flex;
+			  align-items: flex-start;
+			  justify-content: start;
+			  flex-direction: column;
+			  width: 100%;
+		  }
+
+
+        </style>
+
+				<!-- NAV SECTION -->
+				<%# include('partials/navbar.ejs') %>
+
+					<nav class="nav">
+						<p>
+							<a href="/">Home</a>
+						</p>
+						<p>
+							<a href="/coming">Pre-sale</a>
+						</p>
+						<p>
+							<a href="/coming">Meterverse</a>
+						</p>
+						<p>
+							<a href="/coming">NFT Marktetplace</a>
+						</p>
+						<p>
+							<a href="/coming">Tokenomics</a>
+						</p>
+						<p>
+							<a href="/roadmap">Roadmap</a>
+						</p>
+						<button id="login">Login</button>
+						<button id="reg" class="signup">Signup</button>
+					</nav>
+					<!-- Hero Section -->
+					<section class="hero--section">
+						<!-- navigation bar -->
+						<header>
+							<a href="/" class="logo">
+								<img src="../../public/img/agropic.png" alt="#">
+								<h2>AgroMetacoin</h2>
+							</a>
+
+							<div class="nav--links">
+								<p>
+									<a href="/coming">Pre-sale</a>
+								</p>
+								<p>
+									<a href="/coming">Meterverse</a>
+								</p>
+								<p>
+									<a href="/coming">NFT Marktetplace</a>
+								</p>
+								<p>
+									<a href="/coming">Tokenomics</a>
+								</p>
+								<p>
+									<a href="/roadmap">Roadmap</a>
+							</div>
+							<div class="registration">
+								<button id="login-d">Login</button>
+								<button id="reg-d">Signup</button>
+
+								<div class="hamburger--container">
+									<label for="check">
+										<input type="checkbox" id="check" />
+										<span></span>
+										<span></span>
+										<span></span>
+									</label>
+								</div>
+							</div>
+						</header>
+          </section>
+
+		  <!-- PDF EMBEDMENT -->
+          <section style="max-width: 800px; margin: auto">
+            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;">
+                <img src="/public/white/whitepaper-0.jpg" alt="">
+                <img src="/public/white/whitepaper-1.jpg" alt="">
+                <img src="/public/white/whitepaper-2.jpg" alt="">
+                <img src="/public/white/whitepaper-3.jpg" alt="">
+                <img src="/public/white/whitepaper-4.jpg" alt="">
+                <img src="/public/white/whitepaper-5.jpg" alt="">
+                <img src="/public/white/whitepaper-6.jpg" alt="">
+                <img src="/public/white/whitepaper-7.jpg" alt="">
+                <img src="/public/white/whitepaper-8.jpg" alt="">
+                <img src="/public/white/whitepaper-9.jpg" alt="">
+                <img src="/public/white/whitepaper-10.jpg" alt="">
+                <img src="/public/white/whitepaper-11.jpg" alt="">
+                <img src="/public/white/whitepaper-12.jpg" alt="">
+                <img src="/public/white/whitepaper-13.jpg" alt="">
+                <img src="/public/white/whitepaper-14.jpg" alt="">
+                <img src="/public/white/whitepaper-15.jpg" alt="">
+                <img src="/public/white/whitepaper-16.jpg" alt="">
+                <img src="/public/white/whitepaper-17.jpg" alt="">
+                <img src="/public/white/whitepaper-18.jpg" alt="">
+                <img src="/public/white/whitepaper-19.jpg" alt="">
+                <img src="/public/white/whitepaper-20.jpg" alt="">
+            </div>
+            <a href="/public/white/AMCWhitePaper.pdf" style="position: fixed; bottom: 10px; right: 10px" download="AMC_White_Paper">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height: 50px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+            </a>
+          </section>
+         
+  </body>
+  <script src="../../public/js/config.js"></script>
+  </html>
