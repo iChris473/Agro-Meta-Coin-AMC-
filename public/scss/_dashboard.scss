@@ -1,4 +1,7 @@
 //Mobile view
+.open--mobile-t {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   nav.dash--mobile {
     width: 100vw;
@@ -718,6 +721,590 @@
   }
 }
 
+//Tablet view
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  aside.profile--m {
+    width: 77vw;
+    height: 100vh;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    color: $secondaryColor;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+    padding-inline: 1.2rem;
+    display: block;
+    position: fixed;
+    background-color: white;
+    transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform: translateY(100%);
+    right: 0;
+    bottom: 0;
+    z-index: 1000000;
+    &.open {
+      transform: translateY(0%);
+    }
+    .open--mobile-t {
+      transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      cursor: pointer;
+      display: block;
+      padding-block: 2rem;
+      &.open {
+        transform: rotate(180deg);
+        color: #00245a;
+      }
+    }
+    header {
+      height: 4rem;
+      background-color: white;
+    }
+    //Profile section (picture)
+    .profile {
+      height: auto;
+      @include flex(center, flex-start);
+      flex-direction: column;
+      margin-top: 3.5rem;
+      h3 {
+        font-size: 1.125rem;
+      }
+      img {
+        width: 4.2rem;
+        height: 4.2rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: 2rem;
+      }
+      p {
+        padding-top: 0.9rem;
+      }
+      a {
+        font-size: 0.875rem;
+        padding-top: 0.5rem;
+        color: $color;
+      }
+    }
+    //Profile ends
+
+    //Contents starts here
+    .content {
+      font-size: 0.875rem;
+      height: auto;
+      img {
+        width: 1.4rem;
+        height: 1.4rem;
+        object-fit: contain;
+      }
+      h3.acct-header {
+        font-size: 1rem;
+        color: $secondaryColor;
+        margin-top: 2.5rem;
+      }
+      .joined {
+        padding-top: 0.8rem;
+        margin: 0 auto;
+        width: auto;
+        color: rgba(166, 158, 214, 1);
+
+        &:nth-child(3) {
+          padding-bottom: 2rem;
+        }
+        span {
+          float: right;
+          font-weight: 600;
+          color: $secondaryColor;
+        }
+      }
+      //Assets start here
+      .assets {
+        height: auto;
+        padding-top: 2rem;
+        font-size: 0.8rem;
+        color: $color;
+        border-top: 1px solid rgba(244, 242, 251, 1);
+        h3 {
+          color: $secondaryColor;
+        }
+        .lists {
+          @include flex(center, space-between);
+          margin-top: 1rem;
+          img {
+            width: 1.2rem;
+            height: 1.2rem;
+            object-fit: contain;
+          }
+          p {
+            width: 100%;
+            padding-inline: 0.5rem;
+            color: rgba(166, 158, 214, 1);
+            span {
+              float: right;
+              font-weight: 600;
+              color: $secondaryColor;
+            }
+          }
+        }
+        h4 {
+          margin-top: 2rem;
+          font-size: 0.875rem;
+          color: $secondaryColor;
+          a {
+            @include flex(center, flex-start);
+            span {
+              font-size: 0.875rem;
+            }
+          }
+        }
+      }
+      //Assets starts here
+    }
+    button {
+      width: 100%;
+      height: 3.5rem;
+      background: $btnColor;
+      border: 0;
+      color: white;
+      font-weight: 500;
+      border-radius: 8px;
+      margin-top: 4rem;
+      @include flex(center, center);
+    }
+    //Content ends here
+  }
+  section.dashboard--container {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    @include flex(flex-start, space-between);
+    color: black;
+
+    //Dash navigation starts here
+    .dash--nav {
+      width: 30vw;
+      height: 100vh;
+      background-color: #f8f7ff;
+      padding: 1.25rem 0.6rem;
+      overflow-y: scroll;
+      z-index: 2000000;
+
+      .header {
+        @include flex(center, flex-start);
+        h1 {
+          font-size: 1.2rem;
+          color: $secondaryColor;
+        }
+        img {
+          width: 1.8rem;
+          height: 1.8rem;
+          object-fit: contain;
+        }
+      }
+      nav {
+        @include flex(center, center);
+        flex-direction: column;
+        margin-top: 2rem;
+        div {
+          width: 100%;
+          height: 2.5rem;
+          background-color: transparent;
+          margin-top: 1rem;
+          @include flex(center, space-between);
+          color: $color;
+          padding-block: 1.8rem;
+          font-size: 0.875rem;
+          cursor: pointer;
+          transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+          &:hover {
+            color: $secondaryColor;
+          }
+          &:hover > span.chevron {
+            opacity: 1;
+          }
+          span.chevron {
+            opacity: 0;
+          }
+        }
+      }
+      button {
+        width: 100%;
+        height: 3.5rem;
+        justify-self: flex-end;
+        background: $btnColor;
+        border: 0;
+        color: white;
+        font-weight: 500;
+        border-radius: 8px;
+        margin-top: 8rem;
+      }
+    }
+    //Dash navigation ends
+
+    //Main dashboard starts
+    .main--dash {
+      width: 100vw;
+      height: 100vh;
+      overflow-y: auto;
+      color: $secondaryColor;
+      //Header starts here
+      header {
+        height: 4rem;
+        background-color: #00245a;
+        color: white;
+        @include flex(center, space-between);
+        padding-inline: 1.5rem;
+        font-weight: 500;
+        z-index: 5000000;
+
+        .user--pic,
+        .hamburger--container {
+          display: none;
+        }
+        .user--pic {
+          width: 20%;
+          height: inherit;
+          @include flex(center, center);
+          float: right;
+          padding-right: 1rem;
+          img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 100%;
+            object-fit: cover;
+          }
+          span {
+            transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            cursor: pointer;
+            &.open {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+      //Header ends
+
+      //Main content starts
+      section.content {
+        width: 100%;
+        height: auto;
+        background-color: white;
+        padding: 1.75rem;
+        h1.header {
+          font-size: 1.75rem;
+          font-weight: 700;
+        }
+        //grid container starts
+        .grid {
+          width: 100%;
+          height: auto;
+          margin-top: 1.3rem;
+          display: grid;
+          grid-template-columns: repeat(2, auto);
+          overflow-x: scroll;
+          column-gap: 0.5rem;
+          div.box--container {
+            // width: 13rem;
+            height: 12.8rem;
+            @include flex(flex-start, flex-start);
+            flex-direction: column;
+            margin-top: 1rem;
+            overflow-x: hidden;
+            h3 {
+              font-size: 1rem;
+              font-weight: 500;
+            }
+            span.hr {
+              width: 0.875rem;
+              height: 0.12rem;
+              background-color: $secondaryColor;
+              border-radius: 5px;
+              margin-top: 0.438rem;
+            }
+            .box {
+              width: 100%;
+              height: 9.8rem;
+              background-color: #f2c94c;
+              border-radius: 10px;
+              margin-top: 1rem;
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+              cursor: pointer;
+              &:hover {
+                box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+              }
+              .dollar {
+                @include flex(flex-start, flex-start);
+                flex-direction: column;
+                padding: 0.813rem;
+                font-size: 2rem;
+                color: white;
+                span {
+                  font-size: 1.6rem;
+                }
+              }
+            }
+            .bought {
+              background-color: #2d9cdb;
+            }
+            .presale {
+              background-color: #8fff5a;
+            }
+            .received {
+              background-color: #df00bb;
+            }
+            .ref--b {
+              background-color: #eb5757;
+            }
+            .t--ref {
+              background-color: #9b51e0;
+            }
+          }
+        }
+        //Grid container ends
+      }
+      //Main content ends
+      .referrals--container {
+        width: 100%;
+        height: auto;
+        padding: 1.75rem;
+        h1.header {
+          width: 100%;
+          a {
+            float: right;
+            font-size: 1rem;
+            color: #a5a2b8;
+            @include flex(center, center);
+            font-weight: 500;
+            span {
+              font-size: 1rem;
+            }
+          }
+        }
+        .referrals--table {
+          width: 100%;
+          height: auto;
+          color: white;
+          background: $secondaryColor;
+          border-radius: 8px;
+          margin-top: 2.25rem;
+          @include flex(center, space-between);
+          flex-direction: column;
+          padding: 1.2rem;
+          padding-top: 0.5rem;
+          .table {
+            @include flex(center, space-between);
+            width: 100%;
+            border-bottom: 1px solid white;
+            padding-block: 1rem;
+            p {
+              &:nth-child(1) {
+                width: 45%;
+              }
+              &:nth-child(2) {
+                width: 25%;
+              }
+              &:nth-child(3) {
+                width: 15%;
+              }
+              &:nth-child(4) {
+                width: 15%;
+              }
+              &.bio {
+                font-size: 0.875rem;
+                @include flex(center, flex-start);
+                img {
+                  width: 2rem;
+                  height: 2rem;
+                  border-radius: 50%;
+                  object-fit: cover;
+                }
+                span {
+                  padding-left: 1rem;
+                }
+              }
+            }
+          }
+          .data {
+            border: 0;
+            margin-block: 0.4rem;
+            color: rgba(166, 158, 214, 1);
+          }
+        }
+      }
+      p.referral--link {
+        padding: 1.75rem;
+        font-weight: 700;
+        a {
+          padding-left: 2rem;
+          font-weight: 400;
+          text-decoration: underline;
+        }
+      }
+      form {
+        width: 100%;
+        padding: 1.75rem;
+        @include flex(center, center);
+        p {
+          width: 25%;
+          height: 3.75rem;
+          @include flex(center, flex-start);
+          border: 1px solid #8fff5a;
+          border-right: 0;
+          padding-left: 1rem;
+          font-weight: 700;
+        }
+        input {
+          width: 40%;
+          height: 3.75rem;
+          border: 0;
+          background-color: white;
+          color: $secondaryColor;
+          border: 1px solid #8fff5a;
+          text-indent: 1rem;
+          border-left: 0;
+        }
+        button {
+          width: 25%;
+          height: 3.75rem;
+          background: $btnColor;
+          border: 0;
+          border-radius: 5px;
+          color: white;
+          font-weight: 700;
+          font-size: 1rem;
+        }
+      }
+    }
+    //Main dashboard ends
+
+    // Dash side or profile view starts here
+    .dash--side {
+      width: 30vw;
+      height: 100vh;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+      color: $secondaryColor;
+      overflow-y: auto;
+      padding-bottom: 2rem;
+      padding-inline: 1.2rem;
+      display: none;
+      header {
+        height: 4rem;
+        background-color: white;
+      }
+      //Profile section (picture)
+      .profile {
+        height: auto;
+        @include flex(center, flex-start);
+        flex-direction: column;
+        margin-top: 3.5rem;
+        h3 {
+          font-size: 1.125rem;
+        }
+        img {
+          width: 4.2rem;
+          height: 4.2rem;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-top: 2rem;
+        }
+        p {
+          padding-top: 0.9rem;
+        }
+        a {
+          font-size: 0.875rem;
+          padding-top: 0.5rem;
+          color: $color;
+        }
+      }
+      //Profile ends
+
+      //Contents starts here
+      .content {
+        font-size: 0.875rem;
+        height: auto;
+        img {
+          width: 1.4rem;
+          height: 1.4rem;
+          object-fit: contain;
+        }
+        h3.acct-header {
+          font-size: 1rem;
+          color: $secondaryColor;
+          margin-top: 2.5rem;
+        }
+        .joined {
+          padding-top: 0.8rem;
+          margin: 0 auto;
+          width: auto;
+          color: rgba(166, 158, 214, 1);
+
+          &:nth-child(3) {
+            padding-bottom: 2rem;
+          }
+          span {
+            float: right;
+            font-weight: 600;
+            color: $secondaryColor;
+            font-size: 0.8rem;
+          }
+        }
+        //Assets start here
+        .assets {
+          height: auto;
+          padding-top: 2rem;
+          font-size: 0.8rem;
+          color: $color;
+          border-top: 1px solid rgba(244, 242, 251, 1);
+          h3 {
+            color: $secondaryColor;
+          }
+          .lists {
+            @include flex(center, space-between);
+            margin-top: 1rem;
+            img {
+              width: 1.2rem;
+              height: 1.2rem;
+              object-fit: contain;
+            }
+            p {
+              width: 100%;
+              padding-inline: 0.5rem;
+              color: rgba(166, 158, 214, 1);
+              span {
+                float: right;
+                font-weight: 600;
+                color: $secondaryColor;
+                font-size: 0.7rem;
+              }
+            }
+          }
+          h4 {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: $secondaryColor;
+            a {
+              @include flex(center, flex-start);
+              span {
+                font-size: 0.875rem;
+              }
+            }
+          }
+        }
+        //Assets starts here
+      }
+      button {
+        width: 100%;
+        height: 3.5rem;
+        background: $btnColor;
+        border: 0;
+        color: white;
+        font-weight: 500;
+        border-radius: 8px;
+        margin-top: 4rem;
+        @include flex(center, center);
+      }
+      //Content ends here
+    }
+    //Dash side ends
+  }
+}
 //Desktop view
 @media screen and (min-width: 1024px) {
   aside.profile--m {
