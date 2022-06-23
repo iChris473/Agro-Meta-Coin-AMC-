@@ -1,0 +1,49 @@
+<%- include('partials/header.ejs') %>
+
+    <body class="relative" style="background-color: #252525;">
+        <!-- Nav Section -->
+        <%- include('partials/dashnav.ejs') %>
+
+            <div class=" overflow-x-hidden grid grid-cols-4">
+                <!-- SideBar -->
+                <%- include('partials/dashside.ejs') %>
+    
+            <!-- Main Section -->
+            <section class="col-span-4 md:col-span-3 mt-16">
+                <div class="mt-10 m-5 min-h-screen">
+                    <h1 class="ultra text-4xl text-center mt-20 golden">Update Password</h1>
+                    <div class="w-full flex items-center justify-center my-10">
+                        <form class="form flex flex-col items-center justify-center gap-5 w-[97%] max-w-[700px] mx-auto">
+                            <h1 class="text-center text-lg hidden font-bold text-red-500 mismatch">Passwords does not match</h1>
+                            <h1 class="text-center text-lg hidden font-bold text-red-500 apiError"></h1>
+                            <h1 class="text-center text-lg hidden font-bold text-green-500 success"></h1>
+                            <div class="flex flex-col gap-1 items-start justify-center w-full">
+                                <label class="font-semibold text-lg text-gray-200">Old Password</label>
+                                <input required type="password" placeholder="Enter correct old password" class="ooutline-none w-[95%] p-2 goldenB bg-transparent oldPass">
+                            </div>
+                            <div class="flex flex-col gap-1 items-start justify-center w-full">
+                                <label class="font-semibold text-lg text-gray-200">New Password</label>
+                                <input required type="password" placeholder="Enter a new password" class="ooutline-none w-[95%] p-2 goldenB bg-transparent newPass">
+                            </div>
+                            <div class="flex flex-col gap-1 items-start justify-center w-full">
+                                <label class="font-semibold text-lg text-gray-200">Confirm Password</label>
+                                <input required type="password" placeholder="confirm new password" class="ooutline-none w-[95%] p-2 goldenB bg-transparent confirmPass">
+                            </div>
+                            <button type="submit" class="goldenBtn shadow-md shadow-yellow-700 p-4 rounded-md px-10 font-bold text-lg tracking-wide my-5 block mx-auto submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Footer -->
+                <footer class="flex items-center justify-center w-full bg-black bg-opacity-30 p-7">
+                    <p class="text-gray-200 text-sm">©2022 Agro Meta coin</p>
+                    <!-- <p class="text-gray-200 text-sm">Designed & Developed by Agro Meta coin Technologies Ltd</p> -->
+                </footer>
+            </section>
+        </div>
+
+        <!-- Javascript codes and links -->
+        <script src="/public/js/dashboard.js"></script>
+        <script src="/public/js/editPass.js"></script>
+
+    </body>
+    </html>

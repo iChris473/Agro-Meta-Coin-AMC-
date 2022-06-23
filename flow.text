@@ -1,0 +1,78 @@
+
+Users Model
+- Name
+- Username
+- Email
+- coupon code
+- Status
+- Refferred
+
+
+
+HOW TO VERIFY ACCOUNT
+- generate random code from the database
+
+HOW REFERRING LOGIC WORKS
+- When A refers B 
+- B's username is stored in A's model.refferred
+- to get B's referall list
+    - map through all users
+    - filter users.refferred == B.username
+
+HOW TO VERIFY USERS EMAIL
+- create a token
+- save a user in the database
+- send an email with the token to the user email to validate
+- when user clicks the link, the token is deleted and validated is changed to true
+- if he ever wants to login and validates is not true
+- another email is sent and he has to verfiy again
+
+MINING ALGORTITHM
+- add lastMinedAmount to user Model
+- add lastMinedDate to user model
+- if date.now() - lastMinedDatem >= 1
+    - lastMinedAmount == lastMinedAmount + 300
+
+--- On the front end
+
+ -if lastMinedDate < 1
+    -Amount Mined == lastMinedAmount - 300
+ -Total Mined
+ -- if user.package == starter
+    -- Total Mined === lastMinedAmount / 300
+
+
+---- REFERRAL BONUS ALGORTITHM
+
+- A Invites B to buy coin and get 10% of B's coin
+- B Invites C to buy coin and get 10% of C's coin
+- A gets 5% of C's coin 
+
+
+---- PRESALE MODEL
+
+-- userID
+-- referallID
+-- downID
+-- Amount
+
+--- PAMENT LOGIC 
+
+- Get buying referrer from client
+- save the referrer in presale model
+- send payment request to nowpayment api
+
+--- LOGIC ---
+- Get all transactions from nowpayment api
+- Filter the orderID that matches the userID
+- Figure out How much the user has paid
+- Get the referrer 
+- find a user X with the ref ID 
+- Update user grandRef to X's ref
+
+--- Crediting Refs and Downliners ---
+- Get Amount paid
+- send amount paid to server
+- update refAmount to 10% of amount
+- update grandRefAmount to 5% of amount
+

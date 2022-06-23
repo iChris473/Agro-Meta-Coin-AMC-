@@ -1,0 +1,857 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  body,
+  button,
+  input,
+  textarea {
+    font-family: "Space Grotesk", sans-serif;
+  }
+  
+  body {
+    width: 100%;
+    background-color: black;
+    font-family: "Space Grotesk", sans-serif;
+    color: white;
+    overflow-x: hidden;
+  }
+  
+  .hero--section {
+    background: url("../img/background.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .hero--section header {
+    width: 100%;
+    height: 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 0.875rem;
+  }
+  
+  .hero--section header div {
+    height: inherit;
+  }
+  
+  .hero--section header .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-left: 2.4rem;
+  }
+  
+  .hero--section header .logo img {
+    width: 2.375rem;
+    height: 2.375rem;
+  }
+  
+  .hero--section header .logo h2 {
+    padding-left: 0.3rem;
+  }
+  
+  .hero--section header .nav--links {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #898ca9;
+    margin: 0 auto;
+  }
+  
+  .hero--section header .nav--links p:nth-child(even) {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  
+  .hero--section header .registration {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    font-weight: 600;
+    padding-right: 6rem;
+  }
+  
+  .hero--section header .registration button {
+    width: 4rem;
+    height: 2.5rem;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background-color: black;
+    color: #fff;
+    font-weight: 600;
+    font-family: "Space Grotesk", sans-serif;
+  }
+  
+  .hero--section header .registration button:nth-child(2) {
+    margin-left: 12px;
+    background: linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+    border: 0;
+  }
+  
+  .hero--section main.hero {
+    width: 100%;
+    height: 44rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  .hero--section main.hero h1 {
+    margin-top: 10.563rem;
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 115px;
+    letter-spacing: 0px;
+    text-align: center;
+    width: 60rem;
+    height: 14.3rem;
+  }
+  
+  .hero--section main.hero p {
+    width: 699px;
+    height: 6.5rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 26px;
+    text-align: center;
+    color: #898ca9;
+  }
+  
+  .hero--section main.hero button {
+    width: 12.5rem;
+    height: 5rem;
+    background: linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+    border-radius: 14.6429px;
+    border: 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 100%;
+    color: white;
+    margin-top: 53px;
+  }
+  
+  section.vision {
+    width: 100%;
+    height: 73rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: black;
+    background: url(../../public/img/spiral-1.png) no-repeat center center;
+    overflow: hidden;
+  }
+  
+  section.vision div {
+    width: 50%;
+    height: inherit;
+  }
+  
+  section.vision div.article {
+    padding-left: 12.5rem;
+  }
+  
+  section.vision div.article .oval {
+    width: 596.4px;
+    height: 595.93px;
+    position: absolute;
+    left: -70%;
+    background: -webkit-gradient(linear, left top, left bottom, from(#2c4982), to(#2cd095));
+    background: linear-gradient(180deg, #2c4982 0%, #2cd095 100%);
+    -webkit-filter: blur(400px);
+            filter: blur(400px);
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+  
+  section.vision div.article .rect {
+    width: 596.4px;
+    height: 595.93px;
+    position: absolute;
+    left: -40.67%;
+    top: 70%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(24, 255, 158, 0)), to(#17ffe3));
+    background: linear-gradient(180deg, rgba(24, 255, 158, 0) 0%, #17ffe3 100%);
+    -webkit-filter: blur(200px);
+            filter: blur(200px);
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+  
+  section.vision div.img {
+    background: url(../../public/img/vision.png) center no-repeat, url(../../public/img/gradient.png) bottom right no-repeat;
+    background-size: 32.5rem;
+  }
+  
+  section.vision div .header {
+    width: 24.5rem;
+    height: 5.8rem;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: #ffffff;
+    margin-top: 10rem;
+  }
+  
+  section.vision div .phrase {
+    width: 18rem;
+    height: 3.8rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 130%;
+    /* or 31px */
+    margin-top: 1.188rem;
+    color: #898ca9;
+  }
+  
+  section.vision div .text {
+    width: 30rem;
+    height: 24.75rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 160%;
+    /* or 26px */
+    color: #898ca9;
+    margin-top: 1.8rem;
+  }
+  
+  section.vision div button {
+    width: 26.625rem;
+    height: 3.5rem;
+    background: linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+    border-radius: 10px;
+    background: linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+    border-radius: 10px;
+    margin-top: 2.8rem;
+    border: 0;
+    color: white;
+    font-weight: 600;
+  }
+  
+  aside.mission {
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-transform: translateY(-8rem);
+            transform: translateY(-8rem);
+  }
+  
+  aside.mission .img {
+    width: 22rem;
+    height: 22rem;
+    background-image: url(../../public/img/mission.png);
+    background-position: center;
+    background-size: cover;
+  }
+  
+  aside.mission .mission--article {
+    width: auto;
+    height: 22rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  aside.mission .mission--article h1 {
+    width: 24.5rem;
+    height: 5.8rem;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 65px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: #ffffff;
+  }
+  
+  aside.mission .mission--article p {
+    width: 25.5rem;
+    height: 6rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 160%;
+    /* or 26px */
+    text-align: right;
+    color: #898ca9;
+    margin-top: 1.56rem;
+  }
+  
+  aside.mission .mission--article button {
+    width: 26.625rem;
+    height: 3.5rem;
+    background: linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+    border-radius: 10px;
+    background: linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+    border-radius: 10px;
+    margin-top: 1.2rem;
+    border: 0;
+    color: white;
+    font-weight: 600;
+  }
+  
+  section.options {
+    width: 100%;
+    height: 35.8rem;
+    background: url(../../public/img/spiral-2.png) right bottom no-repeat, url(../../public/img/option-gradient.png) -15% no-repeat, transparent;
+    background-size: contain;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  
+  section.options div.box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding: 32px 24px;
+    width: 23.75rem;
+    height: 24rem;
+    /* black/black-12 */
+    background: #1a1b23;
+    border-radius: 15px;
+  }
+  
+  section.options div.box h2 {
+    font-size: 32px;
+    color: #fff;
+    padding-top: 1.4rem;
+  }
+  
+  section.options div.box p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 150%;
+    color: #898ca9;
+    text-align: center;
+    padding-top: 1rem;
+  }
+  
+  section.options div.box a {
+    text-decoration: none;
+    color: #b982ff;
+    font-weight: 600;
+    padding-top: 2.5rem;
+  }
+  
+  article.exp {
+    width: 100%;
+    height: auto;
+    background: url(../../public/img/token-spiral.png) no-repeat;
+    background-position: right top;
+  }
+  
+  article.exp .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  article.exp .content h2 {
+    width: 48rem;
+    height: 8rem;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 130%;
+    text-align: center;
+  }
+  
+  article.exp .content p {
+    width: 38.5rem;
+    height: 4.5rem;
+    color: #898ca9;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 150%;
+    /* or 24px */
+    padding-top: 1rem;
+    text-align: center;
+  }
+  
+  article.exp .content button.btn {
+    margin-top: 2rem;
+    border: 0px;
+    background: linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+    border-radius: 10px;
+    width: 9.5rem;
+    height: 3.5rem;
+    border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.47) 12.55%, rgba(255, 255, 255, 0.546875) 42.51%, rgba(255, 255, 255, 0.39) 78.66%);
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+  }
+  
+  article.exp .shield {
+    width: 100%;
+    height: 39rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  
+  article.exp .shield .img {
+    width: 40%;
+    height: 40rem;
+    background: url(../../public/img/shield.png) no-repeat;
+    background-size: 30rem;
+    background-position-x: -10%;
+    background-position-y: 35%;
+  }
+  
+  article.exp .shield .shield--content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 50%;
+    height: 100%;
+  }
+  
+  article.exp .shield .shield--content h2 {
+    width: 580px;
+    height: 130px;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 130%;
+    /* or 65px */
+    color: #ffffff;
+  }
+  
+  article.exp .shield .shield--content p {
+    width: 580px;
+    height: auto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+    /* black/black-60 */
+    padding-top: 0.9rem;
+    color: #898ca9;
+  }
+  
+  article.exp .shield .shield--content button {
+    width: 156px;
+    height: 56px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    font-size: 1rem;
+    margin-top: 3.25rem;
+    background-color: transparent;
+    color: #fff;
+  }
+  
+  section.trade {
+    width: 100%;
+    height: auto;
+    background: url(../../public/img/token-spiral.png) no-repeat;
+  }
+  
+  section.trade .chart--talk {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  section.trade .chart--talk h1 {
+    width: 780px;
+    height: 167px;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 130%;
+    /* or 83px */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    text-align: center;
+  }
+  
+  section.trade .chart--talk p {
+    width: 580px;
+    height: auto;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+    text-align: center;
+    padding-top: 1rem;
+    /* black/black-60 */
+    color: #898ca9;
+  }
+  
+  section.trade .chart--talk a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    /* identical to box height, or 16px */
+    text-align: center;
+    /* primary/purpe */
+    color: #b982ff;
+    padding-top: 36px;
+  }
+  
+  section.trade .chart--table {
+    width: 1180px;
+    height: 448px;
+    background: #1a1b23;
+    border-radius: 25px;
+    margin: 0 auto;
+    margin-top: 15.5px;
+    padding: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  section.trade .chart--table div.row {
+    width: 100%;
+    height: 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    border-bottom: 1px solid #2b2c3b;
+  }
+  
+  section.trade .chart--table div.row div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0em;
+  }
+  
+  section.trade .chart--table div.row div:nth-child(1) {
+    width: 207px;
+    height: 30px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    font-weight: 700;
+  }
+  
+  section.trade .chart--table div.row div:nth-child(2) {
+    width: 91px;
+    height: 30px;
+    color: #b982ff;
+    line-height: 30px;
+    letter-spacing: 0em;
+  }
+  
+  section.trade .chart--table div.row div:nth-child(3) {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 200px;
+    height: 30px;
+  }
+  
+  section.trade .chart--table div.row div:nth-child(4) {
+    width: 100px;
+    height: 30px;
+    color: #0dbb7c;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  
+  section.trade .chart--table div.row div:nth-child(6) {
+    width: 100px;
+    height: 30px;
+  }
+  
+  section.trade .chart--table div.row .graph {
+    width: 213px;
+    height: 56px;
+    background: url(../img/btc-graph.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  section.trade .token {
+    width: 100%;
+    height: 20rem;
+    margin-top: 10rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow: hidden;
+  }
+  
+  section.trade .token .header {
+    width: 50%;
+    height: inherit;
+    -webkit-padding-start: 160px;
+            padding-inline-start: 160px;
+  }
+  
+  section.trade .token .header h2 {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 130%;
+    /* identical to box height, or 65px */
+    color: #ffffff;
+  }
+  
+  section.trade .token .header p {
+    width: 580px;
+    padding-top: 1rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 150%;
+    color: #898ca9;
+  }
+  
+  section.trade .token .header button {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    /* identical to box height, or 16px */
+    text-align: center;
+    width: 156px;
+    height: 56px;
+    border: 0;
+    /* gradient/main */
+    background: linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 2rem;
+  }
+  
+  section.trade .token .img {
+    width: 50%;
+    height: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow: hidden;
+  }
+  
+  section.trade .token .img .gradient {
+    width: 892px;
+    height: 945px;
+    background: url(../img/token-gradient.png) no-repeat;
+    background-position: right;
+    position: absolute;
+    left: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-filter: blur(50px);
+            filter: blur(50px);
+  }
+  
+  section.trade footer {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 130%;
+    padding-block: 4rem;
+  }
+  
+  section.trade footer input {
+    width: 45%;
+    height: 3rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    text-indent: 2rem;
+    font-size: 1rem;
+  }
+  
+  section.trade footer button {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 100%;
+    /* identical to box height, or 16px */
+    text-align: center;
+    width: 156px;
+    height: 56px;
+    border: 0;
+    /* gradient/main */
+    background: linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 2rem;
+  }
+  /*# sourceMappingURL=style.css.map */

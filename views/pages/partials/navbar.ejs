@@ -1,0 +1,387 @@
+
+
+
+<section class="z-50 fixed w-full opacity-100 bg-black">
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (user && (window.location.href.includes('register'))) {
+            window.location.href = '/dashboard'
+        }
+
+        if (user && (window.location.href.includes('login'))) {
+            window.location.href = '/dashboard'
+        }
+
+        if(window.location.href.includes('https://agrometacoin.herokuapp.com')){
+            window.location.href = "https://www.agrometacoin.com"
+        }
+
+    </script>
+    <!-- On Mobile -->
+    <div class="md:hidden w-full shadow-md border-b border-gray-800">
+        <nav class="p-5 flex relative items-center justify-between max-w-[1200px] mx-auto">
+            <a href="/" class="flex items-center justify-center gap-2">
+                <h1 class="text-5xl md:text-6xl russo golden">AMC</h1>
+                <img src="/public/img/agropic.png" class="h-10 w-20" alt="">
+            </a>
+            <div class="altIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white cursor pointer" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <div class="z-50 xIcon hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 cursor pointer" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+            </div>
+            <div class="menuDiv hidden flex flex-col z-40 h-screen top-0 right-0 bg-[#1f1f1f] items-start justify-start pt-28 pr-28 pl-12 gap-5 fixed">
+                <a href="/" class="golden text-xl border-b border-[#f7dd4ada] opacity-70 pb-2 w-full">Home</a>
+                <a href="presale" class="golden text-xl border-b border-[#f7dd4ada] opacity-70 pb-2 w-full">
+                    Pre-sale
+                </a>
+                <div class="border-b border-[#f7dd4ada] opacity-70 pb-2 w-full relative">
+                    <p class="golden text-xl roadMap">Roadmap</p>
+                    <div class="top-5 right-5">
+                        <div class="roadMapDetail hidden flex flex-col gap-2 justify-center items-start" style="padding-left: 15px; margin-top: 12px;">
+                            <div>
+                                <p class="cursor-pointer phase1">Phase 1 May 2022</p>
+                                <ul class="hidden phase1u" style="padding-left: 15px; margin-top: 8px;">
+                                    <li style="color: #ebe1adda;">• Official website launch and smart contract deployment</li>
+                                    <li style="color: #ebe1adda;">• Social media handle (Facebook, Twitter, Telegram, You-tube) launch</li>
+                                    <li style="color: #ebe1adda;">• Airdrops starts </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="cursor-pointer phase2">Phase 2 June 2022</p>
+                                <ul class="hidden phase2u" style="padding-left: 15px; margin-top: 8px;">
+                                    <li style="color: #ebe1adda;">• Pre-sale kicks off</li>
+                                    <li style="color: #ebe1adda;">• Pre-sale ends</li>
+                                    <li style="color: #ebe1adda;">• Airdrop distribution </li>
+                                    <li style="color: #ebe1adda;">• Launching on Pancake swap </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="cursor-pointer phase3">Phase 3 July 2022</p>
+                                <ul class="hidden phase3u" style="padding-left: 15px; margin-top: 8px;">
+                                    <li style="color: #ebe1adda;">• Utility Agriculture launches </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="cursor-pointer phase4">Phase 4 October 2022</p>
+                                <ul class="hidden phase4u" style="padding-left: 15px; margin-top: 8px;">
+                                    <li style="color: #ebe1adda;">• Launching on centralize exchange</li>
+                                    <li style="color: #ebe1adda;">• AMC Mobile App and  IOS launch</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="cursor-pointer phase5">Phase 5 Janauary 2023</p>
+                                <ul class="hidden phase5u" style="padding-left: 15px; margin-top: 8px;">
+                                    <li style="color: #ebe1adda;">• AMC Staking project Kicks-off</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="cursor-pointer phase6">Phase 6 March 2023</p>
+                                <ul class="hidden phase6u" style="padding-left: 15px; margin-top: 8px;">
+                                    <li style="color: #ebe1adda;">• Launching of AMC NFT Marketplace </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="cursor-pointer phase7">Phase 7 May 2023</p>
+                                <ul class="hidden phase7u" style="padding-left: 15px; margin-top: 8px;">
+                                    <li style="color: #ebe1adda;">• Launching of Agro Metaverse Project </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="cursor-pointer phase8">Phase 8 August 2023</p>
+                                <ul class="hidden phase8u" style="padding-left: 15px; margin-top: 8px;">
+                                    <li style="color: #ebe1adda;">• AMC exchange Project Launch </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <script>
+
+                            const roadMapDetail = document.querySelector('.roadMapDetail')
+                            document.querySelector('.roadMap').addEventListener('click', () => {
+                                roadMapDetail.classList.toggle('hidden')
+                            })
+
+                            const phase1 = document.querySelector('.phase1')
+                            const phase1u = document.querySelector('.phase1u')
+
+                            const phase2 = document.querySelector('.phase2')
+                            const phase2u = document.querySelector('.phase2u')
+                            
+                            const phase3 = document.querySelector('.phase3')
+                            const phase3u = document.querySelector('.phase3u')
+                            
+                            const phase4 = document.querySelector('.phase4')
+                            const phase4u = document.querySelector('.phase4u')
+                            
+                            const phase5 = document.querySelector('.phase5')
+                            const phase5u = document.querySelector('.phase5u')
+                            
+                            const phase6 = document.querySelector('.phase6')
+                            const phase6u = document.querySelector('.phase6u')
+                            
+                            const phase7 = document.querySelector('.phase7')
+                            const phase7u = document.querySelector('.phase7u')
+                            
+                            const phase8 = document.querySelector('.phase8')
+                            const phase8u = document.querySelector('.phase8u')
+
+                            phase1.addEventListener('click', () => {
+                                        phase1u.classList.toggle('hidden')
+
+                                    })
+
+                            phase2.addEventListener('click', () => {
+                                        phase2u.classList.toggle('hidden')
+
+                                    })
+
+                            phase3.addEventListener('click', () => {
+                                        phase3u.classList.toggle('hidden')
+
+                                    })
+
+                            phase4.addEventListener('click', () => {
+                                        phase4u.classList.toggle('hidden')
+
+                                    })
+
+                            phase5.addEventListener('click', () => {
+                                        phase5u.classList.toggle('hidden')
+
+                                    })
+
+                            phase6.addEventListener('click', () => {
+                                        phase6u.classList.toggle('hidden')
+
+                                    })
+
+                            phase7.addEventListener('click', () => {
+                                        phase7u.classList.toggle('hidden')
+
+                                    })
+
+                            phase8.addEventListener('click', () => {
+                                        phase8u.classList.toggle('hidden')
+
+                                    })
+
+
+                        </script>
+                    </div>
+                </div>
+                <a href="coming" class="golden text-xl border-b border-[#f7dd4ada] opacity-70 pb-2 w-full">
+                Metaverse
+                </a>
+                <a href="coming" class="golden text-xl border-b border-[#f7dd4ada] opacity-70 pb-2 w-full">
+                    NFT Marketplace
+                </a>
+                <a class="golden tokenNomics text-xl border-b border-[#f7dd4ada] opacity-70 pb-2 w-full">
+                    Tokenomics
+                </a>
+                <a href="login" class="golden text-xl border-b border-[#f7dd4ada] opacity-70 pb-2 w-full loginBtn">Login</a>
+                <a href="register" class="golden text-xl border-b border-[#f7dd4ada] opacity-70 pb-2 w-full regBtn">Signup</a>
+            </div>
+        </nav>
+    </div>
+    <!-- On Desktop -->
+    <div class="hidden md:block bg-black w-full shadow-md border-b border-gray-800">
+        <nav class="p-5 flex items-center justify-between max-w-[1200px] mx-auto">
+            <a href="/" class="flex items-center justify-center" >
+                <h1 class="text-5xl md:text-6xl russo golden">Agro</h1>
+                <img src="/public/img/agropic.png" class="h-10 w-20" alt="">
+            </a>
+            <div class="flex items-center justify-center gap-5">
+                <a href="/" class="golden opacity-80 text-md font-semibold">Home</a>
+                <a href="coming" class="golden opacity-80 text-md font-semibold">Pre-sale</a>
+                <a href="coming" class="golden opacity-80 text-md font-semibold">Metaverse</a>
+                <a href="coming" class="golden opacity-80 text-md font-semibold">NFT Marketplace</a>
+                <a href="#tokenomics" class="golden opacity-80 text-md font-semibold">Tokenomics</a>
+                <a href="login" class="golden opacity-80 text-md font-semibold loginBtn2">Login</a>
+                <a href="register" class="golden opacity-80 text-md font-semibold regBtn2">Signup</a>
+                <div class="golden opacity-80">
+                    <p class="text-md font-semibold roadDMap cursor-pointer">Roadmap</p>
+                </div>
+            </div>
+        </nav>
+        <div class="absolute top-5 right-0 bg-black max-w-[700px] p-5 rounded-md opacity-80 roadMapDetails hidden">
+            <div class="flex flex-col gap-2 justify-center items-start"
+                style="padding-left: 15px; margin-top: 12px;">
+                <div>
+                    <p class="cursor-pointer phaseD1 golden">Phase 1 May 2022</p>
+                    <ul class="hidden phaseD1u" style="padding-left: 15px; margin-top: 8px;">
+                        <li style="color: #ebe1adda;">• Official website launch and smart contract deployment</li>
+                        <li style="color: #ebe1adda;">• Social media handle (Facebook, Twitter, Telegram, You-tube) launch</li>
+                        <li style="color: #ebe1adda;">• Airdrops starts </li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="cursor-pointer phaseD2 golden">Phase 2 June 2022</p>
+                    <ul class="hidden phaseD2u" style="padding-left: 15px; margin-top: 8px;">
+                        <li style="color: #ebe1adda;">• Pre-sale kicks off</li>
+                        <li style="color: #ebe1adda;">• Pre-sale ends</li>
+                        <li style="color: #ebe1adda;">• Airdrop distribution </li>
+                        <li style="color: #ebe1adda;">• Launching on Pancake swap </li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="cursor-pointer phaseD3 golden">Phase 3 July 2022</p>
+                    <ul class="hidden phaseD3u" style="padding-left: 15px; margin-top: 8px;">
+                        <li style="color: #ebe1adda;">• Utility Agriculture launches </li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="cursor-pointer phaseD4 golden">Phase 4 October 2022</p>
+                    <ul class="hidden phaseD4u" style="padding-left: 15px; margin-top: 8px;">
+                        <li style="color: #ebe1adda;">• Launching on centralize exchange</li>
+                        <li style="color: #ebe1adda;">• AMC Mobile App and IOS launch</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="cursor-pointer phaseD5 golden">Phase 5 Janauary 2023</p>
+                    <ul class="hidden phaseD5u" style="padding-left: 15px; margin-top: 8px;">
+                        <li style="color: #ebe1adda;">• AMC Staking project Kicks-off</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="cursor-pointer phaseD6 golden">Phase 6 March 2023</p>
+                    <ul class="hidden phaseD6u" style="padding-left: 15px; margin-top: 8px;">
+                        <li style="color: #ebe1adda;">• Launching of AMC NFT Marketplace </li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="cursor-pointer phaseD7 golden">Phase 7 May 2023</p>
+                    <ul class="hidden phaseD7u" style="padding-left: 15px; margin-top: 8px;">
+                        <li style="color: #ebe1adda;">• Launching of Agro Metaverse Project </li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="cursor-pointer phaseD8 golden">Phase 8 August 2023</p>
+                    <ul class="hidden phaseD8u" style="padding-left: 15px; margin-top: 8px;">
+                        <li style="color: #ebe1adda;">• AMC exchange Project Launch </li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+
+                const roadMapDetails = document.querySelector('.roadMapDetails')
+                document.querySelector('.roadDMap').addEventListener('click', () => {
+                    roadMapDetails.classList.toggle('hidden')
+                })
+
+                const phaseD1 = document.querySelector('.phaseD1')
+                const phaseD1u = document.querySelector('.phaseD1u')
+
+                const phaseD2 = document.querySelector('.phaseD2')
+                const phaseD2u = document.querySelector('.phaseD2u')
+
+                const phaseD3 = document.querySelector('.phaseD3')
+                const phaseD3u = document.querySelector('.phaseD3u')
+
+                const phaseD4 = document.querySelector('.phaseD4')
+                const phaseD4u = document.querySelector('.phaseD4u')
+
+                const phaseD5 = document.querySelector('.phaseD5')
+                const phaseD5u = document.querySelector('.phaseD5u')
+
+                const phaseD6 = document.querySelector('.phaseD6')
+                const phaseD6u = document.querySelector('.phaseD6u')
+
+                const phaseD7 = document.querySelector('.phaseD7')
+                const phaseD7u = document.querySelector('.phaseD7u')
+
+                const phaseD8 = document.querySelector('.phaseD8')
+                const phaseD8u = document.querySelector('.phaseD8u')
+
+                phaseD1.addEventListener('click', () => {
+                    phaseD1u.classList.toggle('hidden')
+
+                })
+
+                phaseD2.addEventListener('click', () => {
+                    phaseD2u.classList.toggle('hidden')
+
+                })
+
+                phaseD3.addEventListener('click', () => {
+                    phaseD3u.classList.toggle('hidden')
+
+                })
+
+                phaseD4.addEventListener('click', () => {
+                    phaseD4u.classList.toggle('hidden')
+
+                })
+
+                phaseD5.addEventListener('click', () => {
+                    phaseD5u.classList.toggle('hidden')
+
+                })
+
+                phaseD6.addEventListener('click', () => {
+                    phaseD6u.classList.toggle('hidden')
+
+                })
+
+                phaseD7.addEventListener('click', () => {
+                    phaseD7u.classList.toggle('hidden')
+
+                })
+
+                phaseD8.addEventListener('click', () => {
+                    phaseD8u.classList.toggle('hidden')
+
+                })
+
+
+            </script>
+        </div>
+    </div>
+
+    <script>
+
+        const xIcon = document.querySelector(".xIcon");
+        const altIcon = document.querySelector(".altIcon");
+        const menuDiv = document.querySelector(".menuDiv");
+        const regBtn = document.querySelector(".regBtn");
+        const regBtn2 = document.querySelector(".regBtn2");
+        const loginBtn = document.querySelector(".loginBtn");
+        const loginBtn2 = document.querySelector(".loginBtn2");
+        const tokenNomics = document.querySelector(".tokenNomics");
+
+        xIcon.addEventListener("click", () => {
+            menuDiv.classList.add("hidden");
+            xIcon.classList.add("hidden");
+            altIcon.classList.remove("hidden");
+        });
+
+        tokenNomics.addEventListener("click", () => {
+            menuDiv.classList.add("hidden");
+            xIcon.classList.add("hidden");
+            altIcon.classList.remove("hidden");
+            tokenNomics.href = "#tokenomics"
+        });
+
+        altIcon.addEventListener("click", () => {
+            menuDiv.classList.remove("hidden");
+            xIcon.classList.remove("hidden");
+            altIcon.classList.add("hidden");
+        });
+
+
+        if(user && (user != "null")){
+            loginBtn.classList.add("hidden");
+            loginBtn2.classList.add("hidden");
+            regBtn.classList.add("hidden");
+            regBtn2.classList.add("hidden");
+        }
+
+
+
+    </script>
+    
+</section>

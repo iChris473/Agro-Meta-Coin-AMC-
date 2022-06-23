@@ -1,0 +1,115 @@
+
+
+
+
+<div class="shadow-lg rounded-lg overflow-hidden p-5">
+    <div class="flex flex-col items-center justify-center gap-2">
+        <h1 class="text-center text-4xl md:text-5xl russo tracking-wide text-gray-400"> The Agro Meta Tokenomics </h1>
+        <p class="text-center text-lg golden mt-10">Total Maximum Supply 100,000,000,000:</p>
+        <p style="text-align: center; margin-top: 15px;" class="golden">
+          56% - Lock and reserve
+          <br>
+          12% - Developers and founders
+          <br>
+          10% - Liquidity 
+          <br>
+          12%  Presales
+          <br>
+          4% - business development
+          <br>
+          5% - Marketing 
+          <br>
+          1% - Airdrop.
+      </p>
+    </div>
+    <div class="p-5">
+        <!-- <canvas style="height: 100px;" class="p-10 h-[100px] w-[100px] object-contain" id="chartPie"></canvas> -->
+        <img src="/public/img/chart.jpeg" class="object-contain" style="height: 30vh; margin: auto;" alt="">
+        <!-- <p class="absolute top-10 left-0 ">LIQUIDITY POOL GIVING COIN VALUE IN THE MARKET</p> -->
+    </div>
+  
+
+    <!-- <h1 style="text-align: center; margin-top: 20px;" class="golden"> MONEY RECOVERED FROM UTILITY AGRICULTURAL PROJECTS:</h1> -->
+    <!-- <div class="chart-container">
+      <canvas style="height: 300px;" class="p-10 h-[100px] w-[100px] object-contain" id="chartPie"></canvas>
+    </div> -->
+
+    <!-- <p style="text-align: center; margin-top: 20px;" class="golden">
+      <br>
+      60% Farm Project
+      <br>
+      40% Liquidity Pool
+    </p> -->
+  
+    <div class="p-5 w-full">
+      <div
+        class="border border-gray-800 rounded-md bg-gray-900 mt-10 p-7 shadow-md shadow-gray-700 flex flex-col items-center justify-center gap-10 w-full max-w-[10000px] mb-5"
+        style="margin-left: auto; margin-right: auto;">
+        <p class="text-gray-200 font-bold text-xl text-center">AMC Contract Address</p>
+        <p class="text-gray-200 font-bold text-md text-center">Network: Binance smart chain. Main net</p>
+        <div class="border rounded-md border-blue-500 p-2 w-full">
+          <p class="text-sm golden text-center idLink truncate" style="overflow-wrap:break-word;">
+            0xF05Cf77094AA146892ACce873f7d91411B4C13d4
+          </p>
+        </div>
+        <p class="py-2 px-4 rounded-md bg-blue-600 font-bold cursor-pointer copyBtn">Copy Address
+        </p>
+        <script>
+
+          const copyId = document.querySelector(".copyBtn")
+          const idLink = document.querySelector(".idLink")
+
+          const copyIdToClipboard = () => {
+            if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(idLink.innerHTML)
+              copyId.innerHTML = "Copied to clipboard"
+              copyId.className = "py-2 px-4 rounded-md bg-green-600 font-bold cursor-pointer copyBtn"
+            }
+            // return navigator.clipboard.writeText(refLink.innerHTML);
+            return Promise.reject('The Clipboard API is not available.');
+          };
+
+          copyId.addEventListener("click", copyIdToClipboard)
+
+        </script>
+      </div>
+    </div>
+
+  </div>
+
+  
+  <!-- Required chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Chart pie -->
+  <script>
+    const dataPie = {    
+      labels: ["FARM PROJECT", "LIQUIDITY POOL"],
+      datasets: [
+        {
+          label: "My First Dataset",
+          data: [600, 400],
+          backgroundColor: [
+            "rgb(133, 105, 241)",
+            "rgb(164, 101, 241)",
+            // "rgb(101, 143, 241)",
+            // "rgb(101, 120, 241)",
+            // "rgb(101, 200, 241)",
+          ],
+          hoverOffset: 4,
+        },
+      ],
+    };
+  
+    const configPie = {
+      type: "pie",
+      data: dataPie,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    };
+  
+    var chartBar = new Chart(document.getElementById("chartPie"), configPie);
+
+  </script>

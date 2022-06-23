@@ -1,0 +1,246 @@
+
+
+// const plus = document.querySelector(".plus")
+// const minus = document.querySelector(".minus")
+const slotAmount = document.querySelector(".slotAmount")
+// const slotNumber = document.querySelector(".slotNumber")
+// const slotPrice = document.querySelector(".slotPrice")
+const amcAmount = document.querySelector(".amcAmount")
+const minError = document.querySelector(".minError")
+const purchaseBtn = document.querySelector(".purchaseBtn")
+const refIDD = document.querySelector(".refIDD")
+
+refIDD.value = window.location.search.split("=")[1] || ""
+
+// slotNumber.innerHTML = slotAmount.value
+// slotPrice.innerHTML = parseInt(slotAmount.value) * 10
+amcAmount.innerHTML = (parseInt(slotAmount.value) * 10000).toLocaleString()
+
+slotAmount.addEventListener("input", () => {
+    // slotNumber.innerHTML = slotAmount.value
+    // slotPrice.innerHTML = parseInt(slotAmount.value) * 10
+    amcAmount.innerHTML = (parseInt(slotAmount.value) * 10000).toLocaleString()
+    
+})
+
+
+// GET lIST OF AVAILABLE COINS
+
+const coinList = document.querySelector(".coinList")
+
+const getAvailableCoins = () => {
+
+  fetch(`https://api.nowpayments.io/v1/currencies`, {
+  method: "GET",
+  headers: {
+    "Content-type": "application/json; charset=UTF-8",
+    "x-api-key":"F1AWSHE-AH2MJAN-PE2MXR4-HWP9RG1"
+  },
+})
+  .then(function (response) {
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(response);
+  })
+  .then(function (data) {
+
+    console.log( data.currencies
+      .filter(tkn => 
+        tkn.toLowerCase() === "bnbbsc" ||
+         tkn.toLowerCase() === "eth" ||
+         tkn.toLowerCase() === "btc" ||
+         tkn.toLowerCase() === "aave" ||
+         tkn.toLowerCase() === "ltc" ||
+         tkn.toLowerCase() === "trx" ||
+         tkn.toLowerCase() === "busd" ||
+         tkn.toLowerCase() === "busdbsc" ||
+         tkn.toLowerCase() === "cake"
+      
+      ))
+      
+    data.currencies
+    .filter(tkn =>  
+       tkn.toLowerCase() === "bnbbsc" ||
+       tkn.toLowerCase() === "eth" ||
+       tkn.toLowerCase() === "btc" ||
+       tkn.toLowerCase() === "aave" ||
+       tkn.toLowerCase() === "ltc" ||
+       tkn.toLowerCase() === "trx" ||
+       tkn.toLowerCase() === "busd" ||
+       tkn.toLowerCase() === "busdbsc" ||
+       tkn.toLowerCase() === "cake" 
+    ).map(coin => {
+
+      const options = document.createElement("option")
+      options.className = "bg-transparent"
+      options.value = coin
+      options.innerHTML = coin
+
+      coinList.appendChild(options)
+  })
+
+
+  })
+  .catch(function (err) {
+    console.log(err)
+  })
+  }
+
+  getAvailableCoins()
+
+  
+  const blurDiv = document.querySelector('#blurDiv')
+
+  const paymentModal = document.querySelector('#paymentModal')
+
+  const xicon = document.querySelector('.xicon')
+
+  const form = document.querySelector('.mainForm')
+ 
+  // QUERY SELECTORS OF PAYMENT INFOS
+  const payNetwork = document.querySelector('.payNetwork')
+  const payNetwork2 = document.querySelector('.payNetwork2')
+  const payAmount = document.querySelector('.payAmount')
+
+  xicon.addEventListener("click", () => {
+    blurDiv.style.filter = "blur(0px)"
+    blurDiv.classList.remove("overflow-hidden")
+    blurDiv.classList.remove("h-screen")
+    paymentModal.style.display = "none"
+  })
+
+  const completePayment = e => {
+
+    e.preventDefault()
+
+    if(slotAmount.value < 10){
+      minError.style.display = "block"
+      window.location.href = "#slotAmount"
+      return
+    }
+
+    purchaseBtn.innerHTML = "LOADING..."
+
+    const newPaymentObject = {
+      price_amount: parseInt(slotAmount.value) * 10,
+      price_currency: "usd",
+      pay_currency: coinList.value,
+      ipn_callback_url: "https://nowpayments.io",
+      order_id: user._id,
+      order_description: "AMC Presale"
+    }
+
+    fetch(`https://api.nowpayments.io/v1/payment`, {
+      method: "POST",
+      body: JSON.stringify(newPaymentObject),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "x-api-key":"F1AWSHE-AH2MJAN-PE2MXR4-HWP9RG1"
+      },
+    })
+      .then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
+      })
+      .then(function (data) {
+    
+        console.log(data)
+
+        createUserPresale(data)
+
+    
+      })
+      .catch(function (err) {
+        console.log(err)
+        purchaseBtn.innerHTML = "PURCHASE"
+      })
+
+  }
+
+  form.addEventListener("submit", completePayment)
+
+  async function createUserPresale(data) {
+    try{
+      
+      // paymentId:    tkn.toLowerCase() === "5076584995" || data.payment_id,
+      const newPresale = {
+        userId: user.userid,
+        paymentId: data.payment_id,
+        bsc: user.bsc
+      }
+      refIDD.value && (newPresale.ref = refIDD.value)
+
+      let response = await fetch(`${url}/presale/generate`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newPresale)
+      });
+
+      const resData =  await response.json();
+
+      purchaseBtn.innerHTML = "PURCHASE"
+
+      blurDiv.style.filter = "blur(5px)"
+      blurDiv.classList.add("overflow-hidden")
+      blurDiv.classList.add("h-screen")
+      paymentModal.style.display = "block"
+
+      payNetwork.innerHTML = data.network
+      payNetwork2.innerHTML = data.network
+      payAmount.innerHTML = data.pay_amount
+      document.querySelector(".idLink").innerHTML = data.pay_address
+
+    }catch(err){
+      console.log(err);
+      // Handle errors here
+      purchaseBtn.innerHTML = "PURCHASE"
+    }
+  }
+
+  const tHash = document.querySelector(".tHash")
+  const tHashBtn = document.querySelector(".tHashBtn")
+  const hashForm = document.querySelector(".hashForm")
+
+  async function postHash(e) {
+
+    e.preventDefault()
+
+    tHashBtn.innerHTML = "Loading..."
+
+    try{
+      
+      // paymentId:    tkn.toLowerCase() === "5076584995" || data.payment_id,
+      const newPresale = {
+        userId: user.userid,
+        hash: tHash.value
+      }
+
+      let response = await fetch(`${url}/presale/generate`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newPresale)
+      });
+
+      await response.json();
+
+      tHashBtn.innerHTML = "Complete Transaction"
+
+      window.location.href = "/dashboard"
+
+
+    }catch(err){
+      console.log(err);
+      // Handle errors here
+      tHashBtn.innerHTML = "Complete Transaction"
+    }
+
+  }
+
+  hashForm.addEventListener("submit", postHash)

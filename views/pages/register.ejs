@@ -1,0 +1,41 @@
+<%- include('partials/mainheader.ejs') %>
+
+    <body>
+
+        <!-- NAV SECTION -->
+
+        <section class="login--container">
+            <div class="overlay">
+                <%- include('partials/navbar-1.ejs') %>
+
+                    <!-- form section -->
+                    <section class="form">
+                        <h1>Sign up</h1>
+                        <p class="apiError" style="color: rgb(235, 11, 11)"></p>
+                        <p class="mismatch" style="color: rgb(235, 11, 11)"></p>
+                        <form action="#" class="form">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" placeholder="someone@email.com" required>
+                            <label for="wallet">BSC Wallet Address</label>
+                            <input type="text" name="wallet" id="bsc" placeholder="Valid wallet address" required>
+                            <label for="password">Create password</label>
+                            <input type="password" name="password" id="password" placeholder="***********" required>
+                            <label for="confirm-p">Confirm password</label>
+                            <input type="text" name="password" id="confirmPassword" placeholder="***********" required>
+                            <label for="policy">By continuing, you have read the <a href="#">terms of service</a> of <a
+                                    href="#">Agro metacoin</a></label>
+                            <button class="submit">Create account</button>
+                            <p class="or">or</p>
+                            <p class="login"><a href="/login">Already have an account?</a></p>
+                        </form>
+                    </section>
+            </div>
+        </section>
+
+        <!--  Javascript codes and links -->
+        <script src="/public/js/baseUrl.js"></script>
+        <!-- <script src="/public/js/login.js"></script> -->
+        <script src="/public/js/register.js"></script>
+    </body>
+
+    </html>

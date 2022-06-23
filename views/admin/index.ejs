@@ -1,0 +1,139 @@
+
+
+<%- include('partials/adminheader.ejs') %>
+
+
+<body class="relative">
+    <!-- Nav Section -->
+
+    <%- include('partials/adminnav.ejs') %>
+
+    <div class=" overflow-x-hidden grid grid-cols-4">
+
+        <!-- SideBar -->
+        <%- include('partials/adminside.ejs') %>
+
+        <!-- Main Section -->
+        <section class="col-span-4 md:col-span-3 mt-24">
+            <div class="mt-20">
+                <!-- Total Users -->
+                <div class="w-[97%] p-4 border rounded-md goldenB md:max-w-[700px] mx-auto shadow-md m-2 space-y-7">
+                    <div class="flex flex-col items-center justify-between gap-7">
+                        <div class="flex items-center w-full justify-between">
+                            <h2 class="text-gray-300 tracking-wider font-bold text-md mx-5">TOTAL USERS</h2>
+                            <p class="text-green-600 font-bold text-md">^ 20 %</p>
+                        </div>
+                        <h1 class="text-3xl text-center w-full font-bold text-gray-300 totalUsers"></h1>
+                        <a href="/admin/users" class="block mx-auto w-[90%] text-center text-pink-300 border-b pb-2 font-semibold text-sm border-pink-300">View all users</a>
+                    </div>
+                </div>
+                <!-- Total Works -->
+                <div class="w-[97%] p-4 border rounded-md goldenB md:max-w-[700px] mx-auto shadow-md m-2 space-y-5">
+                    <div class="flex flex-col items-center justify-between gap-7">
+                        <div class="flex items-center w-full justify-between">
+                          <h2 class="text-gray-300 tracking-wider font-bold text-md mx-5">TRANSACTION HISTORY</h2>
+                            <p class="text-green-600 font-bold text-md">^ 10 %</p>
+                        </div>
+                        <h1 class="text-3xl text-center w-full font-bold text-gray-300 allHistory"></h1>
+                        <a href="/admin/history" class="block mx-auto w-[90%] text-center golden border-b pb-2 font-semibold text-xs border-violet-400">View Transaction History</a>
+                    </div>
+                </div>
+                <!-- Total Applicants -->
+                <div class="w-[97%] p-4 border rounded-md goldenB md:max-w-[700px] mx-auto shadow-md m-2 space-y-5">
+                    <div class="flex flex-col items-center justify-between gap-7">
+                        <div class="flex items-center w-full justify-between">
+                            <h2 class="text-gray-300 tracking-wider font-bold text-md mx-5">TOTAL PRESALES</h2>
+                            <p class="text-green-600 font-bold text-md">^ 30 %</p>
+                        </div>
+                        <h1 class="text-3xl text-center w-full font-bold text-gray-300 allPresales"></h1>
+                        <a href="/admin/presales" class="block mx-auto w-[90%] text-center golden border-b pb-2 font-semibold text-xs border-violet-400">View All Presales</a>
+                        <!-- <button class="block mx-auto w-[90%] text-center text-yellow-600 border-b pb-2 font-semibold text-sm border-yellow-400">View all Applicants</button> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/public/js/dashboard.js"></script>
+  <script src="/public/admin/admin.js"></script>
+  <script>
+
+          async function getTotalUsers(){
+            fetch(`${url}/user/number/${admin.id}`, {
+              method: "GET",
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                token: `Bearer ${admin?.token}`
+              },
+            })
+              .then(function (response) {
+                if (response.ok) {
+                  return response.json();
+                }
+                return Promise.reject(response);
+              })
+              .then(function (data) {
+                  totalUsers.innerHTML = data
+              })
+              .catch(function (err) {
+                console.log(err)
+              })
+          }
+    
+          getTotalUsers()
+          
+    async function getHistory(){
+        fetch(`${url}/history/get/${admin?.id}`, {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+              token: `Bearer ${admin?.token}`
+            },
+          })
+            .then(function (response) {
+              if (response.ok) {
+                return response.json();
+              }
+              return Promise.reject(response);
+            })
+            .then(function (data) {
+              document.querySelector('.allHistory')
+              .innerHTML = data.length
+            })
+            .catch(function (err) {
+              console.log(err)
+            })
+    }
+    
+    getHistory()
+          
+    async function getPresales(){
+        fetch(`${url}/presale/all/${admin?.id}`, {
+            method: "GET",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+              token: `Bearer ${admin?.token}`
+            },
+          })
+            .then(function (response) {
+              if (response.ok) {
+                return response.json();
+              }
+              return Promise.reject(response);
+            })
+            .then(function (data) {
+              document.querySelector('.allPresales')
+              .innerHTML = data.count
+            })
+            .catch(function (err) {
+              console.log(err)
+            })
+    }
+    
+    getPresales()
+
+
+  </script>
+ 
+</body>
+</html>

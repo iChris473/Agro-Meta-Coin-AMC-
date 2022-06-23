@@ -1,0 +1,50 @@
+
+<%- include('partials/adminheader.ejs') %>
+
+
+<body class="relative">
+    <!-- Nav Section -->
+
+    <%- include('partials/adminnav.ejs') %>
+
+    <div class=" overflow-x-hidden grid grid-cols-4">
+
+        <!-- SideBar -->
+        <%- include('partials/adminside.ejs') %>
+
+        <!-- Main Section -->
+        <section class="col-span-4 md:col-span-3 mt-24">
+            <div class="w-[97%] p-4 border rounded-md goldenB md:max-w-[1200px] mx-auto shadow-md m-2 mt-10 space-y-5">
+                <h1 class="golden ultra text-xl my-10 text-center">Transaction History</h1>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg ">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-400 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Sender
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Reciever
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Wallet 
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Amount
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="tableBody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        </section>
+    </div>
+
+    <script src="/public/js/dashboard.js"></script>
+    <script src="/public/admin/history.js"></script>
+</body>
+</html>

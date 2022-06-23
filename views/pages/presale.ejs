@@ -1,0 +1,468 @@
+
+<%- include('partials/mainheader.ejs') %>
+    <style>
+
+        @font-face{
+        font-family:'digital-clock-font';
+        src: url('/public/fonts/digital-7.ttf');
+        }
+
+        .svgSocial path {
+            color: white;
+            fill: currentcolor;
+        }
+
+        .timeContainer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .timeOut {
+            font-family: 'digital-clock-font';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 42.9589px;
+            line-height: 49px;
+
+            /* Gradient 02 */
+
+            background: linear-gradient(52.09deg, #40D00D -11.18%, #40D00D 58.92%, #EDF3A9 98.44%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .titleDate {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 31px;
+            color: #352E5B;
+        }
+
+        .flexCenter {
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .dateBuy {
+            margin-top: 50px;
+            gap: 10px;
+            flex-direction: column
+        }
+
+        .purchaseBtn {
+            flex-direction: column;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            background: linear-gradient(52.09deg, #40D00D -11.18%, #40D00D 58.92%, #EDF3A9 98.44%);
+            border-radius: 4px;
+        }
+
+        .tokenTitle {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20.5079px;
+            line-height: 130%;
+            text-align: center;
+            text-transform: uppercase;
+            color: #00173A;
+            mix-blend-mode: normal;
+            opacity: 0.96;
+            margin-bottom: 30px;
+        }
+
+        .flexBetween {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #40D00D;
+            padding: 10px;
+            border-radius: 2px;
+            margin: 12px 0;
+        }
+
+    </style>
+    <!-- Navigation for mobile  -->
+    <nav class="dash--mobile">
+        <a href="/" class="header">
+            <img src="../../../public/img/agropic.png" alt="">
+            <h1>AgroMetacoin</h1>
+        </a>
+
+        <a href="/coming">
+            <span class="material-symbols-outlined">
+                account_balance_wallet
+            </span>
+            <span>
+                Wallet
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </a>
+
+        <a href="/coming">
+            <span class="material-symbols-outlined">
+                local_mall
+            </span>
+            <span>
+                Presale
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </a>
+
+        <a href="/coming">
+            <span class="material-symbols-outlined">
+                swap_vert
+            </span>
+            <span>
+                Transfer
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </a>
+
+        <a href="/coming">
+            <span class="material-symbols-outlined ">
+                payments
+            </span>
+            <span>
+                Withdraw
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </a>
+
+        <a href="/coming">
+            <span class="material-symbols-outlined">
+                monetization_on
+            </span>
+            <span>
+                Airdrop
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </a>
+
+        <a href="/coming">
+            <span class="material-symbols-outlined">
+                settings
+            </span>
+            <span>
+                Settings
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </a>
+
+        <button class="logOut2">Logout</button>
+
+    </nav>
+    <!-- Navigation for mobile ends -->
+
+    <!-- User profile mobile -->
+
+    <aside class="profile--m">
+        <div class="profile">
+            <h3>My profile</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" style="color: gray; height: 150px;" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+              </svg>
+            <p class="name" style="font-size: small;">Welcome <span class="userEmail2"></span></p>
+            <a href="#">Edit profile</a>
+        </div>
+
+        <!-- Content starts -->
+        <div class="content">
+            <h3 class="acct-header">Account</h3>
+            <p class="joined">Bought Coins
+                <span class="boughtCoins"></span>
+            </p>
+            <p class="joined">Assests Total
+                <span class="assetsTotal"></span>
+            </p>    
+
+        </div>
+        <!-- Content ends  -->
+        <button>
+            <a href="/presale" style="z-index: 10;">
+                <span class="material-symbols-outlined">
+                    swap_vert
+                </span>
+                Buy Now
+            </a>
+        </button>
+    </aside>
+    <!-- User profile ends -->
+
+    <section class="dashboard--container">
+        <!-- Dashboard navigation -->
+        <%- include('partials/dashnav.ejs') %>
+
+            <!-- main dashboard -->
+            <div class="main--dash">
+                <header>
+
+                    <div class="hamburger--container">
+                        <label for="check">
+                            <input type="checkbox" id="check" />
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </div>
+
+                    <p class="user" style="font-size: small;">
+                        Hi <span class="userEmail"></span>,
+                        <br>
+                        Welcome to our presale page!
+                    </p>
+
+                    <div class="user--pic">
+                        <span class="material-symbols-outlined chevron open--mobile">
+                            expand_more
+                        </span>
+                    </div>
+                </header>
+
+                <!-- COUNTDOWN TIMER -->
+                <section class="contents">
+                    <h1 class="header">
+                        Presale Page
+                    </h1>
+                    <!-- Container for TIME -->
+                    <div class="grid flexCenter">
+                        <!-- Box containers -->
+                        <div class="timeContainer">
+                            <div style="flex-direction: column;" class="flexCenter">
+                                <div class="flexCenter">
+                                    <p class="timeOut">2</p>
+                                    <p class="timeOut">0</p>
+                                </div>
+                                <p>DAYS</p>
+                            </div>
+                            <div style="flex-direction: column;" class="flexCenter">
+                                <div class="flexCenter">
+                                    <p class="timeOut">2</p>
+                                    <p class="timeOut">2</p>
+                                </div>
+                                <p>HOURS</p>
+                            </div>
+                            <div style="flex-direction: column;" class="flexCenter">
+                                <div class="flexCenter">
+                                    <p class="timeOut">5</p>
+                                    <p class="timeOut">6</p>
+                                </div>
+                                <p>MINUTES</p>
+                            </div>
+                   
+                        </div>
+                        <!-- Box containers ends -->
+
+                    </div>
+                    <!-- Grid container ends -->
+
+                    <div class="flexCenter dateBuy">
+                        <h1 class="titleDate">Launch Date : Dec 2023</h1>
+                        <button class="purchaseBtn">Purchase Now</button>
+                    </div>
+
+                </section>
+
+                <!-- TOKENOMICS -->
+                <section style="margin-top: 100px;">
+                    <h1 class="tokenTitle">TOKENOMICS</h1>
+                    <div style="width: 95%; max-width: 400px; margin: auto;">
+                        <div class="flexBetween">
+                            <p>Name</p>
+                            <p>Agrometacoin</p>
+                        </div>
+                        <div class="flexBetween">
+                            <p>Logo</p>
+                            <img src="/public/img/agropic.png" style="width: 30px;" alt="">
+                        </div>
+                        <div class="flexBetween">
+                            <p>Launch Chain</p>
+                            <p>BSC</p>
+                        </div>
+                        <div class="flexBetween">
+                            <p>Buy/Sell Tax</p>
+                            <p>2.5%</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- GREEN BORDER -->
+                <div style="background-color: #EDF3A9; width: 100%; height: 1px; margin-top: 80px;"></div>
+
+                <!-- TOKENOMICS -->
+                <section style="background-color: #F8F7FF; margin: 80px 20px; padding: 20px 0;">
+                    <h1 class="tokenTitle">FUNDING DETAILS</h1>
+                    <div style="width: 95%; max-width: 400px; margin: auto;">
+                        <div class="flexBetween">
+                            <p>Name</p>
+                            <p>Agrometacoin</p>
+                        </div>
+                        <div class="flexBetween">
+                            <p>Logo</p>
+                            <img src="/public/img/agropic.png" style="width: 30px;" alt="">
+                        </div>
+                        <div class="flexBetween">
+                            <p>Launch Chain</p>
+                            <p>BSC</p>
+                        </div>
+                        <div class="flexBetween">
+                            <p>Buy/Sell Tax</p>
+                            <p>2.5%</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Referrals container starts -->
+                <section class="referralss--container">
+                    <h1 class="header">Referral List
+                        <a href="#">More Activity
+                            <span class="material-symbols-outlined">
+                                arrow_forward
+                            </span>
+                        </a>
+                    </h1>
+
+                    <div class="referrals--table">
+                        <div class="table">
+                            <p>Email</p>
+                            <p>BSC Address</p>
+                            <p>Status</p>
+                        </div>
+                    </div>
+
+                </section>
+                <!-- End of table--container -->
+                <p class="referral--link">Referral link:
+                    <a href="#" class="refUsername"></a>
+                </p>
+
+                <form action="">
+                    <p>BSC Address</p>
+                    <input type="text" name="" id="" class="idLink" disabled>
+                    <button class="copyBtn">Copy Address</button>
+                </form>
+                  <!-- social container starts -->
+               <section style="padding: 10px; background-color: #e9f7f6;" class="referrals--container">
+                <h1 class="header">Air drop Tasks
+                    <a href="#">Complete tasks, earn 5,000 AMC
+                        <span class="material-symbols-outlined">
+                            arrow_forward
+                        </span>
+                    </a>
+                </h1>
+                <!-- SOCIALS -->
+                <div style="margin: 40px auto;">
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <!-- TELEGRAM -->
+                        <a style="display: flex; flex-direction: column; align-items: center; justify-content: center;  margin-right: 40px;" href="https://t.me/agrometacoin">
+                            <svg class="svgSocial"
+                                style="height: 30px; border-radius: 50%; padding: 5px; background-color: #34AADF "
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                <path
+                                    d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z" />
+                            </svg>
+                            <p style="font-size: x-small; text-align: center;">Click and join <br> our Telegram group</p>
+                        </a>
+                        <!-- TWITTER -->
+                        <a style="display: flex; flex-direction: column; align-items: center; justify-content: center;  margin-right: 40px;"  href='https://twitter.com/agro_coin?t=iuG0L3qqL5p1VtEj8A7aDQ&s=08'>
+                            <svg class="svgSocial"
+                                style="height: 30px; border-radius: 50%; padding: 5px; background-color: #33CCFF; color: white !important"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                            <p style="font-size: x-small; text-align: center;">Click, follow and <br> retweet our Twitter account</p>
+                        </a>
+                        <!-- DISCORD -->
+                        <a style="display: flex; flex-direction: column; align-items: center; justify-content: center;  margin-right: 40px;" href='https://discord.gg/jBcyeTAHjA'>
+                            <svg class="svgSocial"
+                                style="height: 30px; border-radius: 50%; padding: 5px; background-color: #5865F2;"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                <path
+                                    d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z" />
+                            </svg>
+                            <p style="font-size: x-small; text-align: center;">Click to follow <br> our Discord account</p>
+                        </a>
+                        <!-- YOUTUBE -->
+                        <a style="display: flex; flex-direction: column; align-items: center; justify-content: center;  margin-right: 40px;" href='https://youtube.com/channel/UCJjkmvXmprgLJWEh4v0Ecqg'>
+                            <svg class="svgSocial"
+                                style="height: 30px; border-radius: 50%; padding: 5px; background-color: rgb(241, 34, 34)"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                <path
+                                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                            </svg>
+                            <p style="font-size: x-small; text-align: center;">Click to Subscribe <br> to our youtube channel</p>
+                        </a>
+                    </div>
+                </div>
+
+               </section>
+            </div>
+
+            <%- include('partials/dashside.ejs') %>
+                <!-- profile navigation -->
+    </section>
+    <!-- Javascript codes and links -->
+
+    <!-- <script src="/public/js/dashboard.js"></script> -->
+    <script src="/public/js/dash2.js"></script>
+    <script>
+        const navContainer = document.querySelector('.dash--mobile');
+        const toggleClick = document.getElementById("check");
+        const hamContainer = document.querySelector(".hamburger--container")
+        let check = false;
+
+        function toggle() {
+            if (!check) {
+                navContainer.classList.add('open')
+                // hamContainer.style.color = "#fff"
+                check = true
+            }
+            else {
+                navContainer.classList.remove('open')
+                // hamContainer.style.color = "rgba(245, 245, 245, 1)";
+                check = false
+            }
+        }
+        toggleClick.addEventListener("click", toggle)
+
+        const userProfile = document.querySelector('.profile--m');
+        const chevron = document.querySelector(".open--mobile");
+        // const hamContainer = document.querySelector(".hamburger--container")
+        let check1 = false;
+
+        function toggleProfile() {
+            if (!check1) {
+                chevron.classList.add('open')
+                userProfile.classList.add('open');
+                check1 = true
+            }
+            else {
+                chevron.classList.remove('open')
+                userProfile.classList.remove('open');
+                check1 = false
+            }
+        }
+        chevron.addEventListener("click", toggleProfile)
+    </script>
+    </body>
+
+    </html>

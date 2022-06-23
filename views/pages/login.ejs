@@ -1,0 +1,35 @@
+<%- include('partials/mainheader.ejs') %>
+
+  <body>
+
+    <!-- NAV SECTION -->
+    <%# include('partials/navbar.ejs') %>
+
+      <!-- Register Section -->
+      <section class="login--container">
+        <div class="overlay">
+          <%- include('partials/navbar-1.ejs') %>
+
+            <!-- form section -->
+            <section class="form">
+              <h1>Log in</h1>
+              <p class="apiError" style="color: rgb(235, 11, 11)"></p>
+              <form action="#" class="form">
+                <label for="bsc">BSC Address</label>
+                <input type="text" name="bsc" id="bsc" placeholder="0xF05Cf77094AA14Be......" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="********" required>
+                <button class="submit">Log in</button>
+                <p class="or">or</p>
+                <p class="login"><a href="/register">Don`t have an account?</a></p>
+              </form>
+            </section>
+        </div>
+      </section>
+      <!-- Javascript codes and links -->
+      <script src="/public/js/baseUrl.js"></script>
+      <!-- <script src="/public/js/register.js"></script> -->
+      <script src="/public/js/login.js"></script>
+  </body>
+
+  </html>

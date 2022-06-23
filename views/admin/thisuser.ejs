@@ -1,0 +1,184 @@
+
+<%- include('partials/adminheader.ejs') %>
+
+
+<body class="relative">
+    <!-- Nav Section -->
+
+    <%- include('partials/adminnav.ejs') %>
+
+    <div class=" overflow-x-hidden grid grid-cols-4">
+
+        <!-- SideBar -->
+        <%- include('partials/adminside.ejs') %>
+
+        <!-- Main Section -->
+        <section class="col-span-4 md:col-span-3 mt-24 relative">
+
+          <!-- <script src="/public/admin/getRefs.js"></script> -->
+
+            <div class="mt-20">
+              <div class="flex items-center justify-between p-5">
+                <h1 class="text-center text-xl font-bold my-5">USER INFO</h1>
+                <p class="bg-red-500 p-2 rounded-md text-white deleteBtn cursor-pointer">Delete</p>
+              </div>
+                <div style="background-color: #332d2d;" class="w-[95%] mx-auto p-4 rounded-md border-gray-200 shadow-md">
+                    <h1 class="bg-green-500 opacity-80 p-2 text-white rounded-sm m-4 font-bold success text-center hidden">
+                        Work was succesffuly updated
+                      </h1>
+                      <h1 class="bg-red-500 p-2 text-white rounded-sm m-4 font-bold text-center error hidden">
+                        An error occured
+                      </h1>
+                    <div class="flex flex-col gap-5 max-w-[900px] space-x-5">
+                        <!-- Main Form -->
+                        <div class="col-span-3 space-y-5 py-5 mb-10 form">
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Email
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 email"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                AMC address
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 amc"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                AirDrop Earnings
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 air"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Total Coins
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 totalAmc"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Recieved
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 recieved"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Total Referalls
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 totalRefs"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Referall Bonus
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 refBonus"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Facebook
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 facebook"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Discord
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 telegram"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                YouTube
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 youtube"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Twitter
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 twitter"
+                              ></p>
+                            </div>
+                        </div>
+                        <!-- Buttons -->
+                        <!-- Update Airdrop Bonus -->
+                        <div class="airDiv flex flex-col items-end justify-center pr-10 gap-3">
+                          <h1 class="text-center font-bold text-lg golden">Update AirDrop Bonus</h1>
+                          <p class="text-xs text-right italics text-gray-300">Updating airdrop bonus automatically adds the new airdrop value to the total value</p>
+                          <form class="airForm w-full flex items-end justify-end flex-col gap-5 mb-10">
+                            <input type="number" class="w-full max-w-[300px] p-2 bg-transparent outline-none border-b border-gray-400 pb-2 airAmount" placeholder="enter airdrop bonus">
+                            <button class="airBtn bg-green-500 p-2 text-white text-lg rounded-md">Update</button>
+                          </form>
+                        </div>
+                        <!-- Update Total Coins -->
+                        <div class="updateDiv flex flex-col items-end justify-center pr-10 gap-3">
+                          <h1 class="text-center font-bold text-lg golden">Update Total Coins</h1>
+                          <form class="totalForm w-full flex items-end justify-end flex-col gap-5 mb-10">
+                            <input type="number"  class="w-full max-w-[300px] p-2 bg-transparent outline-none border-b border-gray-400 pb-2 amount" placeholder="enter total coins">
+                            <button class="btn bg-green-500 p-2 text-white text-lg rounded-md">Update</button>
+                          </form>
+                        </div>
+                        <!-- Update Referral Bonus -->
+                        <!-- <div class="refDiv flex flex-col items-end justify-center pr-10 gap-3">
+                          <h1 class="text-center font-bold text-lg golden">Update Referall Bonus</h1>
+                          <form class="refForm w-full flex items-end justify-end flex-col gap-5 mb-10">
+                            <input type="number" class="w-full max-w-[300px] p-2 bg-transparent outline-none border-b border-gray-400 pb-2 refAmount" placeholder="enter total coins">
+                            <button class="refBtn bg-green-500 p-2 text-white text-lg rounded-md">Update</button>
+                          </form>
+                        </div> -->
+                    </div> 
+              </div>
+        </section>
+    </div>
+
+
+  <script src="/public/js/dashboard.js"></script>
+  
+  <script>
+
+    const currentUser = JSON.parse(localStorage.getItem("thisUser"))
+    function getReferralls() {
+      fetch(`${url}/user/referrals?userid=${currentUser.userid}`, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          token: `Bearer ${admin?.token}`
+        },
+      })
+        .then(function (response) {
+          if (response.ok) {
+            return response.json();
+          }
+          return Promise.reject(response);
+        })
+        .then(function (data) {
+          console.log(data)
+          // Main Logic for all referall data
+          document.querySelector(".totalRefs").innerHTML = data.length
+          document.querySelector(".refBonus").innerHTML = (data.length * 5000)
+          document.querySelector(".totalAmc").innerHTML = currentUser.amount + (data.length * 5000)
+
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+    }
+
+    getReferralls()
+
+  </script>
+
+  <script src="/public/admin/thisUser.js"></script>
+
+</body>
+</html>

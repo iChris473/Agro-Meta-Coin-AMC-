@@ -1,0 +1,329 @@
+<%# include('partials/header.ejs') %>
+
+	<%- include('partials/mainheader.ejs') %>
+
+			<body>
+        <style>
+
+          .greenBg{
+		
+			height: 137px;
+			/* Gradient 02 */
+			background: linear-gradient(52.09deg, #40D00D -11.18%, #40D00D 58.92%, #EDF3A9 98.44%);
+			border-radius: 0px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+          }
+
+		  .roadTitle{
+			/* position: absolute; */
+			
+			font-family: 'Space Grotesk';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 1.3rem;
+			line-height: 130%;
+			margin-left: 20px;
+		  }
+
+		  .coin1 {
+			position: absolute;
+			width: 62.59px;
+			height: 61.69px;
+			left: 40px;
+			top: 174.12px;
+		  }
+
+		  .coin2 {
+				
+			position: absolute;
+			width: 62.59px;
+			height: 61.69px;
+			left: 62.07px;
+			top: 145.3px;
+		  }
+
+		  .pride {
+	
+			font-family: 'Space Grotesk';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 6.75463px;
+			line-height: 130%;
+			letter-spacing: 4.50309px;
+		  }
+
+		  .road{
+			position: absolute;
+			right: 28.12px;
+			top: 15.21px
+		  }
+
+		  .roadmap {
+			font-family: 'Space Grotesk';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 22.5764px;
+			line-height: 130%;
+			/* or 29px */
+
+			display: flex;
+			align-items: center;
+		  }
+
+		  .whiteBg {
+			background-color: white;
+			padding: 20px; 
+			width: 90%; 
+			margin: 10px auto;
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+		  }
+
+		  .date {
+			color: black;
+			font-size: 10px; 
+			text-align: left;
+		  }
+
+		  .textRoad {
+			color: black;
+			font-size: 14px; 
+			text-align: left;
+		  }
+
+		  .coloredBg {
+			padding: 5px; width: 80px; font-size: 10px; font-weight: 700;
+		  }
+
+		  .details {
+			  display: flex;
+			  align-items: flex-start;
+			  justify-content: start;
+			  flex-direction: column;
+			  width: 100%;
+		  }
+
+
+        </style>
+
+				<!-- NAV SECTION -->
+				<%# include('partials/navbar.ejs') %>
+
+					<nav class="nav">
+						<p>
+							<a href="/">Home</a>
+						</p>
+						<p>
+							<a href="/coming">Pre-sale</a>
+						</p>
+						<p>
+							<a href="/coming">Meterverse</a>
+						</p>
+						<p>
+							<a href="/coming">NFT Marktetplace</a>
+						</p>
+						<p>
+							<a href="/coming">Tokenomics</a>
+						</p>
+						<p>
+							<a href="/roadmap">Roadmap</a>
+						</p>
+						<button id="login">Login</button>
+						<button id="reg" class="signup">Signup</button>
+					</nav>
+					<!-- Hero Section -->
+					<section class="hero--section">
+						<!-- navigation bar -->
+						<header>
+							<a href="/" class="logo">
+								<img src="../../public/img/agropic.png" alt="#">
+								<h2>AgroMetacoin</h2>
+							</a>
+
+							<div class="nav--links">
+								<p>
+									<a href="/coming">Pre-sale</a>
+								</p>
+								<p>
+									<a href="/coming">Meterverse</a>
+								</p>
+								<p>
+									<a href="/coming">NFT Marktetplace</a>
+								</p>
+								<p>
+									<a href="/coming">Tokenomics</a>
+								</p>
+								<p>
+									<a href="/roadmap">Roadmap</a>
+							</div>
+							<div class="registration">
+								<button id="login-d">Login</button>
+								<button id="reg-d">Signup</button>
+
+								<div class="hamburger--container">
+									<label for="check">
+										<input type="checkbox" id="check" />
+										<span></span>
+										<span></span>
+										<span></span>
+									</label>
+								</div>
+							</div>
+						</header>
+          </section>
+
+		  <!-- GREEN BAR -->
+          <section class="greenBg">
+				  <div style="position:relativea;">
+					  <img src="/public/img/agropic.png" class="coin1" alt="">
+					  <img src="/public/img/agropic.png" class="coin2" alt="">
+				  </div>
+			<div style="width: 100%; margin: auto; display: flex; align-items: center; flex-direction: column; justify-content: center; position: relative" >
+				<h1 class="roadTitle">AGRO-META COIN</h1>
+				<P class="pride">(PRIDE LAND DYNASTY)</P>
+				<P class="roadmap">ROADMAP</P>
+				<img style="position: absolute;" src="/public/img/perspective_matte 1.png" class="road" alt="">
+			</div>
+          </section>
+
+		  <!-- WHITE BARS -->
+		  <section style="padding-bottom: 80px;">
+			  <!-- PHASE 1 -->
+			<div style="margin-top: 50px;">
+				<div class="whiteBg">
+					<div style="margin-right: 10px;">
+						<p style="background-color: #2D9CDB;" class="coloredBg">PHASE 1</p>
+						<p class="date">MAY 2022</p>
+					</div>
+					<div class="details">
+						<p class="textRoad">•	OFFICIAL WEBSITE LAUNCH AND SMART CONTRACT DEVELOPMENT</p>
+						<p class="textRoad">•	SOCIAL MEDIA HANDLE (Facebook, Twitter, Telegram, Youtube) LAUNCH</p>
+					</div>
+				</div>
+			</div>
+			  <!-- PHASE 2 -->
+			<div style="margin-top: 30px;">
+				<div class="whiteBg">
+					<div style="margin-right: 10px;">
+						<p style="background-color: #FFB91D;" class="coloredBg">PHASE 2</p>
+						<p class="date">JUNE 2022</p>
+					</div>
+					<div class="details">
+						<p class="textRoad">•	AMC APPLICATION</p>
+						<p class="textRoad">•	A Hybrid Mobile (Android and IOS) Application will launch on</p>
+						<p class="textRoad">•	Play store and Apple Store with Multiple-functions and Users Friendly Interface.</p>
+						<p class="textRoad">•	PRE-SALE KICKS OFF </p>
+						<p class="textRoad">•	AIRDROP DISTRIBUTION </p>
+					</div>
+				</div>
+			</div>
+			  <!-- PHASE 3 -->
+			<div style="margin-top: 30px;">
+				<div class="whiteBg">
+					<div style="margin-right: 10px;">
+						<p style="background-color: #DF00BB;" class="coloredBg">PHASE 3</p>
+						<p class="date">JULY 2022</p>
+					</div>
+					<div class="details">
+						<p class="textRoad">•	LUNCH ON PANCAKE SWAP </p>
+						<p class="textRoad">•	LUNCH OF UTILITY AGRICULTURE</p>
+						<p class="textRoad">• Full Scale Agricultural activities launches with partnerships, sponsorship  and developments within the African Community to foster food security and industralization.
+						</p>
+					</div>
+				</div>
+			</div>
+			  <!-- PHASE 4 -->
+			<div style="margin-top: 30px;">
+				<div class="whiteBg">
+					<div style="margin-right: 10px;">
+						<p style="background-color: #40D00D" class="coloredBg">PHASE 4</p>
+						<p class="date">OCTOBER 2022</p>
+					</div>
+					<div class="details">
+						<p class="textRoad">•	Launching on centralize exchange </p>
+						<p class="textRoad">•	AMC Mobile App and  IOS launch</p>
+					</div>
+				</div>
+			</div>
+			  <!-- PHASE 5 -->
+			<div style="margin-top: 30px;">
+				<div class="whiteBg">
+					<div style="margin-right: 10px;">
+						<p style="background-color: #EB5757;" class="coloredBg">PHASE 5</p>
+						<p class="date">JANUARY 2023</p>
+					</div>
+					<div class="details">
+						<p class="textRoad">•	AMC STAKING PROJECT KICKS-OFF
+							Staking Project includes Farming AMC Asset on the AMC Platform for a period of 6Months to 5Years and receive valuable assets on staking rewards.</p>
+						<p class="textRoad">• Staking Project includes Farming AMC Asset on the AMC Platform for a period of 6Months to 5Years and receive valuable assets on staking rewards.</p>
+					</div>
+				</div>
+			</div>
+			  <!-- PHASE 6 -->
+			<div style="margin-top: 30px;">
+				<div class="whiteBg">
+					<div style="margin-right: 10px;">
+						<p style="background-color: #00245A;" class="coloredBg">PHASE 6</p>
+						<p class="date">MARCH 2023</p>
+					</div>
+					<div class="details">
+						<p class="textRoad">•	LAUNCH OF AMC NFT MARKETPLACE </p>
+						<p class="textRoad">•	AMC NFT Marketplace runs on Dynamic Blockchain Protocols that allows users</p>
+						<p class="textRoad">•	Launch art work and other collectibles on the AMC NFT Marketplace ,</p>
+						<p class="textRoad">• AMC would be used as gas fee and AMC would be used to buy and sell NFTS within the AMC NFT Marketplace Ecosystem March 2023</p>
+					</div>
+				</div>
+			</div>
+			  <!-- PHASE 7 -->
+			<div style="margin-top: 30px;">
+				<div class="whiteBg">
+					<div style="margin-right: 10px;">
+						<p style="background-color: #00C8B0;" class="coloredBg">PHASE 7</p>
+						<p class="date">MAY 2023</p>
+					</div>
+					<div class="details">
+						<p class="textRoad">•	Launching of Agro Metaverse Project
+						</p>
+						<p class="textRoad">• Agro-Mataverse Projects allows users access Metaverse Agricultural Lands,
+							Metaverse Farming and Metaverse Games within the AMC Metaverse Ecosytem.</p>
+						<p class="textRoad">• Metaverse Farming and Metaverse Games within the AMC Metaverse Ecosytem.</p>
+					</div>
+				</div>
+			</div>
+			  <!-- PHASE 8 -->
+			<div style="margin-top: 30px;">
+				<div class="whiteBg">
+					<div style="margin-right: 10px;">
+						<p style="background-color: #FF002E;" class="coloredBg">PHASE 8</p>
+						<p class="date">AUGUST 2023</p>
+					</div>
+					<div class="details">
+						<p class="textRoad">•	LAUNCH OF AMC EXCHANGE</p>
+						<p class="textRoad">•	AMC Centralized exchange launches with amazing features such as Staking, Farming, IEOs, ETFs, Spot Trading, Feature trades and trading pairs with super speed and Maximum users Sec August 2023</p>
+					</div>
+				</div>
+			</div>
+			  <!-- PHASE 9 -->
+			<div style="margin-top: 30px;">
+				<div class="whiteBg">
+					<div style="margin-right: 10px;">
+						<p style="background-color: #5A0068;" class="coloredBg">PHASE 9</p>
+						<p class="date">DECEMBER 2023</p>
+					</div>
+					<div class="details">
+						<p class="textRoad">•	LAUNCHING OF AMC TALENT HUB AND AMC LAB</p>
+						<p class="textRoad">• AMC TALENT HUB: One of the greatest asset of African Continent is it’s young
+							and vibrant population, at AMC Talent Hub we are dedicated to nurturing these young population by sharpening their skills through intensive training, equipping them with world class relevant skills and also using our platforms and partnerships to give them access to the broad market.</p>
+						<p class="textRoad">•	AMC LAB is a One-Stop-Shop for Blockchain developers, incubation center for Tech inclined youths and a launch pad for future innovations.
+						</p>
+					</div>
+				</div>
+			</div>
+		  </section>
+
+  </body>
+  <script src="../../public/js/config.js"></script>
+  </html>

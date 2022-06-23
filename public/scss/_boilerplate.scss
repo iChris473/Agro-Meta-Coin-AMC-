@@ -1,0 +1,17 @@
+$primaryFont: "Space Grotesk", sans-serif;
+$secondaryFont: "Karla", sans-serif;
+$color: #898ca9;
+$btnColor: linear-gradient(225deg, #62ff18 14.89%, #159200 85.85%);
+$backgroundColor: rgba(0, 36, 90, 1);
+
+$secondaryColor: rgba(0, 23, 58, 1);
+
+@mixin flex($algin, $justify) {
+  display: flex;
+  align-items: $algin;
+  justify-content: $justify;
+}
+@mixin background {
+  background-position: center;
+  background-size: cover;
+}

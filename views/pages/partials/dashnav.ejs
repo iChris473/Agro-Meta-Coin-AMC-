@@ -1,0 +1,103 @@
+
+<div class="dash--nav">
+
+    <a href="/" class="header">
+        <img src="../../../public/img/agropic.png" alt="">
+        <h1>AgroMetacoin</h1>
+    </a>
+
+    <nav>
+        <div>
+            <span class="material-symbols-outlined">
+                account_balance_wallet
+            </span>
+            <span>
+                Wallet
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </div>
+
+        <div>
+            <span class="material-symbols-outlined">
+                local_mall
+            </span>
+            <span>
+                Presale
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </div>
+
+        <div>
+            <span class="material-symbols-outlined">
+                swap_vert
+            </span>
+            <span>
+                Transfer
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </div>
+
+        <div>
+            <span class="material-symbols-outlined ">
+                payments
+            </span>
+            <span>
+                Withdraw
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </div>
+
+        <div>
+            <span class="material-symbols-outlined">
+                monetization_on
+            </span>
+            <span>
+                Airdrop
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </div>
+
+        <div>
+            <span class="material-symbols-outlined">
+                settings
+            </span>
+            <span>
+                Settings
+            </span>
+            <span class="material-symbols-outlined chevron">
+                chevron_right
+            </span>
+        </div>
+
+    </nav>
+    <button class="logout2">Logout</button>
+    <script>
+                
+        const logout2 =  document.querySelector(".logout2");
+
+        const logOutFunction = () => {
+            // confirm("Are you sure you want to log out?");
+            if(confirm("Are you sure you want to log out?")){
+            localStorage.removeItem("user");
+            window.location.href = "login";
+            } else {
+                return;
+            }
+        }
+
+        logout2.addEventListener("click", logOutFunction);
+
+    </script>
+    <script src="/public/js/baseUrl.js"></script>
+</div>
+

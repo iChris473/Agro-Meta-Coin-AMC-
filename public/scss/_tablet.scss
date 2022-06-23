@@ -1,0 +1,889 @@
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  nav {
+    display: none;
+  }
+  .hamburger--container {
+    display: none;
+  }
+  .hero--section {
+    width: 100%;
+    height: auto;
+    background: url("../img/background-new.png") no-repeat;
+    background-size: 100%;
+    background-position: center;
+    header {
+      width: 100%;
+      height: 5rem;
+      display: flex;
+      font-size: 0.875rem;
+      svg {
+        display: none;
+      }
+      div {
+        height: inherit;
+      }
+      .logo {
+        @include flex(center, center);
+        padding-left: 1.4rem;
+        img {
+          width: 2.375rem;
+          height: 2.375rem;
+        }
+        h2 {
+          padding-left: 0.3rem;
+        }
+      }
+      .nav--links {
+        width: 100%;
+        @include flex(center, center);
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: $color;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        p {
+          @include flex(center, center);
+          width: 10rem;
+          word-wrap: none;
+          height: auto;
+        }
+      }
+      .registration {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-weight: 600;
+        padding-right: 1rem;
+        button {
+          width: 4rem;
+          height: 2.5rem;
+          border: 1px solid #ffffff;
+          border-radius: 10px;
+          background-color: transparent;
+          color: #fff;
+          font-weight: 600;
+          font-family: $primaryFont;
+          &:nth-child(2) {
+            margin-left: 12px;
+            background: $btnColor;
+            border: 0;
+          }
+        }
+      }
+    }
+
+    main.hero {
+      width: 100%;
+      height: auto;
+      @include flex(center, flex-start);
+      flex-direction: column;
+      padding-bottom: 2rem;
+      h1 {
+        margin-top: 10.563rem;
+        font-size: 5rem;
+        font-weight: 700;
+        line-height: 100px;
+        letter-spacing: 0px;
+        text-align: center;
+        width: 40rem;
+        height: auto;
+      }
+      p {
+        width: 699px;
+        height: 6.5rem;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 26px;
+        text-align: center;
+        color: #898ca9;
+      }
+      button {
+        width: 12rem;
+        height: 4.5rem;
+        background: $btnColor;
+        border-radius: 14.6429px;
+        border: 0;
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 100%;
+        color: white;
+        margin-top: 53px;
+      }
+    }
+  }
+  // End of .hero--section
+
+  // Vision section
+  section.vision {
+    width: 100%;
+    height: 58rem;
+    @include flex(center, center);
+    background: url(../../public/img/spiral-1.png) no-repeat center center;
+    div {
+      width: 50%;
+      height: inherit;
+      &.article {
+        padding-left: 2rem;
+        .img--mobile {
+          display: none;
+        }
+        // .oval {
+        //   width: 596.4px;
+        //   height: 595.93px;
+        //   position: absolute;
+        //   left: -70%;
+        //   background: linear-gradient(180deg, #2c4982 0%, #2cd095 100%);
+        //   filter: blur(400px);
+        //   transform: matrix(-1, 0, 0, 1, 0, 0);
+        // }
+        // .rect {
+        //   width: 596.4px;
+        //   height: 595.93px;
+        //   position: absolute;
+        //   left: -40.67%;
+        //   top: 70%;
+        //   background: linear-gradient(
+        //     180deg,
+        //     rgba(24, 255, 158, 0) 0%,
+        //     #17ffe3 100%
+        //   );
+        //   filter: blur(200px);
+        //   transform: matrix(-1, 0, 0, 1, 0, 0);
+        // }
+      }
+      &.img {
+        background: url(../../public/img/vision.png) top no-repeat;
+        background-size: 20rem;
+      }
+      .header {
+        width: 24.5rem;
+        height: 5.8rem;
+        border: 1px solid #ffffff;
+        border-radius: 8px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 4rem;
+        @include flex(center, center);
+        color: #ffffff;
+        margin-top: 10rem;
+      }
+      .phrase {
+        width: 18rem;
+        height: 3.8rem;
+        font-weight: 700;
+        font-size: 1.4rem;
+        line-height: 130%;
+        /* or 31px */
+        margin-top: 1.188rem;
+        color: $color;
+      }
+      .text {
+        width: 30rem;
+        height: 24.75rem;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 160%;
+        /* or 26px */
+        color: $color;
+        margin-top: 1.8rem;
+      }
+      button {
+        width: 26.625rem;
+        height: 3.5rem;
+        background: $btnColor;
+        border-radius: 10px;
+        border-radius: 10px;
+        margin-top: 2.8rem;
+        border: 0;
+        color: white;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Vision section ends
+
+  // Mission section start
+  aside.mission {
+    width: 100%;
+    height: auto;
+    @include flex(center, flex-start);
+    // transform: translateY(-8rem);
+    padding-block: 1rem;
+    .img {
+      width: 25rem;
+      height: 52rem;
+      background-image: url(../../public/img/runner.png);
+      background-position: left 1rem;
+      background-size: 20rem;
+      background-repeat: no-repeat;
+    }
+    .mission--article {
+      width: auto;
+      height: auto;
+      @include flex(flex-start, center);
+      flex-direction: column;
+      .img--mobile {
+        display: none;
+      }
+      p.head {
+        width: 22rem;
+        height: 3.5rem;
+        border: 1px solid #ffffff;
+        border-radius: 8px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 65px;
+        @include flex(center, center);
+        color: #ffffff;
+      }
+      p {
+        width: 22rem;
+        height: auto;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 160%;
+        /* or 26px */
+        text-align: justify;
+        color: $color;
+        margin-top: 1.56rem;
+      }
+      button {
+        width: 22rem;
+        height: 3.5rem;
+        background: $btnColor;
+        border-radius: 10px;
+        border-radius: 10px;
+        margin-top: 1.2rem;
+        border: 0;
+        color: white;
+        font-weight: 600;
+      }
+    }
+  }
+  // Mission section ends
+
+  //  Option sections start
+  section.options {
+    width: 100%;
+    height: 35.8rem;
+    background: url(../../public/img/spiral-2.png) right bottom no-repeat,
+      url(../../public/img/option-gradient.png) -15% no-repeat, transparent;
+    background-size: contain;
+    @include flex(center, space-around);
+    div.box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 18px 24px;
+      width: 15.3rem;
+      height: 20rem;
+      /* black/black-12 */
+      background: #1a1b23;
+      border-radius: 15px;
+      h2 {
+        font-size: 1.5rem;
+        color: #fff;
+        padding-top: 1.2rem;
+        text-align: center;
+      }
+      p {
+        font-weight: 400;
+        font-size: 0.8rem;
+        line-height: 150%;
+        color: $color;
+        text-align: center;
+        padding-top: 0.6rem;
+      }
+      a {
+        text-decoration: none;
+        color: rgba(65, 209, 14, 1);
+        font-weight: 600;
+        padding-top: 1.2rem;
+        @include flex(center, center);
+        span {
+          padding-left: 0.4rem;
+        }
+      }
+    }
+  }
+  //   Option sections ends
+
+  // Buying starts
+  section.buying {
+    width: 100%;
+    height: auto;
+    @include flex(center, flex-start);
+    flex-direction: column;
+    h2 {
+      width: 48.75rem;
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 130%;
+      /* or 65px */
+      text-align: center;
+      margin-top: 6rem;
+    }
+    p {
+      width: 38rem;
+      font-size: 1rem;
+      line-height: 150%;
+      /* identical to box height, or 24px */
+      text-align: center;
+      margin-top: 1rem;
+      color: $color;
+    }
+    .list--container {
+      width: 100%;
+      height: auto;
+      background: rgba(26, 27, 35, 1);
+      margin-top: 7rem;
+      @include flex(flex-start, center);
+      .list-1 {
+        width: 50%;
+        height: auto;
+        .text--container {
+          width: 100%;
+          height: auto;
+          @include flex(center, flex-start);
+          padding: 2rem;
+          padding-left: 2rem;
+          div.star {
+            width: 5%;
+            height: inherit;
+            @include flex(flex-start, center);
+          }
+          div.text {
+            width: 70%;
+            height: inherit;
+            font-size: 0.875rem;
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: 0px;
+            text-align: left;
+            margin-inline-start: 1.5rem;
+          }
+        }
+      }
+      .list-2 {
+        width: 50%;
+        height: auto;
+        .coin {
+          width: 13rem;
+          height: 11rem;
+          transform: translate(8rem, 8rem);
+        }
+      }
+      .gradient {
+        width: 46em;
+        height: 90rem;
+        background: url(../../public/img/coin-gradient.png);
+        right: -1%;
+        margin-top: -30rem;
+        filter: blur(4rem);
+        position: absolute;
+      }
+    }
+  }
+
+  // Buying ends
+
+  // Lorem Starts
+
+  article.exp {
+    width: 100%;
+    height: auto;
+    background: url(../../public/img/token-spiral.png) no-repeat;
+    background-position: right top;
+    .tokenomics {
+      width: 100%;
+      height: 50rem;
+      @include flex(center, center);
+      div {
+        width: 50%;
+        &.pie {
+          height: inherit;
+          @include flex(center, flex-start);
+          flex-direction: column;
+          padding-top: 6rem;
+          .gradient {
+            width: 40rem;
+            height: 60rem;
+            background: url(../img/tokenomic-gradient.png) no-repeat;
+            background-size: 25rem;
+            position: absolute;
+            filter: blur(1rem);
+            opacity: 0.5;
+            transform: translateY(-10rem);
+            left: 0;
+          }
+          .chart {
+            width: 100%;
+            height: 20rem;
+            background: url(../img/pie.png) no-repeat;
+            background-size: 16rem;
+            background-position-x: 4rem;
+          }
+          h1 {
+            width: 90%;
+            height: auto;
+            font-weight: 700;
+            font-size: 3rem;
+            line-height: 130%;
+          }
+        }
+        &.text {
+          @include flex(flex-start, center);
+          flex-direction: column;
+
+          h1 {
+            width: 20rem;
+            height: auto;
+            font-weight: 700;
+            font-size: 2.6rem;
+            line-height: 130%;
+          }
+          p {
+            width: 29rem;
+            height: 2rem;
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 130%;
+            /* identical to box height, or 42px */
+            padding-block: 2rem;
+          }
+        }
+      }
+    }
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      h2 {
+        width: 48rem;
+        height: 4rem;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 130%;
+        text-align: center;
+      }
+      p.sub {
+        width: 38.5rem;
+        height: auto;
+        color: $color;
+        font-weight: 400;
+        font-size: 1rem;
+        /* or 24px */
+        padding: 1rem;
+        text-align: center;
+      }
+      .questions {
+        width: 100%;
+        height: auto;
+        @include flex(flex-start, center);
+        .q--1 {
+          width: 50%;
+          height: inherit;
+          padding: 2rem 2rem;
+          p {
+            width: 351px;
+            height: auto;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 28px;
+            margin-top: 2.4rem;
+          }
+          ul {
+            transform: translateX(1.5rem);
+            padding-top: 1.75rem;
+            li {
+              width: 15rem;
+              height: auto;
+              font-weight: 400;
+              font-size: 0.875rem;
+              line-height: 160%;
+              color: $color;
+            }
+          }
+        }
+        .q--2 {
+          width: 50%;
+          height: inherit;
+          padding: 2rem 2rem;
+        }
+        .q--icon {
+          width: 45rem;
+          height: 55rem;
+          background: url(../img/questions.png) no-repeat;
+          background-position: center;
+          background-size: 24rem;
+          position: absolute;
+          right: -25%;
+          margin-top: 2rem;
+        }
+      }
+    }
+    .shield {
+      width: 100%;
+      height: 39rem;
+      @include flex(center, space-between);
+      .img {
+        width: 40%;
+        height: 40rem;
+        background: url(../../public/img/shield.png) no-repeat;
+        background-size: 25rem;
+        background-position-x: 40%;
+        background-position-y: 75%;
+      }
+      .shield--content {
+        @include flex(flex-start, center);
+        flex-direction: column;
+        width: 50%;
+        height: 100%;
+        .img--mobile {
+          display: none;
+        }
+        h2 {
+          width: 580px;
+          height: auto;
+          font-weight: 700;
+          font-size: 3rem;
+          line-height: 130%;
+          /* or 65px */
+          padding-bottom: 1rem;
+        }
+        p {
+          width: 80%;
+          height: auto;
+          font-weight: 400;
+          font-size: 0.875rem;
+          line-height: 150%;
+          /* or 24px */
+          /* black/black-60 */
+          padding-top: 0.9rem;
+          color: $color;
+        }
+        button {
+          width: 156px;
+          height: 56px;
+          border: 1px solid #ffffff;
+          border-radius: 10px;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 100%;
+          font-size: 1rem;
+          margin-top: 3.25rem;
+          background-color: transparent;
+          color: #fff;
+        }
+      }
+    }
+  }
+  // Lorem ends
+
+  // Trade starts
+  section.trade {
+    width: 100%;
+    height: auto;
+    background: url(../../public/img/token-spiral.png) no-repeat;
+    margin-top: 10rem;
+    .chart--talk {
+      @include flex(center, center);
+      flex-direction: column;
+      h1 {
+        width: 780px;
+        height: 167px;
+        font-weight: 700;
+        line-height: 130%;
+        font-size: 3rem;
+        /* or 83px */
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+      }
+      p {
+        width: 580px;
+        height: auto;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        /* or 24px */
+        text-align: center;
+        padding-top: 1rem;
+        /* black/black-60 */
+        color: $color;
+      }
+      a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 100%;
+        /* identical to box height, or 16px */
+        text-align: center;
+        /* primary/purpe */
+        color: #b982ff;
+        padding-top: 36px;
+      }
+    }
+    .chart--table {
+      width: 95%;
+      height: 28rem;
+      background: rgba(26, 27, 35, 1);
+      border-radius: 25px;
+      margin: 0 auto;
+      margin-top: 0.9rem;
+      padding: 2rem;
+      @include flex(center, space-around);
+      flex-direction: column;
+      div.row {
+        width: 100%;
+        height: 60px;
+        @include flex(center, space-between);
+        border-bottom: 1px solid #2b2c3b;
+        div {
+          @include flex(center, space-around);
+          font-size: 0.8rem;
+          font-weight: 700;
+          line-height: 30px;
+          letter-spacing: 0em;
+          &:nth-child(1) {
+            width: 11rem;
+            height: 30px;
+            justify-content: flex-start;
+            font-weight: 700;
+          }
+          &:nth-child(2) {
+            width: 4.5rem;
+            height: 30px;
+            color: rgba(185, 130, 255, 1);
+            line-height: 30px;
+            letter-spacing: 0em;
+          }
+          &:nth-child(3) {
+            justify-content: flex-end;
+            width: 11rem;
+            height: 30px;
+          }
+          &:nth-child(4) {
+            width: 6rem;
+            height: 30px;
+            color: rgba(13, 187, 124, 1);
+            justify-content: flex-end;
+          }
+          &:nth-child(6) {
+            width: 6rem;
+            height: 30px;
+          }
+        }
+        .graph {
+          width: 40%;
+          height: 56px;
+          background: url(../img/btc-graph.png) no-repeat;
+          background-position: center;
+          background-size: 8.5rem;
+        }
+      }
+    }
+    .token {
+      width: 100%;
+      height: auto;
+      margin-top: 10rem;
+      @include flex(center, center);
+      .header {
+        width: 60%;
+        height: inherit;
+        padding-inline-start: 2rem;
+        .img--mobile {
+          display: none;
+        }
+        h2 {
+          font-weight: 700;
+          font-size: 3rem;
+          line-height: 130%;
+          /* identical to box height, or 65px */
+        }
+        p {
+          width: 36rem;
+          padding-top: 0.4rem;
+          font-weight: 400;
+          font-size: 0.8rem;
+          line-height: 150%;
+          color: $color;
+        }
+        div.platforms {
+          width: 100%;
+          height: 20rem;
+          background: url(../../public/img/platforms.png) no-repeat;
+          background-position: left;
+          background-size: 23rem;
+        }
+      }
+      .img {
+        width: 40%;
+        height: inherit;
+        @include flex(center, center);
+        img {
+          width: 28rem;
+          height: 20rem;
+        }
+        .gradient {
+          width: 892px;
+          height: 945px;
+          background: url(../img/token-gradient.png) no-repeat;
+          background-position: right;
+          position: absolute;
+          left: 0;
+          transform: translateX(40%);
+          filter: blur(50px);
+        }
+      }
+    }
+    .address {
+      width: 100%;
+      @include flex(center, center);
+      flex-direction: column;
+      h1 {
+        font-weight: 700;
+        line-height: 130%;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 130%;
+      }
+      p {
+        margin-top: 0.2rem;
+        color: $color;
+      }
+      input {
+        border-radius: 10px;
+        margin-top: 0.4rem;
+        text-indent: 2rem;
+        width: 465px;
+        height: 56px;
+        border: 1px solid
+          linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+        box-shadow: inset 0px 0px 30px rgba(255, 255, 255, 0.05),
+          inset 0px 2px 2px rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(40px);
+        /* Note: backdrop-filter has minimal browser support */
+        border-radius: 10px;
+        outline: none;
+        background-color: white;
+      }
+      button {
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 100%;
+        /* identical to box height, or 16px */
+        text-align: center;
+        width: 156px;
+        height: 56px;
+        border: 0;
+        /* gradient/main */
+        background: $btnColor;
+        border-radius: 10px;
+        color: #fff;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+  //   Trade ends
+
+  // Footer starts here
+  footer {
+    width: 100%;
+    height: auto;
+    @include flex(center, space-between);
+    flex-wrap: wrap;
+    div {
+      width: 20%;
+      height: inherit;
+      font-size: 0.88rem;
+      &.policy {
+        width: 40%;
+        padding: 3rem 1rem;
+        padding-top: 8rem;
+        h3 {
+          font-weight: 700;
+          font-size: 1rem;
+          line-height: 130%;
+        }
+        p {
+          width: 18rem;
+          height: auto;
+          /* body/14px */
+          font-weight: 400;
+          font-size: 0.8rem;
+          line-height: 150%;
+          color: $color;
+          padding-top: 1rem;
+        }
+        input {
+          width: 18rem;
+          height: 3.5rem;
+          /* blur/glass */
+          box-shadow: inset 0px 0px 30px rgba(255, 255, 255, 0.05),
+            inset 0px 2px 2px rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(40px);
+          /* Note: backdrop-filter has minimal browser support */
+          border-radius: 10px;
+          border: 1px solid
+            linear-gradient(225deg, #18c8ff 14.89%, #933ffe 85.85%);
+          color: $color;
+          text-indent: 1rem;
+          margin-top: 2rem;
+        }
+      }
+      &.links {
+        @include flex(center, center);
+        color: $color;
+        flex-direction: column;
+        p {
+          width: 20%;
+          text-align: left;
+          padding-block: 0.7rem;
+        }
+      }
+      &.connect {
+        width: 40%;
+        @include flex(flex-start, center);
+        flex-direction: column;
+        .social {
+          width: 100%;
+          height: 4rem;
+          background: url(../img/social.png) left center no-repeat;
+        }
+        p {
+          color: $color;
+          padding-block: 0.7rem;
+        }
+        button {
+          width: 9rem;
+          height: 2.5rem;
+          /* gradient/main */
+          background: $btnColor;
+          border-radius: 7.30769px;
+          color: white;
+          border: 0;
+          font-size: 1rem;
+          font-weight: 600;
+          margin: 1rem 2rem;
+        }
+      }
+    }
+    // .gradient{
+    //   width: 30rem;
+    //   height: 30rem;
+    //   background:url(../img/footer-gradient.png) no-repeat;
+    //   background-size:30rem;
+    //   transform:translateY(0%);
+    //   position: absolute;
+    // }
+  }
+
+  //   Footer ends
+}

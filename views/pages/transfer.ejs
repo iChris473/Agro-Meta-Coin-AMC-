@@ -1,0 +1,53 @@
+<%- include('partials/header.ejs') %>
+
+    <body class="relative" style="background-color: #252525;">
+        <!-- Nav Section -->
+        <%- include('partials/dashnav.ejs') %>
+
+            <div class=" overflow-x-hidden grid grid-cols-4">
+                <!-- SideBar -->
+                <%- include('partials/dashside.ejs') %>
+    
+            <!-- Main Section -->
+            <section class="min-h-screen col-span-4 md:col-span-3 mt-16">
+                <div class="mt-10 m-5">
+                    <h1 class="ultra text-4xl text-center mt-20 text-green-500">Send AMC</h1>
+                    <div>
+                        <form class="form border border-gray-800 rounded-md lightDark px-5 py-10 my-10 shadow-md shadow-gray-700 flex flex-col items-center justify-center gap-5 max-w-[900px] mx-auto">
+                            <h1 class="text-center text-lg hidden font-bold text-red-500 apiError"></h1>
+                            <h1 class="text-center text-lg hidden font-bold text-green-500 success"></h1>
+                            <div class="w-full flex items-start justify-center flex-col gap-3">
+                                <p class="font-bold text-lg">Recipient AMC ID</p>
+                                <input required type="text" name="accountNumber" placeholder="Enter your recipient AMC ID" class="outline-none rounded-md w-[95%] max-w-[800px] p-2 border border-green-700 bg-transparent recieverId" >
+                            </div>
+                            <div class="w-full flex items-start justify-center flex-col gap-3">
+                                <p class="font-bold text-lg">Amount of AMC</p>
+                                <input required type="number" name="accountNumber" placeholder="Enter amount of AMC" class="outline-none rounded-md w-[95%] max-w-[800px] p-2 border border-green-700 bg-transparent coins" >
+                            </div>
+                            <div class="w-full flex items-start justify-center flex-col gap-3">
+                                <p class="font-bold text-lg">Select Wallet</p>
+                                <select required class="outline-none rounded-md w-[95%] max-w-[800px] p-2 border border-green-700 bg-transparent type">
+                                    <!-- <option value="" selected="selected" disabled="disabled"></option> -->
+                                    <option value="airdropAmount" class="bg-transparent">Air Drop Earnings</option>
+                                    <option value="refAmount" class="bg-transparent">Referall Earnings</option>
+                                    <option value="receieved" class="bg-transparent">Recieved</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="greenBtn shadow-md shadow-green-700 py-2 rounded-md px-20 font-bold text-lg tracking-wide my-5 block btn">Send AMC</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Footer -->
+        <footer style="z-index: -10;" class="flex items-center justify-center w-full bg-black bg-opacity-30 p-7">
+         <p class="text-gray-200 text-sm">©2022 Agro Meta coin</p>
+         <!-- <p class="text-gray-200 text-sm">Designed & Developed by Agro Meta coin Technologies Ltd</p> -->
+         </footer>
+
+        <!-- Javascript codes and links -->
+
+        <script src="/public/js/dashboard.js"></script>
+        <script src="/public/js/transfer.js"></script>
+    </body>
+    </html>

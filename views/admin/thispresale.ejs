@@ -1,0 +1,114 @@
+
+<%- include('partials/adminheader.ejs') %>
+
+
+<body class="relative">
+    <!-- Nav Section -->
+
+    <%- include('partials/adminnav.ejs') %>
+
+    <div class=" overflow-x-hidden grid grid-cols-4">
+
+        <!-- SideBar -->
+        <%- include('partials/adminside.ejs') %>
+
+        <!-- Main Section -->
+        <section class="col-span-4 md:col-span-3 mt-24 relative">
+
+          <!-- <script src="/public/admin/getRefs.js"></script> -->
+
+            <div class="mt-20">
+              <div class="flex items-center justify-between p-5">
+                <h1 class="text-center text-xl font-bold my-5">PRESALE INFO</h1>
+                <p class="bg-red-500 p-2 rounded-md text-white deleteBtn cursor-pointer">Delete</p>
+              </div>
+                <div style="background-color: #332d2d;" class="w-[95%] mx-auto p-4 rounded-md border-gray-200 shadow-md">
+                    <h1 class="bg-green-500 opacity-80 p-2 text-white rounded-sm m-4 font-bold success text-center hidden">
+                        Work was succesffuly updated
+                      </h1>
+                      <h1 class="bg-red-500 p-2 text-white rounded-sm m-4 font-bold text-center error hidden">
+                        An error occured
+                      </h1>
+                    <div class="flex flex-col gap-5 max-w-[900px] space-x-5">
+                        <!-- Main Form -->
+                        <div class="col-span-3 space-y-5 py-5 mb-10 form">
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                User BSC
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 userBsc"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                User Amount
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 userAmount"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Referall's BSC
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 refBsc"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Referall's Amount
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 refAmount"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Downline's BSC
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 downBsc"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Downline's Amount
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 downAmount"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Paid
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 paid"
+                              ></p>
+                            </div>
+                            <div class="space-y-2">
+                              <p class="text-md font-bold golden tracking-wider">
+                                Transaction Hash
+                              </p>
+                              <p class="border-b outline-none w-full border-gray-400 hash"
+                              ></p>
+                            </div>
+                        </div>
+                        <!-- Buttons -->
+                        <!-- Update Airdrop Bonus -->
+                        <div class="airDiv flex flex-col items-end justify-center pr-10 gap-3">
+                          <h1 class="text-center font-bold text-lg golden">Update Payment Status</h1>
+                          <form class="airForm w-full flex items-end justify-end flex-col gap-5 mb-10">
+                            <select name="grades" id="" class="w-full max-w-[300px] p-2 bg-transparent outline-none border-b border-gray-400 pb-2">
+                              <option value="false">False</option>
+                              <option value="true">True</option>
+                            </select>
+                            <button class="airBtn bg-green-500 p-2 text-white text-lg rounded-md">Update</button>
+                          </form>
+                        </div>
+                    </div> 
+              </div>
+        </section>
+    </div>
+
+
+  <script src="/public/js/dashboard.js"></script>
+  <script src="/public/admin/thisPresale.js"></script>
+
+</body>
+</html>
