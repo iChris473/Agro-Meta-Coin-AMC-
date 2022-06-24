@@ -7,14 +7,14 @@ const slotAmount = document.querySelector(".slotAmount")
 // const slotPrice = document.querySelector(".slotPrice")
 const amcAmount = document.querySelector(".amcAmount")
 const minError = document.querySelector(".minError")
-const purchaseBtn = document.querySelector(".purchaseBtn")
+const purchaseBtn = document.querySelector(".purchaseCoin")
 const refIDD = document.querySelector(".refIDD")
 
 refIDD.value = window.location.search.split("=")[1] || ""
 
 // slotNumber.innerHTML = slotAmount.value
 // slotPrice.innerHTML = parseInt(slotAmount.value) * 10
-amcAmount.innerHTML = (parseInt(slotAmount.value) * 10000).toLocaleString()
+// amcAmount.innerHTML = (parseInt(slotAmount.value) * 10000).toLocaleString()
 
 slotAmount.addEventListener("input", () => {
     // slotNumber.innerHTML = slotAmount.value
@@ -92,11 +92,9 @@ const getAvailableCoins = () => {
   
   const blurDiv = document.querySelector('#blurDiv')
 
-  const paymentModal = document.querySelector('#paymentModal')
+  const paymentModal = document.querySelector('.paymentModal')
 
   const xicon = document.querySelector('.xicon')
-
-  const form = document.querySelector('.mainForm')
  
   // QUERY SELECTORS OF PAYMENT INFOS
   const payNetwork = document.querySelector('.payNetwork')
@@ -104,10 +102,8 @@ const getAvailableCoins = () => {
   const payAmount = document.querySelector('.payAmount')
 
   xicon.addEventListener("click", () => {
-    blurDiv.style.filter = "blur(0px)"
-    blurDiv.classList.remove("overflow-hidden")
-    blurDiv.classList.remove("h-screen")
-    paymentModal.style.display = "none"
+    blurDiv.classList.remove("modalState")
+    paymentModal.style.display = 'none'
   })
 
   const completePayment = e => {
@@ -123,7 +119,7 @@ const getAvailableCoins = () => {
     purchaseBtn.innerHTML = "LOADING..."
 
     const newPaymentObject = {
-      price_amount: parseInt(slotAmount.value) * 10,
+      price_amount: parseInt(slotAmount.value),
       price_currency: "usd",
       pay_currency: coinList.value,
       ipn_callback_url: "https://nowpayments.io",
@@ -160,7 +156,7 @@ const getAvailableCoins = () => {
 
   }
 
-  form.addEventListener("submit", completePayment)
+  purchaseBtn.addEventListener("click", completePayment)
 
   async function createUserPresale(data) {
     try{
@@ -185,15 +181,12 @@ const getAvailableCoins = () => {
 
       purchaseBtn.innerHTML = "PURCHASE"
 
-      blurDiv.style.filter = "blur(5px)"
-      blurDiv.classList.add("overflow-hidden")
-      blurDiv.classList.add("h-screen")
+      blurDiv.classList.add('modalState')
       paymentModal.style.display = "block"
-
       payNetwork.innerHTML = data.network
       payNetwork2.innerHTML = data.network
       payAmount.innerHTML = data.pay_amount
-      document.querySelector(".idLink").innerHTML = data.pay_address
+      document.querySelector(".coinAddress").innerHTML = data.pay_address
 
     }catch(err){
       console.log(err);
@@ -244,3 +237,23 @@ const getAvailableCoins = () => {
   }
 
   hashForm.addEventListener("submit", postHash)
+
+  const copyIdToClipboard = (text, btn) => {
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text)
+        btn.innerHTML = "Copied"
+    }
+        // return navigator.clipboard.writeText(refLink.innerHTML);
+    return Promise.reject('The Clipboard API is not available.');
+    };
+
+    const preventReload = e => {
+      e.preventDefault()
+    }
+    document.querySelector('form').addEventListener('submit', preventReload)
+
+  const refferalLink = 'www.agrometacoin.com/presale?ref=' + user.userid
+  const presaleRefLink = document.querySelector('.presaleRefLink')
+  presaleRefLink.value = refferalLink
+  const copyRefLinkBtn = document.querySelector('.copyBtn')
+  copyRefLinkBtn.addEventListener('click', copyIdToClipboard.bind(null, (refferalLink), copyRefLinkBtn))

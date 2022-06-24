@@ -7,6 +7,11 @@ const totalAmcCoins = document.querySelector(".totalCoin")
 const copyId = document.querySelector(".copyBtn")
 // const copyBtn = document.querySelector(".copyRefBtn")
 
+const preventReload = e => {
+  e.preventDefault()
+}
+document.querySelector('form').addEventListener('submit', preventReload)
+
 const copyIdToClipboard = (text, btn) => {
   if (navigator && navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(text)

@@ -7,6 +7,10 @@
         src: url('/public/fonts/digital-7.ttf');
         }
 
+        body{
+            background: white !important;
+        }
+
         .svgSocial path {
             color: white;
             fill: currentcolor;
@@ -85,6 +89,100 @@
             padding: 10px;
             border-radius: 2px;
             margin: 12px 0;
+        }
+
+        .supplyTitle {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 25.4606px;
+            line-height: 130%;
+            margin: 50px auto;
+        }
+
+        .supplyDetails {
+            background: #FFFFFF;
+            box-shadow: 4.72408px -5.15354px 1.71785px rgba(0, 0, 0, 0.1);
+            border-radius: 1.71785px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: start;
+            flex-direction: column;
+            gap: 8px;
+            width: 350px;
+            padding: 30px;
+        }
+
+        .purchaseTitle {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 130%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .percent {
+            background-color: #00173A; color: white; padding: 10px;border-radius: 27.7066px; position: absolute; height: 100%; width: 10%; text-align: center;
+        }
+
+        .percentParent {
+            background: #FFFFFF;
+            border-radius: 27.7066px;
+            position: relative;
+            height: 50px;
+            max-width: 600px;
+            width: 95%;
+            margin: auto;
+        }
+        .purchaseInput{
+            outline: none;
+            background: #FFFFFF;
+            border-radius: 3px;
+            height: 40px;
+            max-width: 600px;
+            width: 95%;
+            padding: 8px;
+        }
+        .pForm {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 30px auto;
+        }
+        .pPlaceholder {
+            color: black;
+            font-size: 13px;
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 4px;
+            max-width: 600px;
+            width: 95%;
+            font-weight: bold;
+        }
+        .centeredDiv{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 5000;
+            background: rgb(241, 241, 241);
+            padding: 10px;
+            border-radius: 10px;
+            flex-direction: column;
+            width: 93%;
+            max-width: 600px;
+        }
+
+        .xicon {
+            color: rgb(253, 36, 36);
+            height: 30px;
+            cursor: pointer;
+        }
+        .modalState {
+            filter: blur(10px) !important; height: 100vh; overflow: hidden;
         }
 
     </style>
@@ -207,12 +305,14 @@
     </aside>
     <!-- User profile ends -->
 
+
+
     <section class="dashboard--container">
         <!-- Dashboard navigation -->
         <%- include('partials/dashnav.ejs') %>
 
             <!-- main dashboard -->
-            <div class="main--dash">
+            <div id="blurDiv" class="main--dash">
                 <header>
 
                     <div class="hamburger--container">
@@ -239,8 +339,8 @@
 
                 <!-- COUNTDOWN TIMER -->
                 <section class="contents">
-                    <h1 class="header">
-                        Presale Page
+                    <h1 style="margin:30px" class="header">
+                        Presale Launchs in
                     </h1>
                     <!-- Container for TIME -->
                     <div class="grid flexCenter">
@@ -276,13 +376,61 @@
 
                     <div class="flexCenter dateBuy">
                         <h1 class="titleDate">Launch Date : Dec 2023</h1>
-                        <button class="purchaseBtn">Purchase Now</button>
                     </div>
 
                 </section>
 
+                <!-- PURCHASE NOW -->
+                <section style="margin: 50px 20px; padding: 8px; background: #F8F7FF;">
+                    <h1 class="purchaseTitle">Become a part of the AMC family! Currently Funding for Round 1</h1>
+                    <p style="text-align: center; margin: 15px auto;">ROUND 1 PROGRESS - 0 AMC of 12,000,000,000 AMC</p>
+                
+                    <!-- PROGRESS BAR -->
+                    <div class="percentParent">
+                        <p class="percent flexCenter">5%</p>
+                    </div>
+                
+                    <!-- AMOUNT OF COINS -->
+                    <div id="slotAmount" class="pForm">
+                        <p style="color: #B8003A; text-align: center; font-size: 13px; display: none;" class="minError">You can't purchase less than $10</p>
+                        <p class="pPlaceholder">Choose amount of AMC to Buy (USD)</p>
+                        <input type="number" class="purchaseInput slotAmount">
+                    </div>
+                
+                    <!-- SELECT COIN TYPE -->
+                    <div class="pForm">
+                        <p class="pPlaceholder">Choose payment method</p>
+                        <select required class="purchaseInput coinList">
+                        </select>
+                    </div>  
+                
+                    <!-- REFERRAL ID -->
+                    <div class="pForm">
+                        <p class="pPlaceholder">Referall ID</p>
+                        <input type="number" class="purchaseInput refIDD" placeholder="Optional">
+                    </div>
+
+                    <!-- OTHER INFO -->
+                    <div class="pForm">
+                        <p style="color: #A5A2B8; font-size: 15px;">*AMC tokens you will recieve <span class="amcAmount"></span></p>
+                        <p style="color: #A5A2B8; font-size: 15px; margin-top: 10px;">*Least amount to buy - $10</p>
+                    </div>
+
+                    <!-- PRESALE TERMS -->
+                    <div class="flexCenter" style="gap: 5px;">
+                        <input type="checkbox" checked>
+                        <p style="font-size: 10px;">I fully understand I'm joining Pre-Sale on Future AMC Tokens that will be minted once Pre-Sale Ends.</p>
+                    </div>
+
+                    <!-- PURCHASE BUTTON -->
+                    <div class="flexCenter" style="margin: 50px auto;">
+                        <button class="purchaseBtn purchaseCoin">Purchase Now</button>
+                    </div>
+                
+                </section>
+
                 <!-- TOKENOMICS -->
-                <section style="margin-top: 100px;">
+                <section style="margin-top: 50px;">
                     <h1 class="tokenTitle">TOKENOMICS</h1>
                     <div style="width: 95%; max-width: 400px; margin: auto;">
                         <div class="flexBetween">
@@ -312,53 +460,77 @@
                     <h1 class="tokenTitle">FUNDING DETAILS</h1>
                     <div style="width: 95%; max-width: 400px; margin: auto;">
                         <div class="flexBetween">
-                            <p>Name</p>
-                            <p>Agrometacoin</p>
+                            <p style="font-size: 12px;">Funding Rate for 1 Slot ($10)</p>
+                            <p style="font-size: 12px;">450,000AMC</p>
                         </div>
                         <div class="flexBetween">
-                            <p>Logo</p>
-                            <img src="/public/img/agropic.png" style="width: 30px;" alt="">
+                            <p style="font-size: 12px;">Launching Rate for 1 Slot ($10)</p>
+                            <p style="font-size: 12px;">400,000AMC</p>
                         </div>
                         <div class="flexBetween">
-                            <p>Launch Chain</p>
-                            <p>BSC</p>
+                            <p style="font-size: 12px;">Total Funding</p>
+                            <p style="font-size: 12px;">$5,000,000</p>
                         </div>
                         <div class="flexBetween">
-                            <p>Buy/Sell Tax</p>
-                            <p>2.5%</p>
+                            <p style="font-size: 12px;">Listing Liquidity</p>
+                            <p style="font-size: 12px;">$2,500,000</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- Referrals container starts -->
-                <section class="referralss--container">
-                    <h1 class="header">Referral List
-                        <a href="#">More Activity
-                            <span class="material-symbols-outlined">
-                                arrow_forward
-                            </span>
-                        </a>
-                    </h1>
+                 <!-- GREEN BORDER -->
+                <div style="background-color: #EDF3A9; width: 100%; height: 1px; margin-top: 80px;"></div>
 
-                    <div class="referrals--table">
-                        <div class="table">
-                            <p>Email</p>
-                            <p>BSC Address</p>
-                            <p>Status</p>
+                <section class="flexCenter" style="flex-direction: column;">
+                    <h1 class="supplyTitle">Supply Distribution</h1>
+                    <div class="supplyDetails">
+                        <div class="flexCenter">
+                            <p style="background-color: #FFBF43; height: 10px; width: 10px; border-radius: 50%; margin-right: 10px;"></p>
+                            <p>40%- Burning </p>
+                        </div>
+                        <div class="flexCenter">
+                            <p style="background-color: #B8003A; height: 10px; width: 10px; border-radius: 50%; margin-right: 10px;"></p>
+                            <p>16% - Lock and Reserve</p>
+                        </div>
+                        <div class="flexCenter">
+                            <p style="background-color:#F2B4F2; height: 10px; width: 10px; border-radius: 50%; margin-right: 10px;"></p>
+                            <p>12% - Developers and founders</p>
+                        </div>
+                        <div class="flexCenter">
+                            <p style="background-color:#1EB9ED; height: 10px; width: 10px; border-radius: 50%; margin-right: 10px;"></p>
+                            <p>10% - Liquidity</p>
+                        </div>
+                        <div class="flexCenter">
+                            <p style="background-color:#8E30FF; height: 10px; width: 10px; border-radius: 50%; margin-right: 10px;"></p>
+                            <p>12% - Pre-sales</p>
+                        </div>
+                        <div class="flexCenter">
+                            <p style="background-color:#FF7723; height: 10px; width: 10px; border-radius: 50%; margin-right: 10px;"></p>
+                            <p>4% - Business Development</p>
+                        </div>
+                        <div class="flexCenter">
+                            <p style="background-color:#ffe923; height: 10px; width: 10px; border-radius: 50%; margin-right: 10px;"></p>
+                            <p>5% - Marketing</p>
+                        </div>
+                        <div class="flexCenter">
+                            <p style="background-color:#68D217; height: 10px; width: 10px; border-radius: 50%; margin-right: 10px;"></p>
+                            <p>1% - Airdrop</p>
                         </div>
                     </div>
-
+                    <!-- IMAGE CHART -->
+                    <div class="supplyDetails" style="margin: 80px auto;">
+                        <img src="/public/img/chatie.png" alt="">
+                        <p style="background-color:#00245A; padding: 10px; border-radius: 5px; color: white;">Total Supply: 100,000,000,000</p>
+                    </div>
                 </section>
-                <!-- End of table--container -->
-                <p class="referral--link">Referral link:
-                    <a href="#" class="refUsername"></a>
-                </p>
 
                 <form action="">
-                    <p>BSC Address</p>
-                    <input type="text" name="" id="" class="idLink" disabled>
+                    <p style="font-size: 13px;">Presale Ref Link</p>
+                    <input type="text" name="" id="" class="idLink presaleRefLink" disabled>
                     <button class="copyBtn">Copy Address</button>
+                    
                 </form>
+
                   <!-- social container starts -->
                <section style="padding: 10px; background-color: #e9f7f6;" class="referrals--container">
                 <h1 class="header">Air drop Tasks
@@ -416,6 +588,37 @@
 
                </section>
             </div>
+            <!-- MODAL -->
+            <div style="display: none" class="centeredDiv paymentModal flexCenter">
+                <div class="flexCenter" style="justify-content: space-between; width: 100%; margin: 10px 5px;">
+                    <h1 style="opacity: .5;">Please complete payment to proceed</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="xicon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                </div>
+               <img src="/public/img/agropic.png" style="height: 100px; margin: 20px auto;" />
+               <div>
+                   <p style="text-align: center;">Please send <span class="payAmount"></span> <span class="payNetwork"></span> to the below address. </p> 
+                   <p style="text-align: center; color: #B8003A;"> Use <span class="payNetwork2"> </span> network only.</p>
+               </div>
+               <div class="flexCenter" style="background-color: #00173A; color: white; padding: 6px; border-radius: 7px; gap: 5px; margin: 5px auto; max-width: 400px;">
+                   <p class="coinAddress" style="font-size: 10px;"></p>
+                   <svg xmlns="http://www.w3.org/2000/svg" style="color: white; height: 17px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                  </svg>
+               </div>
+                <!-- AMOUNT OF COINS -->
+                <form class="hashForm">
+                    <div class="pForm" style="margin: 5px;">
+                        <p class="pPlaceholder">Enter transaction hash</p>
+                        <input required type="text" class="purchaseInput tHash">
+                    </div>
+                    <!-- PURCHASE BUTTON -->
+                    <div class="flexCenter" style="margin: 10px auto;">
+                        <button class="purchaseBtn tHashBtn">Complete Payment</button>
+                    </div>
+                </form>
+            </div>
 
             <%- include('partials/dashside.ejs') %>
                 <!-- profile navigation -->
@@ -423,7 +626,7 @@
     <!-- Javascript codes and links -->
 
     <!-- <script src="/public/js/dashboard.js"></script> -->
-    <script src="/public/js/dash2.js"></script>
+    <script src="/public/js/presale.js"></script>
     <script>
         const navContainer = document.querySelector('.dash--mobile');
         const toggleClick = document.getElementById("check");
