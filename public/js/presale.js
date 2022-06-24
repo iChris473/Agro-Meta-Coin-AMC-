@@ -100,6 +100,7 @@ const getAvailableCoins = () => {
   const payNetwork = document.querySelector('.payNetwork')
   const payNetwork2 = document.querySelector('.payNetwork2')
   const payAmount = document.querySelector('.payAmount')
+  const copyTokenAddress = document.querySelector('.copyTokenAddress')
 
   xicon.addEventListener("click", () => {
     blurDiv.classList.remove("modalState")
@@ -187,6 +188,15 @@ const getAvailableCoins = () => {
       payNetwork2.innerHTML = data.network
       payAmount.innerHTML = data.pay_amount
       document.querySelector(".coinAddress").innerHTML = data.pay_address
+      
+      copyTokenAddress.addEventListener('click', () => {
+        if (navigator && navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(data.pay_address || 'please copy address')
+            copyTokenAddress.style.color = 'green'
+        }
+            // return navigator.clipboard.writeText(refLink.innerHTML);
+        return Promise.reject('The Clipboard API is not available.');
+        })
 
     }catch(err){
       console.log(err);
