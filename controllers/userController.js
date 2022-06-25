@@ -225,6 +225,42 @@ exports.deleteUser = async (req, res) => {
     }
 }
 
+exports.deleteSpamUsers = async (req, res) => {
+
+    try {
+        
+        // await User.deleteMany({email: {
+        //     $regex: /@dilanfa @musezoo @falkyz @krunsea @nzaif @game4hr/i
+        // }})
+        // g h y o
+        
+        const resData = await User.deleteMany( { email: { $in: [/@a/, /@b/, /@c/, /@d/, /@e/, /@f/, /@iide/, /@j/, /@k/, /@l/, /@m/, /@n/, /@p/, /@q/, /@r/, /@s/, /@l/, /@m/, /@n/, /@o/, /@p/, /@q/, /@r/, /@s/, /@t/, /@u/, /@v/, /@w/, /@x/, /@z/] } } )
+
+        // const allData = await User.find()
+
+        // let count = 0
+
+        // for(const spam of allData){
+
+        //     if( !( spam.email.includes("@gmail") || spam.email.includes("@hotmail")) || spam.email.includes("@yahoo") || spam.email.includes("@outlook")  ){
+        //         console.log(spam)
+        //         spam.remove()
+        //         count++
+        //         console.log(count)
+        //     }
+
+        // }
+        
+        return res.status(200).json(resData)
+    
+    } catch (error) {
+
+        return res.status(400).json(error)
+
+    }
+
+}
+
 // get a user
 exports.getOneUser = async (req, res) => {
 
@@ -255,7 +291,7 @@ exports.getNoUsers = async (req, res) => {
     } catch (err) {
        return res.status(401).json(err) 
     }
-}
+} 
 
 // Forgot Password
 
@@ -502,8 +538,8 @@ exports.getAllEmails = async (req, res) => {
         const totalEmail = []
 
         let query = User.find();
-        const page = parseInt(req.query.page) || 1
-        const pageSize = parseInt(req.query.limit) || 10000
+        const page = parseInt(req.query.page) || 9
+        const pageSize = parseInt(req.query.limit) || 1000
         const skip = (page - 1) * pageSize
         const total = await User.countDocuments()
         const pages = Math.ceil( total / pageSize )

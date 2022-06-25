@@ -18,6 +18,8 @@ router.post("/user/login", userController.loginUser)
 router.put("/user/update/:id", userController.updateUser)
 // Delete user
 router.delete("/user/delete/:id", verifiedAdminToken, userController.deleteUser)
+// Delete Spam Users
+// router.delete("/user/all/delete", userController.deleteSpamUsers)
 // Get one User
 router.get("/user/get/:id",  userController.getOneUser)
 // Get All Bscs
