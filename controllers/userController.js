@@ -14,7 +14,7 @@ exports.createUser = async (req, res) => {
         bsc: req.body.bsc,
         userid: crypto.randomBytes(3).toString("hex"),
         referrer: req.body.referrer,
-        amount: 5000,
+        amount: 2500,
         validated: true
     })
     try {
