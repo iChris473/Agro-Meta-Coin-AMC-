@@ -84,7 +84,7 @@
             </span>
         </a>
 
-        <button class="logOut2">Logout</button>
+        <button class="thislogout">Logout</button>
 
     </nav>
     <!-- Navigation for mobile ends -->
@@ -404,6 +404,23 @@
         }
         chevron.addEventListener("click", toggleProfile)
         chevron2.addEventListener("click", toggleProfile)
+
+        const logout2 = document.querySelector(".logout2");
+        const logout = document.querySelector(".thislogout");
+
+        const logOutFunction = () => {
+                // confirm("Are you sure you want to log out?");
+            if (confirm("Are you sure you want to log out?")) {
+                localStorage.removeItem("user");
+                window.location.href = "login";
+            } else {
+                return;
+            }
+        }
+
+        logout.addEventListener("click", logOutFunction);
+        logout2.addEventListener("click", logOutFunction);
+        
     </script>
     </body>
 

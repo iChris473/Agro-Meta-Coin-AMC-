@@ -81,22 +81,6 @@
 
     </nav>
     <button class="logout2">Logout</button>
-    <script>
-                
-        const logout2 =  document.querySelector(".logout2");
 
-        const logOutFunction = () => {
-            // confirm("Are you sure you want to log out?");
-            if(confirm("Are you sure you want to log out?")){
-            localStorage.removeItem("user");
-            window.location.href = "login";
-            } else {
-                return;
-            }
-        }
-
-        logout2.addEventListener("click", logOutFunction);
-
-    </script>
 </div>
 
