@@ -2,10 +2,35 @@
 
 	<%- include('partials/mainheader.ejs') %>
 
-			<body>
+			<body >
 				<style scoped>
+
+					.centeredDiv {
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: translate(-50%,-50%);
+						z-index: 5000;
+						background: rgb(241, 241, 241);
+						padding: 10px;
+						border-radius: 10px;
+						flex-direction: column;
+						width: 93%;
+						max-width: 600px;
+					}
+
+					.xicon {
+						color: rgb(253, 36, 36);
+						height: 30px;
+						cursor: pointer;
+					}
+
+					.flexCenter {
+						display: flex; align-items: center; justify-content: center;
+					}
+
 					@media (min-width: 767px) {
-						.star1 {
+									.star1 {
 							display: none;
 						}
 
@@ -42,6 +67,9 @@
 						color: white;
 						fill: currentcolor;
 					}
+					.modalStates {
+            			filter: blur(10px) !important; height: 100vh; overflow: hidden;
+        			}
 				</style>
 
 				<!-- NAV SECTION -->
@@ -72,6 +100,7 @@
 						<button id="login">Login</button>
 						<button id="reg" class="signup">Signup</button>
 					</nav>
+					<div class="modalState">
 					<!-- Hero Section -->
 					<section class="hero--section">
 						<!-- navigation bar -->
@@ -668,12 +697,26 @@
 							</svg>
 						</a>
 					</div>
+				</div>
 
 					<!-- FOOTER -->
 					<%# include('partials/footer.ejs') %>
 						<!-- Javascript codes and links -->
 
 			</body>
+
+			<!-- MODAL POP UP -->
+            <div style="display: none; background-color: #1b4a92;" class="centeredDiv paymentModal flexCenter">
+                <div class="flexCenter" style="justify-content: space-between; width: 100%; margin: 10px 5px;">
+                    <h1 style="opacity: .5;">Click the X icon to close</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" style=" padding: 5px; border-radius: 50%; background: white" class="xicon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                </div>
+               <img src="/public/img/agropic.png" style="height: 100px; margin: 20px auto;" />
+               <h1>PRESALE WILL BE LIVE SOON</h1>
+            </div>
+
 			<script src="../../public/js/config.js"></script>
 
 			</html>
