@@ -44,20 +44,6 @@ const getAvailableCoins = () => {
     return Promise.reject(response);
   })
   .then(function (data) {
-
-    console.log( data.currencies
-      .filter(tkn => 
-        tkn.toLowerCase() === "bnbbsc" ||
-         tkn.toLowerCase() === "eth" ||
-         tkn.toLowerCase() === "btc" ||
-         tkn.toLowerCase() === "aave" ||
-         tkn.toLowerCase() === "ltc" ||
-         tkn.toLowerCase() === "trx" ||
-         tkn.toLowerCase() === "busd" ||
-         tkn.toLowerCase() === "busdbsc" ||
-         tkn.toLowerCase() === "cake"
-      
-      ))
       
     data.currencies
     .filter(tkn =>  
