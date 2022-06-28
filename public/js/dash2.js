@@ -22,7 +22,7 @@ const copyIdToClipboard = (text, btn) => {
   return Promise.reject('The Clipboard API is not available.');
   };
 
-copyId.addEventListener("click", copyIdToClipboard.bind(null, (recentUser.bsc || user.bsc), copyId))
+copyId.addEventListener("click", copyIdToClipboard.bind(null, ("https://www.agrometacoin.com/register?ref=" + user.userid), copyId))
 //copyBtn.addEventListener("click", copyIdToClipboard.bind(null, ("https://www.agrometacoin.com/register?ref=" + user.userid),copyId))
 
 
@@ -50,9 +50,9 @@ const getUserInformations = () => {
       //AIRDROP BONUS
       document.querySelector(".airBonus").innerHTML = data.airdropAmount
       // BSC ADDRESS
-      document.querySelector(".idLink").value = data.bsc
+      document.querySelector(".bscAddressdash").innerHTML = data.bsc
       // REFERRAL LINK
-      document.querySelector(".refUsername").innerHTML = "https://www.agrometacoin.com/register?ref=" + data.userid
+      document.querySelector(".referallLinkDash").value  = "https://www.agrometacoin.com/register?ref=" + data.userid
       // USER EMAIL
       document.querySelector(".userEmail").innerHTML = data.email
       // USER EMAIL 2
