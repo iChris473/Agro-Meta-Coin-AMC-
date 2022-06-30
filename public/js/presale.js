@@ -48,14 +48,14 @@ const getAvailableCoins = () => {
     data.currencies
     .filter(tkn =>  
        tkn.toLowerCase() === "bnbbsc" ||
-       tkn.toLowerCase() === "eth" ||
-       tkn.toLowerCase() === "btc" ||
-       tkn.toLowerCase() === "aave" ||
-       tkn.toLowerCase() === "ltc" ||
+      //  tkn.toLowerCase() === "eth" ||
+      //  tkn.toLowerCase() === "btc" ||
+      //  tkn.toLowerCase() === "aave" ||
+      //  tkn.toLowerCase() === "ltc" ||
        tkn.toLowerCase() === "trx" ||
-       tkn.toLowerCase() === "busd" ||
-       tkn.toLowerCase() === "busdbsc" ||
-       tkn.toLowerCase() === "cake" 
+       tkn.toLowerCase() === "busd"
+      //  tkn.toLowerCase() === "busdbsc" ||
+      //  tkn.toLowerCase() === "cake" 
     ).map(coin => {
 
       const options = document.createElement("option")
@@ -106,7 +106,7 @@ const getAvailableCoins = () => {
     purchaseBtn.innerHTML = "LOADING..."
 
     const newPaymentObject = {
-      price_amount: parseInt(slotAmount.value),
+      price_amount: parseInt(slotAmount.value + 0.3),
       price_currency: "usd",
       pay_currency: coinList.value,
       ipn_callback_url: "https://nowpayments.io",
@@ -174,6 +174,7 @@ const getAvailableCoins = () => {
       payNetwork2.innerHTML = data.network
       payAmount.innerHTML = data.pay_amount
       document.querySelector(".coinAddress").innerHTML = data.pay_address
+      document.querySelector(".usdAmount").innerHTML = slotAmount.value + 0.3
       
       copyTokenAddress.addEventListener('click', () => {
         if (navigator && navigator.clipboard && navigator.clipboard.writeText){

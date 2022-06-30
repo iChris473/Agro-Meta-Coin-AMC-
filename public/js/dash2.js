@@ -10,6 +10,7 @@ const copyId = document.querySelector(".copyBtn")
 const preventReload = e => {
   e.preventDefault()
 }
+
 document.querySelector('form').addEventListener('submit', preventReload)
 
 const copyIdToClipboard = (text, btn) => {
