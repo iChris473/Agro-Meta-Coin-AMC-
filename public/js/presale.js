@@ -19,7 +19,7 @@ refIDD.value = window.location.search.split("=")[1] || ""
 slotAmount.addEventListener("input", () => {
     // slotNumber.innerHTML = slotAmount.value
     // slotPrice.innerHTML = parseInt(slotAmount.value) * 10
-    amcAmount.innerHTML = (parseInt(slotAmount.value) * 10000).toLocaleString()
+    amcAmount.innerHTML = (parseInt(slotAmount.value) * 1000).toLocaleString()
     
 })
 
@@ -61,7 +61,7 @@ const getAvailableCoins = () => {
       const options = document.createElement("option")
       options.className = "bg-transparent"
       options.value = coin
-      options.innerHTML = coin
+      options.innerHTML = coin.toUpperCase()
 
       coinList.appendChild(options)
   })
@@ -106,7 +106,7 @@ const getAvailableCoins = () => {
     purchaseBtn.innerHTML = "LOADING..."
 
     const newPaymentObject = {
-      price_amount: parseInt(slotAmount.value + 0.3),
+      price_amount: (parseInt(slotAmount.value) + .3),
       price_currency: "usd",
       pay_currency: coinList.value,
       ipn_callback_url: "https://nowpayments.io",
@@ -170,11 +170,11 @@ const getAvailableCoins = () => {
 
       blurDiv.classList.add('modalState')
       paymentModal.style.display = "block"
-      payNetwork.innerHTML = data.network
-      payNetwork2.innerHTML = data.network
+      payNetwork.innerHTML = data.network.toUpperCase()
+      payNetwork2.innerHTML = data.network.toUpperCase()
       payAmount.innerHTML = data.pay_amount
       document.querySelector(".coinAddress").innerHTML = data.pay_address
-      document.querySelector(".usdAmount").innerHTML = slotAmount.value + 0.3
+      document.querySelector(".usdAmount").innerHTML = "($" + (parseInt(slotAmount.value) + .3) + ")"
       
       copyTokenAddress.addEventListener('click', () => {
         if (navigator && navigator.clipboard && navigator.clipboard.writeText){
