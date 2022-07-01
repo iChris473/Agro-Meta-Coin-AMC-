@@ -67,7 +67,7 @@
 						color: white;
 						fill: currentcolor;
 					}
-					.modalStates {
+					.modalState {
             			filter: blur(10px) !important; height: 100vh; overflow: hidden;
         			}
 				</style>
@@ -100,7 +100,7 @@
 						<button id="login">Login</button>
 						<button id="reg" class="signup">Signup</button>
 					</nav>
-					<div class="modalState">
+					<div class="mainBody">
 					<!-- Hero Section -->
 					<section class="hero--section">
 						<!-- navigation bar -->
@@ -706,30 +706,37 @@
 			</body>
 
 			<!-- MODAL POP UP -->
-            <div style="display: none; background-color: #1b4a92;" class="centeredDiv paymentModal flexCenter">
-                <div class="flexCenter" style="justify-content: space-between; width: 100%; margin: 10px 5px;">
-					<!-- LOGO -->
-					<div class="flexCenter">
-						<img src="../../public/img/agropic.png" style="height: 60px; margin-right: 5px;" alt="#">
-						<h2 style="font-size: 18px; font-weight: bold;">AgroMetacoin</h2>
-					</div>
+            <div style="display: none; background-color: #ccc;" class="popupModal centeredDiv paymentModal flexCenter">
 					<!-- X ICON -->
-                    <svg xmlns="http://www.w3.org/2000/svg" style=" padding: 5px; border-radius: 50%; background: white" class="xicon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                </div>
-               <h1 style="color: #b1f193; text-align: center; font-weight: bold; font-size: 20px; max-width: 400px;">2,500 AMC BONUS ON REGISTRATION, AND ANOTHER 2,500 AMC GIVEAWAY AS AIRDROP</h1>
-			   <div class="flexCenter">
-					<svg width="36" height="36" viewBox="0 0 36 36"
-						fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path
-							d="M36 17.9872C28.9387 18.6287 24.8816 19.2188 22.3909 21.1689C19.4636 23.4526 18.7703 27.6351 18 36C17.204 27.3272 16.485 23.1703 13.2753 20.938C10.7846 19.1932 6.75321 18.6287 0 18.0128C7.03566 17.3713 11.1184 16.7812 13.5835 14.8567C16.5364 12.5474 17.2297 8.39059 18 0C18.719 7.72345 19.3609 11.8546 21.7489 14.2409C24.1369 16.6272 28.2967 17.2944 36 17.9872Z"
-							fill="white" />
-					</svg>
-					<p>ComingHome</p>
-			   </div>
+                <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; right: 5; top: 5; z-index: 5; padding: 5px; border-radius: 50%; background: rgb(208, 211, 208); height: 50px" class="closeModal xicon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+				<img src="/public/img/pop.jpeg" style="width: 80vw; object-fit: contain; margin: auto;" alt="">
+				<div class="flexCenter" style=" margin: 10px auto;">
+					<a href="/dashboard" style="background-color:#043613; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 15px; text-align: center;">Join Airdrop</a>
+				</div>
             </div>
 
 			<script src="../../public/js/config.js"></script>
+
+			<!-- POP UP FUNCTIONALITY -->
+			<script>
+
+				const closeModal = document.querySelector('.closeModal')
+				const popupModal = document.querySelector('.popupModal')
+				const boody = document.querySelector('.mainBody')
+
+				setTimeout(() => {
+					popupModal.style.display = 'block'
+					boody.classList.add('modalState')
+				}, 3200);
+
+				closeModal.addEventListener('click', () => {
+					popupModal.style.display = 'none'
+					boody.classList.remove('modalState')
+				})
+
+
+			</script>
 
 			</html>
