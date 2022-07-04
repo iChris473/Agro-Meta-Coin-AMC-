@@ -27,7 +27,7 @@ router.get("/user/get/:id",  userController.getOneUser)
 // Get All Emails
 router.get("/user/emails/:id", userController.getAllEmails)
 // Search For Users
-// router.get("/user/search/:id", verifiedAdminToken, userController.searchUser)
+router.get("/user/search/:id", userController.searchUser)
 // Search For Number of Users
 router.get("/user/number/:id", verifiedAdminToken, userController.getNoUsers)
 // Get All Users

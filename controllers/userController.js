@@ -473,29 +473,12 @@ exports.getAllUsers = async (req, res) => {
 exports.searchUser = async (req, res) => {
     const {user} = req.query
     try {
-        // const allUsers = User.find()
-        let query = User.find();
-        const page = parseInt(req.query.page) || 17
-        const pageSize = parseInt(req.query.limit) || 10000
-        const skip = (page - 1) * pageSize
-        const total = await User.countDocuments()
-        const pages = Math.ceil( total / pageSize )
-        query = query.skip(skip).limit(pageSize)
-        const allUsers = await query
+        // FIND IN EMAILS
+        const filteredResult = await User.find( { email: {
+                $regex: `${user}`
+            }} )
 
-        
-        const filteredUsers = allUsers
-        .filter(
-            u => 
-                 u.bsc.toLowerCase().includes(user.toLowerCase()) ||
-                 u.email.toLowerCase().includes(user.toLowerCase())
-        )
-        .sort((a,b) => {
-            if(a.createdAt > b.createdAt) return -1
-            if(a.createdAt < b.createdAt) return 1
-        })
-
-        return res.status(200).json(filteredUsers)
+        return res.status(200).json(filteredResult)
 
     } catch (err) {
         return res.status(400).json(err)
