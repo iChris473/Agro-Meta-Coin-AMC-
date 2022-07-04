@@ -474,11 +474,21 @@ exports.searchUser = async (req, res) => {
     const {user} = req.query
     try {
         // FIND IN EMAILS
-        const filteredResult = await User.find( { email: {
-                $regex: `${user}`
+        const filteredEmail = await User.find( { email: {
+                $regex: `${user}`,
+                $options: 'i'
             }} )
 
-        return res.status(200).json(filteredResult)
+        if( filteredEmail.length != 0 ){
+            return res.status(200).json(filteredEmail)
+        }
+
+        const filteredBsc = await User.find( { bsc: {
+            $regex: `${user}`,
+            $options: 'i'
+        }} )
+
+        return res.status(200).json(filteredBsc)
 
     } catch (err) {
         return res.status(400).json(err)
