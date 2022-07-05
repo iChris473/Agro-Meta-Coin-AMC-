@@ -1,15 +1,13 @@
 
 
-const form = document.querySelector('.form');
 const submit = document.querySelector('.submit');
-const amc = document.querySelector('.amc');
-const email = document.querySelector('.email');
+const oldBsc = document.querySelector('.oldBsc');
+const newBsc = document.querySelector('.newBsc');
 const apiError = document.querySelector('.apiError');
 const success = document.querySelector('.success');
 const password = document.querySelector('.password');
 
-amc.value = user.bsc || ""
-email.value = user.email || ""
+oldBsc.innerHTML = user.bsc
 
 const timeOut = () => {
     setTimeout(() => {
@@ -23,28 +21,30 @@ const submitForm = async e => {
 
     submit.disabled = true;
 
-    submit.innerHTML = "Updating..."
-
+    
     const newUser = {
-      bsc: amc.value,
+      bsc: newBsc.value,
       
     }
 
-    if(user.email != email.value){
-      newUser.email = email.value
+
+    if(newBsc.value == user.bsc ){
+      apiError.classList.remove("hidden")
+      apiError.innerHTML = "Please Enter a different Address"
+      timeOut()
+      submit.disabled = false;
+      return
     }
 
-    if(!email.value || !amc.value){
+    if(!newBsc.value || !password){
       apiError.classList.remove("hidden")
       apiError.innerHTML = "Please Fill Required Fields"
       timeOut()
       submit.disabled = false;
-      submit.innerHTML = "Update"
       return
     }
     
-
-    console.log(newUser)
+    submit.innerHTML = "Updating..."
 
     fetch(`${url}/user/update/${user._id}?p=${password.value}`, {
       method: "PUT",
@@ -58,7 +58,7 @@ const submitForm = async e => {
           return response.json();
         } else {
             return response.text().then((text) => {
-              apiError.innerHTML = text;
+              apiError.innerHTML = text.replace(/"/g, '');
               apiError.classList.remove("hidden")
               window.location.href = "#error"
               submit.innerHTML = "Update"
@@ -73,7 +73,7 @@ const submitForm = async e => {
         console.log(data);
 
 
-        const  {email, amc, ...others} = user
+        const  {bsc, ...others} = user
         const updatedUser = {...others, ...newUser}
 
         window.localStorage.setItem("user", JSON.stringify(updatedUser))
@@ -83,18 +83,16 @@ const submitForm = async e => {
         success.classList.remove("hidden")
         submit.disabled = false;
         password.value = ""
+        oldBsc.innerHTML = newBsc.value
+        newBsc.value = ""
 
       })
       .catch(function (error) {
         console.log(error)
-        apiError.innerHTML = "Oops! An Error Occured";
-        apiError.classList.remove("hidden")
-        window.location.href = "#error"
-        submit.innerHTML = "Update"
-        submit.disabled = false;
+       
         timeOut();
       })
 
 }
 
-form.addEventListener('submit',  submitForm)
+submit.addEventListener('click',  submitForm)

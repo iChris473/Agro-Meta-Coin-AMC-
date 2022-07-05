@@ -168,7 +168,7 @@ exports.updateUser = async(req, res) => {
 
             const correctPassword = await bcrypt.compare(p, oldUser.password);
 
-            if (!correctPassword) return res.status(401).json("InCorrect Password");
+            if (!correctPassword) return res.status(401).json("Incorrect Password");
 
             newUser = {
                 ...req.body,
@@ -181,7 +181,11 @@ exports.updateUser = async(req, res) => {
 
             const correctPassword = await bcrypt.compare(p, oldUser.password);
 
-            if (!correctPassword) return res.status(401).json("InCorrect Password");
+            if (!correctPassword) return res.status(401).json("Incorrect Password");
+
+            const registered = await User.findOne({bsc: req.body.bsc})
+
+            if(registered) return res.status(401).json("An Account is already registered with this Address")
 
         }
 
@@ -190,7 +194,7 @@ exports.updateUser = async(req, res) => {
           // checks password
           const validPassword = await bcrypt.compare(p, oldUser.password);
 
-          if (!validPassword) return res.status(401).json("InCorrect Password");
+          if (!validPassword) return res.status(401).json("Incorrect Password");
 
           const salt = await bcrypt.genSalt(10);
           const hashedPassword = await bcrypt.hash(req.body.password, salt);

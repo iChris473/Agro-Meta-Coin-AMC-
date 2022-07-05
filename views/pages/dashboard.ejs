@@ -72,16 +72,50 @@
             </span>
         </a>
 
-        <a href="/coming">
+        <a style="margin-bottom: 10px;" href="#">
             <span class="material-symbols-outlined">
                 settings
             </span>
-            <span>
+            <span class="settingClicked1">
                 Settings
             </span>
             <span class="material-symbols-outlined chevron">
                 chevron_right
             </span>
+            <div class="settingOptions1" style="display: none; flex-direction: column; align-items: flex-start; margin-top: 30px; gap: 5px">
+                <p class="goBSC1" style="cursor: pointer;">BSC</p>
+                <p class="goEMAIL1" style="cursor: pointer;">Email</p>
+                <p class="goPASSWORD1" style="cursor: pointer;">Password</p>
+            </div>
+            <script>
+
+                let hidden1 = true
+                const settingOptions1 = document.querySelector(".settingOptions1")
+                document.querySelector(".settingClicked1").addEventListener('click', () => {
+
+                    hidden1 ? (settingOptions1.style.display = "flex") :
+                    (settingOptions1.style.display = "none");
+
+                    hidden1 = !hidden1
+
+                })
+
+                document.querySelector(".goBSC1").addEventListener("click", () => {
+                    hidden1 = false
+                    window.location.href = "/editbsc"
+                })
+
+                document.querySelector(".goEMAIL1").addEventListener("click", () => {
+                    hidden1 = false
+                    window.location.href = "/editemail"
+                })
+
+                document.querySelector(".goPASSWORD1").addEventListener("click", () => {
+                    hidden1 = false
+                    window.location.href = "/editpassword"
+                })
+
+            </script>
         </a>
 
         <button class="thislogout">Logout</button>

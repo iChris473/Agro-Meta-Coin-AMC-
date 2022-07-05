@@ -7,14 +7,14 @@ const cors = require("cors")
 
 app.enable('trust proxy')
 
-// app.use(function(request, response, next) {
+app.use(function(request, response, next) {
 
-//     if (process.env.NODE_ENV != 'development' && !request.secure) {
-//        return response.redirect("https://" + request.headers.host + request.url);
-//     }
+    if (process.env.NODE_ENV != 'development' && !request.secure) {
+       return response.redirect("https://" + request.headers.host + request.url);
+    }
 
-//     next();
-// })
+    next();
+})
 
 // serve your css as static
 app.use('/public', express.static('public'));
@@ -65,7 +65,10 @@ app.get("/airdrop", (req, res) => res.render("./pages/airdrop"))
 app.get("/editpassword", (req, res) => res.render("./pages/editpass"))
 
 // editProfile pass route for User Domain
-app.get("/editacc", (req, res) => res.render("./pages/editacc"))
+app.get("/editemail", (req, res) => res.render("./pages/editemail"))
+
+// editProfile pass route for User Domain
+app.get("/editbsc", (req, res) => res.render("./pages/editbsc"))
 
 // editProfile pass route for User Domain
 app.get("/dashboard", (req, res) => res.render("./pages/dashboard"))

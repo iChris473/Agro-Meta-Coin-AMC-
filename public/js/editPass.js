@@ -1,6 +1,6 @@
 
 
-const form = document.querySelector('.form');
+
 const submit = document.querySelector('.submit');
 const confirmPass = document.querySelector('.confirmPass');
 const oldPass = document.querySelector('.oldPass');
@@ -26,6 +26,12 @@ const submitForm = async e => {
         timeOut()
         return
     }
+    if(!confirmPass.value || !newPass.value || !oldPass.value){
+        apiError.classList.remove("hidden")
+        apiError.innerHTML = "Please fill all fields"
+        timeOut()
+        return
+    }
     submit.innerHTML = "Updating..."
 
     fetch(`${url}/user/update/${user._id}?p=${oldPass.value}`, {
@@ -41,7 +47,7 @@ const submitForm = async e => {
           return response.json();
         } else {
             return response.text().then((text) => {
-              apiError.innerHTML = text;
+              apiError.innerHTML = text.replace(/"/g, '');
               apiError.classList.remove("hidden")
               submit.innerHTML = "Update"
               timeOut();
@@ -55,6 +61,9 @@ const submitForm = async e => {
         submit.innerHTML = "Update"
         success.innerHTML = "Password successfully updated";
         success.classList.remove("hidden")
+        newPass.value = ""
+        oldPass.value = ""
+        confirmPass.value = ""
       })
       .catch(function (error) {
         console.log(error)
@@ -62,4 +71,4 @@ const submitForm = async e => {
 
 }
 
-form.addEventListener('submit',  submitForm)
+submit.addEventListener('click',  submitForm)

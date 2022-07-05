@@ -83,7 +83,6 @@
         width: 93%;
         max-width: 600px;
     }
-
     .hidden{
         display: none;
     }
@@ -276,26 +275,26 @@
 
             <!-- PURCHASE NOW -->
             <section style="margin: 50px 20px; padding: 8px; background: #F8F7FF;">
-                <h1 class="purchaseTitle">Update Password</h1>
+                <h1 class="purchaseTitle">Update Email Address</h1>
                 <!-- AMOUNT OF COINS -->
                 <div id="slotAmount" class="pForm">
                     <p style="color: #B8003A; text-align: center; font-size: 13px;" class="mismatch hidden">Passwords doesn't match</p>
-                    <p style="color: #B8003A; text-align: center; font-size: 13px;" class="apiError hidden"></p>
+                    <p style="color: #B8003A; text-align: center; font-size: 18px;" class="apiError hidden"></p>
                     <p style="color: #00b800; text-align: center; font-size: 13px;" class="success hidden"></p>
-                    <p class="pPlaceholder">Old Password</p>
-                    <input type="password" class="purchaseInput oldPass" placeholder="Enter Old Password">
+                    <p class="pPlaceholder">Old Email Address</p>
+                    <p class="purchaseInput oldemail"></p>
                 </div>
             
                 <!-- SELECT COIN TYPE -->
                 <div class="pForm">
-                    <p class="pPlaceholder">New Password</p>
-                    <input type="password" class="purchaseInput newPass" placeholder="Enter New Password">
+                    <p class="pPlaceholder">New Email Address</p>
+                    <input type="email" class="purchaseInput newemail" placeholder="Enter a valid Email Address">
                 </div>  
             
                 <!-- REFERRAL ID -->
                 <div class="pForm">
-                    <p class="pPlaceholder">Confirm Password</p>
-                    <input type="password" class="purchaseInput confirmPass" placeholder="Confirm New Password">
+                    <p class="pPlaceholder">Password</p>
+                    <input type="password" class="purchaseInput password" placeholder="*******">
                 </div>
 
                 <!-- PURCHASE BUTTON -->
@@ -310,7 +309,7 @@
 </section>
 <!-- Javascript codes and links -->
 
-<script src="/public/js/editPass.js"></script>
+<script src="/public/js/editemail.js"></script>
 
 <script>
     const navContainer = document.querySelector('.dash--mobile');
