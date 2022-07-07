@@ -35,13 +35,13 @@ exports.createPresale = async (req, res) => {
                         await grandReferal.updateOne({bonus: (parseInt(req.body.amount) * 500) + parseInt(grandReferal.bonus)})
                     }
 
-                    recentPresale = {amount: (parseInt(req.body.amount) * 10000)}
+                    recentPresale = {amount: (parseInt(req.body.amount) * 1000)}
     
                 }
             }
 
             if(req.body.amount){
-                recentPresale = {amount: (parseInt(req.body.amount) * 10000)}
+                recentPresale = {amount: (parseInt(req.body.amount) * 1000)}
             }
 
 
@@ -64,9 +64,11 @@ exports.createPresale = async (req, res) => {
             
             return res.status(201).json(updatePresale)
         }
+
         if(!req.body.bsc) return res.status(400).json("An error occured")
 
         await newPresale.save()
+
         res.status(201).json(newPresale)
 
     } catch (error) {
@@ -150,6 +152,7 @@ exports.getAllPresales = async (req, res) => {
     } catch (error) {
         return res.status(400).json("An error occured while trying to get presales")
     }
+
 }
 
 exports.deletePresale = async (req, res) => {

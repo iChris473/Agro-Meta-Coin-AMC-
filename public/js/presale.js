@@ -153,6 +153,7 @@ const getAvailableCoins = () => {
         userId: user.userid,
         paymentId: data.payment_id,
         bsc: user.bsc
+        // amount: (data.price_amount * data.actually_paid / data.pay_amount)
       }
       refIDD.value && (newPresale.ref = refIDD.value)
 

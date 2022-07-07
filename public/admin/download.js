@@ -25,7 +25,7 @@ const GetCSV = async (value) => {
 
     btn.innerHTML = "Fetching Data..."
 
-    fetch(`${url}/user/emails/${admin.id}?page=${value}&limit=10000`, {
+    fetch(`${url}/user/emails/${admin.id}?page=${value}&limit=20000`, {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
