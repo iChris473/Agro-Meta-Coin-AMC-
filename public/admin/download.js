@@ -4,11 +4,11 @@ const select = document.querySelector("select")
 
 let mainCsvFile = {}
 
-const downloadFile = (data) => {
+const downloadFile = () => {
 
-    btn.innerHTML = "Fetching Data..."
-
-    const blob = new Blob([data], {type: "text/csv"});
+    btn.innerHTML = "Downloading Data..."
+    
+    const blob = new Blob([mainCsvFile], {type: "text/csv"});
 
     const URL = window.URL.createObjectURL(blob);
     const a = document.createElement("a")
@@ -19,11 +19,13 @@ const downloadFile = (data) => {
     a.click()
     document.body.removeChild(a) 
     btn.innerHTML = "Download"
+    
 }
 
 const GetCSV = async (value) => {
 
     btn.innerHTML = "Fetching Data..."
+    btn.disabled = true
 
     fetch(`${url}/user/emails/${admin.id}?page=${value}&limit=20000`, {
         method: "GET",
@@ -47,6 +49,7 @@ const GetCSV = async (value) => {
           console.log(data)
           btn.style.display = 'block'
           btn.innerHTML = "Download"
+          btn.disabled = false
           // const newCsvData = data.join("\n");
           const newCsvData = [];
 
@@ -62,6 +65,7 @@ const GetCSV = async (value) => {
           }
 
           mainCsvFile = newCsvData.join("\n")
+          
 
           Array.from({ length: data.pages }).map((u, i) => {
             const options = document.createElement("option")
@@ -87,4 +91,4 @@ GetCSV(1)
 
 select.addEventListener("change", GetCSV.bind(null, select.value))
 
-btn.addEventListener("click", downloadFile.bind(null, mainCsvFile))
+btn.addEventListener("click", downloadFile)
