@@ -18,6 +18,7 @@ const provider = new WalletConnectProvider({
 
   // Subscribe to session disconnection
 provider.on("disconnect", (code, reason) => {
+    connectBtn.innerHTML = "DISCONNECTED"
     console.log(code, reason);
   });
   // Subscribe to session connection
