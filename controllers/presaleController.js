@@ -154,6 +154,49 @@ exports.getAllPresales = async (req, res) => {
     }
 
 }
+exports.getAllPresaleAmount = async (req, res) => {
+    
+    try {
+
+        let totalPresaleAmnt = 0
+
+        let mainQuery = Presale.find({amount: {$gt: 0}});
+
+        let pageSize = 500
+        
+        const total = await Presale.countDocuments()
+
+        let query = mainQuery.skip(0).limit(500)
+
+        let results = await query
+
+        for(const value of results){
+
+            totalPresaleAmnt += parseInt(value.amount)
+ 
+        }
+
+        while (total > pageSize) {
+
+            pageSize += 500
+            let newQuery = mainQuery.skip(pageSize).limit(500)
+            let newResult = await newQuery
+
+            for(const value of newResult){
+
+                totalPresaleAmnt += parseInt(value.amount)
+     
+            }
+            
+        }
+        
+        return res.status(404).json(totalPresaleAmnt)
+
+    } catch (error) {
+        return res.status(400).json("Some Error Occured")
+    }
+
+}
 
 exports.deletePresale = async (req, res) => {
 

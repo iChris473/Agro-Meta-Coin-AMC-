@@ -73,11 +73,8 @@ app.get("/editbsc", (req, res) => res.render("./pages/editbsc"))
 // editProfile pass route for User Domain
 app.get("/dashboard", (req, res) => res.render("./pages/dashboard"))
 
-// editProfile pass route for User Domain
-app.get("/presale", (req, res) => res.redirect("/coming"))
-
-// editProfile pass route for User Domain
-app.get("/ipresale", (req, res) => res.render("./pages/presale"))
+// Presale pass route for User Domain
+app.get("/presale", (req, res) => res.render("./pages/presale"))
 
 // Roadmap pass route for User Domain
 app.get("/roadmap", (req, res) => res.render("./pages/roadmap"))
