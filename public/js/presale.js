@@ -255,3 +255,33 @@ const getAvailableCoins = () => {
   presaleRefLink.value = refferalLink
   const copyRefLinkBtn = document.querySelector('.copyBtn')
   copyRefLinkBtn.addEventListener('click', copyIdToClipboard.bind(null, (refferalLink), copyRefLinkBtn))
+  
+  const totalAmcAmount = document.querySelector('.totalAmcAmount')
+  const totalPercent = document.querySelector('.totalPercent')
+  
+  async function postHash() {
+
+    try{
+      
+      let response = await fetch(`${url}/presale/amount/get`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      const number = await response.json();
+      console.log(number)
+      totalAmcAmount.innerHTML = number.toLocaleString()
+
+      totalPercent.innerHTML = Math.ceil( number / 2500000000 * 100 ) + '%'
+
+    }catch(err){
+      console.log(err);
+      // Handle errors here
+      totalAmcAmount.innerHTML = 0
+    }
+
+  }
+
+  postHash()

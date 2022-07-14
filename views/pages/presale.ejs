@@ -134,15 +134,17 @@
             max-width: 600px;
             width: 95%;
             margin: auto;
+            border: 1px solid #0023585d
         }
         .purchaseInput{
             outline: none;
             background: #FFFFFF;
-            border-radius: 3px;
+            border-radius: 7px;
             height: 40px;
             max-width: 600px;
             width: 95%;
             padding: 8px;
+            border: 1px solid #0023585d
         }
         .pForm {
             display: flex;
@@ -382,11 +384,10 @@
                 <!-- PURCHASE NOW -->
                 <section style="margin: 50px 20px; padding: 8px; background: #F8F7FF;">
                     <h1 class="purchaseTitle">Become a part of the AMC family! Currently Funding for Round 1</h1>
-                    <p style="text-align: center; margin: 15px auto;">ROUND 1 PROGRESS - 0 AMC of 2,500,000,000 AMC</p>
-                
+                    <p style="text-align: center; margin: 15px auto;">ROUND 1 PROGRESS - <span class="totalAmcAmount"></span> AMC of 2,500,000,000 AMC</p>
                     <!-- PROGRESS BAR -->
                     <div class="percentParent">
-                        <p class="percent flexCenter">5%</p>
+                        <p class="percent flexCenter totalPercent"></p>
                     </div>
                 
                     <!-- AMOUNT OF COINS -->
