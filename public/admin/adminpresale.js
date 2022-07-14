@@ -61,12 +61,17 @@ async function getAllusers(){
           
           pageName.innerHTML = `Page ${data.page}`
 
+          let serialNumber = 1
+
           data.data.forEach((user) =>{
 
             const tableRow = document.createElement("tr")
             tableRow.className = "bg-white border-b hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 tableRow"
             tableRow.innerHTML =
             `
+            <td class="px-6 py-4 font-medium text-gray-900">
+            ${serialNumber++}
+            </td>
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap cursor-pointer">
             ${user.bsc}
             </th>

@@ -170,7 +170,9 @@ const getAvailableCoins = () => {
       purchaseBtn.innerHTML = "PURCHASE"
 
       blurDiv.classList.add('modalState')
+
       paymentModal.style.display = "block"
+
       payNetwork.innerHTML = data.network.toUpperCase()
       payNetwork2.innerHTML = data.network.toUpperCase()
       payAmount.innerHTML = data.pay_amount
@@ -259,7 +261,7 @@ const getAvailableCoins = () => {
   const totalAmcAmount = document.querySelector('.totalAmcAmount')
   const totalPercent = document.querySelector('.totalPercent')
   
-  async function postHash() {
+  async function getProgressBar() {
 
     try{
       
@@ -284,4 +286,4 @@ const getAvailableCoins = () => {
 
   }
 
-  postHash()
+  getProgressBar()
