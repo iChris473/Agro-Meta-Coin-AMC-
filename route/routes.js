@@ -65,6 +65,8 @@ router.post("/presale/generate", presaleController.createPresale)
 router.get("/presale/user/:id", presaleController.getUserPresale)
 // Get All Presales
 router.get("/presale/all/:id", presaleController.getAllPresales)
+// GET TOTAL PRESALE AMOUNT
+router.get("/presale/amount/get", presaleController.getAllPresaleAmount)
 // Get Presales Bonus
 router.get("/presale/bonus/:id", presaleController.getPresaleRefBonus)
 // Delete Presale

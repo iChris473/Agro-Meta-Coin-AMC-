@@ -172,7 +172,9 @@ exports.getAllPresaleAmount = async (req, res) => {
 
         for(const value of results){
 
+            // console.log(totalPresaleAmnt)
             totalPresaleAmnt += parseInt(value.amount)
+            console.log(value)
  
         }
 
@@ -190,7 +192,7 @@ exports.getAllPresaleAmount = async (req, res) => {
             
         }
         
-        return res.status(404).json(totalPresaleAmnt)
+        return res.status(200).json(totalPresaleAmnt)
 
     } catch (error) {
         return res.status(400).json("Some Error Occured")
