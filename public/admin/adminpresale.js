@@ -63,16 +63,26 @@ async function getAllusers(){
 
           let serialNumber = 1
 
+          var createdAt = "2020-03-30T12:44:20.221+00:00"
+          
           data.data.forEach((user) =>{
 
+            var date = new Date(user.createdAt)
+  
+            // Or even more concise (Thanks @RobG)
+            const presaleDate = date.toLocaleString('en-GB', {day:'numeric', month: 'long'})
+
             const tableRow = document.createElement("tr")
-            tableRow.className = "bg-white border-b hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 tableRow"
+            tableRow.className = "bg-white border-b hover:bg-gray-100 sdark:bg-gray-800 sdark:border-gray-700 tableRow"
             tableRow.innerHTML =
             `
             <td class="px-6 py-4 font-medium text-gray-900">
             ${serialNumber++}
             </td>
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap cursor-pointer">
+            <td class="px-6 py-4 font-medium text-gray-900">
+            ${presaleDate}
+            </td>
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 sdark:text-white whitespace-nowrap cursor-pointer">
             ${user.bsc}
             </th>
             <td class="px-6 py-4 font-medium text-gray-900">
@@ -94,6 +104,55 @@ async function getAllusers(){
                   localStorage.setItem("thisPresale", JSON.stringify(user))
                   window.location.href = "/admin/thispresale"
               })
+
+              if(user.childPayment){
+
+                for(const sale of user.childPayment){
+
+                  var childDate = new Date(sale.date)
+  
+                  // Or even more concise (Thanks @RobG)
+                  const childPresaleDate = childDate.toLocaleString('en-GB', {day:'numeric', month: 'long'})
+
+                  const tableRow = document.createElement("tr")
+                  tableRow.className = "bg-white border-b hover:bg-gray-100 sdark:bg-gray-800 sdark:border-gray-700 tableRow"
+                  tableRow.innerHTML =
+                  `
+                  <td class="px-6 py-4 font-medium text-gray-900">
+                  ${serialNumber++}
+                  </td>
+                  <td class="px-6 py-4 font-medium text-gray-900">
+                  ${childPresaleDate}
+                  </td>
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 sdark:text-white whitespace-nowrap cursor-pointer">
+                  ${user.bsc}
+                  </th>
+                  <td class="px-6 py-4 font-medium text-gray-900">
+                      ${user.ref || "N/A"}
+                  </td>
+                  <td class="px-6 py-4 font-medium text-gray-900">
+                  ${user.grandRef || "N/A"}
+                  </td>
+                  <td class="px-6 py-4 font-medium text-gray-900">
+                  ${sale.amount}</td>
+                  <td class="px-6 py-4 font-medium text-gray-900">
+                  ${sale.paid}</td>
+                  <td class="px-6 py-4 font-medium text-gray-900">
+                  ${user.hash || "N/A"}</td>
+      
+                  `
+
+                  tableBody.appendChild(tableRow)
+                  tableRow.addEventListener("click", () => {
+                    localStorage.setItem("thisPresale", JSON.stringify(user))
+                    window.location.href = "/admin/thispresale"
+                  })
+
+
+                }
+              
+              
+              }
           })
         })
         .catch(function (err) {
@@ -128,10 +187,10 @@ async function filterUser(){
           data.forEach((user) =>{
 
             const tableRow = document.createElement("tr")
-            tableRow.className = "bg-white border-b hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 tableRow"
+            tableRow.className = "bg-white border-b hover:bg-gray-100 sdark:bg-gray-800 sdark:border-gray-700 tableRow"
             tableRow.innerHTML =
             `
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap cursor-pointer">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 sdark:text-white whitespace-nowrap cursor-pointer">
             ${user.bsc}
             </th>
             <td class="px-6 py-4 font-medium text-gray-900">

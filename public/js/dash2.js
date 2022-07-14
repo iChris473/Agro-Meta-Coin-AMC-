@@ -131,17 +131,25 @@ const getUserInformations = () => {
         });
   
         const resData =  await response.json();
+        console.log(resData)
 
         let totalPayment = 0
 
         if(resData?.paymentId){
 
+          // FOR LOOPS OF ALL POSSIBLE PAYMENT INSTANCE
           for(const id of resData.paymentId){
   
             const paymentResult = await getPresaleBalance(id)
-            
+            // INCREMENT TOTALPAYMENT AND CREATE OR UPDATE INSTANCE OF PAYMENT
             if( (paymentResult.payment_status == "finished") || (paymentResult.payment_status == "partially_paid") ){
-              totalPayment += Math.round( paymentResult.price_amount * paymentResult.actually_paid / paymentResult.pay_amount )
+
+              const grandTotal = Math
+              .round(paymentResult.price_amount * paymentResult.actually_paid / paymentResult.pay_amount)
+              totalPayment += grandTotal
+
+              updatePresaleAmount(grandTotal, id)
+
             }
   
           }
@@ -184,9 +192,9 @@ const getUserInformations = () => {
           (recentRefs.length * 5000) 
         ).toLocaleString()
 
-        if(totalPayment > 0){
-          updatePresaleAmount(totalPayment)
-        }
+        // if(totalPayment > 0){
+        //   updatePresaleAmount(totalPayment)
+        // }
   
       }catch(err){
         console.log(err);
@@ -217,12 +225,15 @@ const getUserInformations = () => {
     }
   
 
-    async function updatePresaleAmount(amount) {
+    async function updatePresaleAmount(amount, id) {
+
       try{
   
         const newPresale = {
           userId: user.userid,
-          amount
+          amount,
+          bsc: user.bsc,
+          mainPaymentId: id
         }
   
         let response = await fetch(`${url}/presale/generate`, {
@@ -233,11 +244,15 @@ const getUserInformations = () => {
           body: JSON.stringify(newPresale)
         });
   
-        await response.json();
-  
+        const main = await response.json();
+        console.log(main)
+
       }catch(err){
+
         console.log(err);
+      
       }
+
     }
 
   

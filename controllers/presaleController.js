@@ -41,7 +41,7 @@ exports.createPresale = async (req, res) => {
             }
 
             if(req.body.amount){
-                recentPresale = {amount: (parseInt(req.body.amount) * 1000)}
+                recentPresale.amount = (parseInt(req.body.amount) * 1000)
             }
 
 
@@ -50,6 +50,14 @@ exports.createPresale = async (req, res) => {
                 const {paymentId, ...others} = oldPresale._doc
                 
                 recentPresale = {...others, paymentId: paymentId.concat(req.body.paymentId)}
+
+            }
+
+            if(req.body.mainPaymentId && oldPresale.mainPaymentId){
+
+               recentPresale.childPayment = {paymentId: req.body.mainPaymentId, amount: (parseInt(req.body.amount) * 1000)}
+               recentPresale.amount = oldPresale.amount
+
 
             }
 
