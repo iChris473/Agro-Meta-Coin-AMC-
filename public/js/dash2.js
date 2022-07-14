@@ -157,8 +157,8 @@ const getUserInformations = () => {
         }
 
         document.querySelector(".paidCoin").innerHTML = totalPayment
-        document.querySelector(".boughtCoins").innerHTML = "AMC " + totalPayment * 10000
-        document.querySelector(".boughtCoins2").innerHTML = "AMC " + totalPayment * 10000
+        // document.querySelector(".boughtCoins").innerHTML = "AMC " + totalPayment * 1000
+        // document.querySelector(".boughtCoins2").innerHTML = "AMC " + totalPayment * 1000
 
         const assetsTotal = document.querySelector(".assetsTotal")
         const assetsTotal2 = document.querySelector(".assetsTotal2")
@@ -167,7 +167,7 @@ const getUserInformations = () => {
         
         totalAmcCoins.innerHTML = (
           (recentUser.amount || user.amount) + 
-          (totalPayment * 10000) + 
+          (totalPayment * 1000) + 
           recentUser.airdropAmount +
           (recentUser.receieved || user.receieved) +
           (resData?.bonus || 0) +
@@ -176,7 +176,7 @@ const getUserInformations = () => {
 
         assetsTotal.innerHTML = "AMC " + (
           (recentUser.amount || user.amount) + 
-          (totalPayment * 10000) + 
+          (totalPayment * 1000) + 
           recentUser.airdropAmount +
           (recentUser.receieved || user.receieved) +
           (resData?.bonus || 0) +
@@ -185,7 +185,7 @@ const getUserInformations = () => {
 
         assetsTotal2.innerHTML = "AMC " + (
           (recentUser.amount || user.amount) + 
-          (totalPayment * 10000) + 
+          (totalPayment * 1000) + 
           recentUser.airdropAmount +
           (recentUser.receieved || user.receieved) +
           (resData?.bonus || 0) +
