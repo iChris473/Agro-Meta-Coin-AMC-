@@ -251,6 +251,7 @@ const getAvailableCoins = () => {
     const preventReload = e => {
       e.preventDefault()
     }
+
     document.querySelector('form').addEventListener('submit', preventReload)
 
   const refferalLink = 'www.agrometacoin.com/presale?ref=' + user.userid
@@ -274,7 +275,7 @@ const getAvailableCoins = () => {
       });
 
       const number = await response.json();
-      console.log(number)
+     
       totalAmcAmount.innerHTML = number.toLocaleString()
 
       totalPercent.innerHTML = Math.ceil( number / 2500000000 * 100 ) + '%'
@@ -288,3 +289,67 @@ const getAvailableCoins = () => {
   }
 
   getProgressBar()
+  
+  async function getPresaleReferrals() {
+
+    try{
+      
+      let response = await fetch(`${url}/presale/ref/user?id=${user.userid}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      const allRefs = await response.json();
+
+      const tableBody = document.querySelector(".referrals--table");
+
+      allRefs.referrals.forEach((ref) => {
+
+        const tableRow = document.createElement("div");
+
+        tableRow.className =
+          "table data";
+
+        tableRow.innerHTML = 
+          `
+
+          <p class="bio">
+              <span>${ref.bsc}</span>
+          </p>
+          <p class="bio">Refferral</p>
+
+          `;
+        tableBody.appendChild(tableRow);
+      });
+
+      allRefs.downlines.forEach((ref) => {
+
+        const tableRow = document.createElement("div");
+
+        tableRow.className =
+          "table data";
+
+        tableRow.innerHTML = 
+          `
+
+          <p class="bio">
+              <span>${ref.bsc}</span>
+          </p>
+          <p class="bio">Downline</p>
+
+          `;
+        tableBody.appendChild(tableRow);
+      });
+      
+      console.log(allRefs)
+
+    } catch(err){
+      console.log(err);
+      // Handle errors here
+    }
+
+  }
+
+  getPresaleReferrals()

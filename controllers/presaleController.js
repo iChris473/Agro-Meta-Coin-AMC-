@@ -298,3 +298,23 @@ exports.getAdminPresales = async (req, res) => {
     }
 
 }
+
+// GET USER REFERRAL PRESALE
+exports.getUserRefPresale = async (req, res) => {
+    
+    try {
+        
+        const referrals = await Presale.find({ref: req.query.id})
+
+        const downlines = await Presale.find({grandRef: req.query.id})
+
+        return res.status(200).json({
+            referrals,
+            downlines
+        })
+        
+    } catch (error) {
+        console.log(error)
+    }
+
+}

@@ -71,8 +71,10 @@ router.get("/presale/amount/get", presaleController.getAllPresaleAmount)
 router.get("/presale/bonus/:id", presaleController.getPresaleRefBonus)
 // Delete Presale
 router.delete("/presale/:id", presaleController.deletePresale)
-// Delete Presale
+// SEARCH Presale
 router.get("/presale/search/:id", verifiedAdminToken, presaleController.searchPresale)
+// GET USER PRESALE
+router.get("/presale/ref/user", presaleController.getUserRefPresale)
 
 
 module.exports = router
