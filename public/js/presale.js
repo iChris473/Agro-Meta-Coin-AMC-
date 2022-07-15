@@ -44,7 +44,7 @@ const getAvailableCoins = () => {
     return Promise.reject(response);
   })
   .then(function (data) {
-      
+    
     data.currencies
     .filter(tkn =>  
        tkn.toLowerCase() === "bnbbsc" ||
@@ -56,7 +56,8 @@ const getAvailableCoins = () => {
        tkn.toLowerCase() === "busd"
       //  tkn.toLowerCase() === "busdbsc" ||
       //  tkn.toLowerCase() === "cake" 
-    ).map(coin => {
+    )
+    .map(coin => {
 
       const options = document.createElement("option")
       options.className = "bg-transparent"
@@ -173,8 +174,8 @@ const getAvailableCoins = () => {
 
       paymentModal.style.display = "block"
 
-      payNetwork.innerHTML = data.network.toUpperCase()
-      payNetwork2.innerHTML = data.network.toUpperCase()
+      payNetwork.innerHTML = data.pay_currency.toUpperCase()
+      payNetwork2.innerHTML = data.pay_currency.toUpperCase()
       payAmount.innerHTML = data.pay_amount
       document.querySelector(".coinAddress").innerHTML = data.pay_address
       document.querySelector(".usdAmount").innerHTML = "($" + (parseInt(slotAmount.value) + .3) + ")"
