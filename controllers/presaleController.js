@@ -1,13 +1,16 @@
 
 const Presale = require("../models/Presale")
+const AdminPresale = require("../models/AdminPresale")
 
 exports.createPresale = async (req, res) => { 
 
-    const newPresale = new Presale(req.body)
-
     try {
+
         
-        const oldPresale = await Presale.findOne({userId: req.body.userId})
+        // USER PRESALE
+        const newPresale = new Presale(req.body)
+        
+        const oldPresale = await Presale.findOne({ userId: req.body.userId })
 
         if(oldPresale){
 
@@ -29,10 +32,10 @@ exports.createPresale = async (req, res) => {
 
                 if(req.body.amount){
 
-                    await parentRef.updateOne({bonus: (parseInt(req.body.amount) * 1000) + parseInt(parentRef.bonus)})
+                    await parentRef.updateOne({bonus: (parseInt(req.body.amount) * 100) + parseInt(parentRef.bonus)})
 
                     if(grandReferal){
-                        await grandReferal.updateOne({bonus: (parseInt(req.body.amount) * 500) + parseInt(grandReferal.bonus)})
+                        await grandReferal.updateOne({bonus: (parseInt(req.body.amount) * 50) + parseInt(grandReferal.bonus)})
                     }
 
                     recentPresale = {amount: (parseInt(req.body.amount) * 1000)}
@@ -53,13 +56,37 @@ exports.createPresale = async (req, res) => {
 
             }
 
-            if(req.body.mainPaymentId && oldPresale.mainPaymentId){
+            // ADMIN PRESALE
 
-               recentPresale.childPayment = {paymentId: req.body.mainPaymentId, amount: (parseInt(req.body.amount) * 1000)}
-               recentPresale.amount = oldPresale.amount
+            const {amount, ...adminPresaleBody} = req.body
 
+            const newAdminPresale = new AdminPresale({
+                ...adminPresaleBody,
+                amount: (parseInt(amount) * 1000)
+            })
 
+            const oldAdminPresale = await AdminPresale.findOne({ adminPaymentId: req.body.adminPaymentId })
+
+            if (oldAdminPresale) {
+
+                await AdminPresale.findOneAndUpdate(
+                    {
+                        adminPaymentId: req.body.adminPaymentId
+                    }, {
+                    $set: { 
+                        ...adminPresaleBody,
+                        amount: (parseInt(amount) * 1000),
+                        bonus: oldPresale.bonus || 0
+                    }
+                }, { new: true }
+                )
+
+            } else {
+
+                req.body.adminPaymentId && await newAdminPresale.save()
             }
+            // END ADMIN PRESALE
+
 
             const updatePresale = await Presale.findOneAndUpdate(
                 {
@@ -77,13 +104,16 @@ exports.createPresale = async (req, res) => {
 
         await newPresale.save()
 
-        res.status(201).json(newPresale)
+        return res.status(201).json(newPresale) 
+        
+        // END OF USER PRESALE
 
     } catch (error) {
         console.log(error)
         return res.status(400).json("An error occured while trying to create presale")
     }
 }
+
 
 exports.getUserPresale = async (req, res) => {
     try {
@@ -137,7 +167,7 @@ exports.getAllPresales = async (req, res) => {
     
     try {
 
-        let query = Presale.find({amount: {$gt: 0}});
+        let query = AdminPresale.find({amount: {$gt: 0}});
         const page = parseInt(req.query.page) || 1
         const pageSize = parseInt(req.query.limit) || 10
         const skip = (page - 1) * pageSize
@@ -250,4 +280,21 @@ exports.searchPresale = async (req, res) => {
     } catch (err) {
         return res.status(400).json(err)
     }
+}
+
+
+
+// GET ALL ADMIN PRESALES 
+exports.getAdminPresales = async (req, res) => {
+
+    try {
+        
+        const allPresales = await AdminPresale.find({})
+
+        return res.status(200).json(allPresales)
+
+    } catch (error) {
+        return res.status(400).json(err)
+    }
+
 }

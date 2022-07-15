@@ -87,13 +87,14 @@ const getUserInformations = () => {
               recentRefs = data
               getPaymentIDs()
               // UPDATE REFERRAL BALANCE
-              document.querySelector(".xreferalBalance").innerHTML = ( data.length * 5000 )
+              document.querySelector(".xreferalBalance").innerHTML = ( data.length * 2500 ).toLocaleString()
               // UPDATE REFERRAL NUMBER
               // document.querySelector(".xtotalReferall").innerHTML = data.length
 
               const tableBody = document.querySelector(".referrals--table");
 
               data.forEach((ref) => {
+
                 const tableRow = document.createElement("div");
 
                 tableRow.className =
@@ -141,14 +142,16 @@ const getUserInformations = () => {
           for(const id of resData.paymentId){
   
             const paymentResult = await getPresaleBalance(id)
+            
             // INCREMENT TOTALPAYMENT AND CREATE OR UPDATE INSTANCE OF PAYMENT
             if( (paymentResult.payment_status == "finished") || (paymentResult.payment_status == "partially_paid") ){
 
               const grandTotal = Math
               .round(paymentResult.price_amount * paymentResult.actually_paid / paymentResult.pay_amount)
+
               totalPayment += grandTotal
 
-              updatePresaleAmount(grandTotal, id)
+              updatePresaleAmount(grandTotal, id, paymentResult.updated_at, resData?.hash || '')
 
             }
   
@@ -225,7 +228,7 @@ const getUserInformations = () => {
     }
   
 
-    async function updatePresaleAmount(amount, id) {
+    async function updatePresaleAmount(amount, id, date, hash) {
 
       try{
   
@@ -233,7 +236,9 @@ const getUserInformations = () => {
           userId: user.userid,
           amount,
           bsc: user.bsc,
-          mainPaymentId: id
+          adminPaymentId: id,
+          hash,
+          date
         }
   
         let response = await fetch(`${url}/presale/generate`, {

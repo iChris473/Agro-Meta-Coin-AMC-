@@ -42,20 +42,9 @@ const PresaleSchema = new mongoose.Schema({
     },
     paymentId: [{ type: String }],
 
-    mainPaymentId: {type:String},
-
     hash: {
         type: String
     },
-    childPayment: [
-        {
-          paymentId: String,
-          amount: String,
-          paid: {type:Boolean, default: false},
-          date: {type : Date, default: new Date()}
-        }
-      ]
-    
     
 }, {timestamps: true})
 
