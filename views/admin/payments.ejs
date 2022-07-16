@@ -1,0 +1,90 @@
+
+<%- include('partials/adminheader.ejs') %>
+
+
+<body class="relative">
+    <!-- Nav Section -->
+
+    <%- include('partials/adminnav.ejs') %>
+
+    <div class=" overflow-x-hidden grid grid-cols-4">
+
+        <!-- SideBar -->
+        <%- include('partials/adminside.ejs') %>
+
+        <!-- Main Section -->
+        <section class="col-span-4 md:col-span-3 mt-24">
+            <div class="flex items-center justify-center flex-col">
+                <h1 class="text-center ultra text-2xl mt-10 golden">All Presales</h1>
+                <!-- FILTER USERS -->
+                <input type="text" class="outline-none border-b rounded-md goldenB p-2 bg-transparent searchUser" placeholder="search Presales">
+            </div>
+            <div class="flex mb-5 items-center justify-between p-5">
+                <!-- SELECT NUMBER OF USERS PER PAGE -->
+                <div class="">
+                    <select name="grades" id="" class="outline-none rounded-md w-[95%] max-w-[800px] p-2 border border-green-700 bg-transparent type changeLimit text-sm">
+                      <option value="10">Select Per Page</option>
+                      <option value="10">10</option>
+                      <option value='20' >20</option>
+                      <option value="40">30</option>
+                      <option value="50">40</option>
+                      <option value="80">50</option>
+                    </select>
+                </div>
+                <!-- ARROWS -->
+               <div class="flex items-center justify-center">
+                   <!-- ARROW BACKWARD ICON -->
+                   <button class="disabled:cursor-not-allowed mr-[2px] lg:mr-2 back" >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 lg:h-9 text-gray-200 p-1 backIcon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+                      </svg>
+                   </button>
+                 <!-- PAGE NUMBER -->
+                 <p class="text-green font-bold text-md text-center text-green-500 page">page 1</p>
+                   <!-- ARROW FORWARD ICON -->
+                   <button class="disabled:cursor-not-allowed mr-[2px] lg:mr-2 front">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-10 lg:h-9 text-gray-200 p-1 frontIcon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+                      </svg>
+                   </button>
+               </div>
+            </div>
+            <div class="w-[97%] p-4 border rounded-md goldenB md:max-w-[1200px] mx-auto shadow-md m-2 mt-10 space-y-5">
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg ">
+                    <table class="w-full text-sm text-left text-gray-500 ">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-400  ">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    NO
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    DATE
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    User Id
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Amount
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Pay Token
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Hash
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="tableBody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        </section>
+    </div>
+
+    <script src="/public/js/dashboard.js"></script>
+    <script src="/public/admin/adminpayments.js"></script>
+</body>
+</html>

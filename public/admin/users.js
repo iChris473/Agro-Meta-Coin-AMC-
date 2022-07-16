@@ -86,8 +86,7 @@ async function getAllusers(){
             `
               tableBody.appendChild(tableRow)
               tableRow.addEventListener("click", () => {
-                  localStorage.setItem("thisUser", JSON.stringify(user))
-                  window.location.href = "/admin/thisuser"
+                  window.location.href = "/admin/thisuser?id=" + user._id
               })
           })
         })
@@ -145,8 +144,7 @@ async function filterUser(){
             `
               tableBody.appendChild(tableRow)
               tableRow.addEventListener("click", () => {
-                  localStorage.setItem("thisUser", JSON.stringify(user))
-                  window.location.href = "/admin/thisuser"
+                window.location.href = "/admin/thisuser?id=" + user._id
               })
           })
         })

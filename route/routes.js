@@ -69,6 +69,8 @@ router.get("/presale/all/:id", presaleController.getAllPresales)
 router.get("/presale/amount/get", presaleController.getAllPresaleAmount)
 // Get Presales Bonus
 router.get("/presale/bonus/:id", presaleController.getPresaleRefBonus)
+// UPDATE Presales Bonus
+router.put("/presale/update/bonus", presaleController.updatePresaleBonus)
 // Delete Presale
 router.delete("/presale/:id", presaleController.deletePresale)
 // SEARCH Presale

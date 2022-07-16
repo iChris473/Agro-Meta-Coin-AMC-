@@ -1,18 +1,41 @@
 
 const currentadmin = JSON.parse(localStorage.getItem("admin"))
 
-document.querySelector(".email").innerHTML = currentUser.email
-document.querySelector(".amc").innerHTML = currentUser.bsc
-// document.querySelector(".totalAmc").innerHTML = currentUser.amount
-// document.querySelector(".refBonus").innerHTML = currentUser.refAmount
-document.querySelector(".air").innerHTML = currentUser.airdropAmount
-document.querySelector(".recieved").innerHTML = currentUser.receieved
-document.querySelector(".facebook").innerHTML = currentUser.facebook
-document.querySelector(".telegram").innerHTML = currentUser.telegram
-document.querySelector(".twitter").innerHTML = currentUser.twitter
-document.querySelector(".youtube").innerHTML = currentUser.youtube
+const userId = window.location.search.split("=")[1] || ""
 
-console.log(currentUser)
+async function getPaymentList() {
+
+  try{
+
+    let response = await fetch(`${url}/user/get/${userId}?id=${userId}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+
+    const currentUser =  await response.json();
+    
+    document.querySelector(".email").innerHTML = currentUser.email
+    document.querySelector(".amc").innerHTML = currentUser.bsc
+    // document.querySelector(".totalAmc").innerHTML = currentUser.amount
+    // document.querySelector(".refBonus").innerHTML = currentUser.refAmount
+    document.querySelector(".air").innerHTML = currentUser.airdropAmount
+    document.querySelector(".recieved").innerHTML = currentUser.receieved
+    document.querySelector(".facebook").innerHTML = currentUser.facebook
+    document.querySelector(".telegram").innerHTML = currentUser.telegram
+    document.querySelector(".twitter").innerHTML = currentUser.twitter
+    document.querySelector(".youtube").innerHTML = currentUser.youtube  
+
+  }catch(err){
+    console.log(err);
+  }
+
+}
+
+getPaymentList()
+
+
 const deleteBtn = document.querySelector(".deleteBtn")
 
 // Update Total Amount Logic
@@ -118,58 +141,6 @@ const updateAirAmount = async e => {
 
 airForm.addEventListener("submit", updateAirAmount)
 
-
-// Update Total Amount Logic
-// const refAmount = document.querySelector(".refAmount")
-
-// const refForm = document.querySelector(".refForm")
-
-// const refBtn = document.querySelector(".refBtn")
-
-// const updateRefAmount = async e => {
-
-//     e.preventDefault()
-
-//     const newUser = {
-//       refAmount: refAmount.value,
-//       amount: (currentUser.amount + parseInt(refAmount.value))
-//     }
-//     refBtn.innerHTML = "Updating..."
-
-//     fetch(`${url}/user/update/${currentUser._id}`, {
-//         method: "PUT",
-//         body: JSON.stringify(newUser),
-//         headers: {
-//           "Content-type": "application/json; charset=UTF-8"
-//         },
-//       })
-//         .then(function (response) {
-//           if (response.ok) {
-//             return response.json();
-//           } else {
-//               return response.text().then((text) => {
-//                 airBtn.innerHTML = "Update"
-//                 return Promise.reject()
-//               });
-//           }
-//           return Promise.reject(response);
-//         })
-//         .then(function (data) {
-//           console.log(data);
-//           airBtn.innerHTML = "Update"
-//           window.location.href = "/admin/users"
-  
-//         })
-//         .catch(function (error) {
-//           airBtn.innerHTML = "Update"
-//           console.log(error)
-//           window.alert("An Error Occured")
-//         })
-
-
-// }
-
-// refForm.addEventListener("submit", updateRefAmount)
 
 // DELETE USER FROM DATABASE
 const deleteThisUser = async () => {

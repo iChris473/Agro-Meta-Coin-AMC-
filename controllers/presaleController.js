@@ -16,33 +16,6 @@ exports.createPresale = async (req, res) => {
 
             let recentPresale = {...req.body}
 
-            const parentRef = await Presale.findOne({userId: oldPresale.ref})
-
-            const grandReferal = await Presale.findOne({userId: oldPresale.grandRef})
-
-            // GETTING DOWNLINERS
-            if(parentRef){
-
-                recentPresale = {
-                    ...req.body, 
-                    grandRef: parentRef.ref, 
-                    refBsc: parentRef.bsc,
-                    grandRefBsc: grandReferal.bsc || ""
-                }
-
-                if(req.body.amount){
-
-                    await parentRef.updateOne({bonus: (parseInt(req.body.amount) * 100) + parseInt(parentRef.bonus)})
-
-                    if(grandReferal){
-                        await grandReferal.updateOne({bonus: (parseInt(req.body.amount) * 50) + parseInt(grandReferal.bonus)})
-                    }
-
-                    recentPresale = {amount: (parseInt(req.body.amount) * 1000)}
-    
-                }
-            }
-
             if(req.body.amount){
                 recentPresale.amount = (parseInt(req.body.amount) * 1000)
             }
@@ -114,6 +87,24 @@ exports.createPresale = async (req, res) => {
     }
 }
 
+exports.updatePresaleBonus = async (req, res) => {
+
+    try {
+
+        await Presale.findOneAndUpdate(
+            {
+                userId: req.body.userId
+            }, {
+            $set: { bonus: req.body.bonus }
+        }, { new: true })
+
+        return res.status(200).json("BONUS UPDATED")
+        
+    } catch (error) {
+        console.log(error)
+    }
+
+}
 
 exports.getUserPresale = async (req, res) => {
     try {
