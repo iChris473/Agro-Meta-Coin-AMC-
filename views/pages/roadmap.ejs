@@ -107,15 +107,46 @@
 		  }
 
 
-        </style>
-
-				<!-- NAV SECTION -->
-				<%# include('partials/navbar.ejs') %>
-
-					<nav class="nav">
-						<p>
-							<a href="/">Home</a>
-						</p>
+		</style>
+		
+		<!-- NAV SECTION -->
+		<%# include('partials/navbar.ejs') %>
+		
+			<nav class="nav">
+				<p>
+					<a href="/">Home</a>
+				</p>
+				<p>
+					<a href="/coming">Pre-sale</a>
+				</p>
+				<p>
+					<a href="/coming">Meterverse</a>
+				</p>
+				<p>
+					<a href="/coming">NFT Marktetplace</a>
+				</p>
+				<p>
+					<a href="https://www.agrometacoin.com/#tokenomics">Tokenomics</a>
+				</p>
+				<p>
+					<a href="/roadmap">Roadmap</a>
+				</p>
+				<p>
+					<a href="/white">White Paper</a>
+				</p>
+				<button id="login">Login</button>
+				<button id="reg" class="signup">Signup</button>
+			</nav>
+			<!-- Hero Section -->
+			<section class="hero--section">
+				<!-- navigation bar -->
+				<header>
+					<a href="/" class="logo">
+						<img src="../../public/img/agropic.png" alt="#">
+						<h2>AgroMetacoin</h2>
+					</a>
+		
+					<div class="nav--links">
 						<p>
 							<a href="/coming">Pre-sale</a>
 						</p>
@@ -134,56 +165,25 @@
 						<p>
 							<a href="/white">White Paper</a>
 						</p>
-						<button id="login">Login</button>
-						<button id="reg" class="signup">Signup</button>
-					</nav>
-					<!-- Hero Section -->
-					<section class="hero--section">
-						<!-- navigation bar -->
-						<header>
-							<a href="/" class="logo">
-								<img src="../../public/img/agropic.png" alt="#">
-								<h2>AgroMetacoin</h2>
-							</a>
-
-							<div class="nav--links">
-								<p>
-									<a href="/coming">Pre-sale</a>
-								</p>
-								<p>
-									<a href="/coming">Meterverse</a>
-								</p>
-								<p>
-									<a href="/coming">NFT Marktetplace</a>
-								</p>
-								<p>
-									<a href="https://www.agrometacoin.com/#tokenomics">Tokenomics</a>
-								</p>
-								<p>
-									<a href="/roadmap">Roadmap</a>
-								</p>
-								<p>
-									<a href="/white">White Paper</a>
-								</p>
-							</div>
-							<div class="registration">
-								<button id="login-d">Login</button>
-								<button id="reg-d">Signup</button>
-
-								<div class="hamburger--container">
-									<label for="check">
-										<input type="checkbox" id="check" />
-										<span></span>
-										<span></span>
-										<span></span>
-									</label>
-								</div>
-							</div>
-						</header>
-          </section>
-
-		  <!-- GREEN BAR -->
-          <section class="greenBg">
+					</div>
+					<div class="registration">
+						<button id="login-d">Login</button>
+						<button id="reg-d">Signup</button>
+		
+						<div class="hamburger--container">
+							<label for="check">
+								<input type="checkbox" id="check" />
+								<span></span>
+								<span></span>
+								<span></span>
+							</label>
+						</div>
+					</div>
+				</header>
+			</section>
+		
+			<!-- GREEN BAR -->
+			<section class="greenBg">
 				  <div style="position:relativea;">
 					  <img src="/public/img/agropic.png" class="coin1" alt="">
 					  <img src="/public/img/agropic.png" class="coin2" alt="">
@@ -197,7 +197,7 @@
           </section>
 
 		  <!-- WHITE BARS -->
-		  <section style="padding-bottom: 80px;">
+		  <section style="padding-bottom: 80px; max-width: 1000px; margin: auto;">
 			  <!-- PHASE 1 -->
 			<div style="margin-top: 50px;">
 				<div class="whiteBg">

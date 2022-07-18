@@ -64,7 +64,7 @@ signupBtn.addEventListener("click", redirect)
 loginBtn_D.addEventListener("click", redirect)
 signupBtn_D.addEventListener("click", redirect)
 
-airDrop.addEventListener("click", redirect)
+airDrop.addEventListener("click", () => window.location.href = "/presale")
 
 
 // Copy function

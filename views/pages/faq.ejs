@@ -1,0 +1,314 @@
+<%# include('partials/header.ejs') %>
+
+	<%- include('partials/mainheader.ejs') %>
+
+			<body >
+				<style scoped>
+
+					.centeredDiv {
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: translate(-50%,-50%);
+						z-index: 5000;
+						background: rgb(241, 241, 241);
+						padding: 10px;
+						border-radius: 10px;
+						flex-direction: column;
+						width: 93%;
+						max-width: 600px;
+					}
+
+					.xicon {
+						color: rgb(253, 36, 36);
+						height: 30px;
+						cursor: pointer;
+					}
+
+					.flexCenter {
+						display: flex; align-items: center; justify-content: center;
+					}
+
+					@media (min-width: 767px) {
+									.star1 {
+							display: none;
+						}
+
+						.star2 {
+							display: none;
+						}
+
+						.star3 {
+							display: none;
+						}
+
+						.star4 {
+							display: none;
+						}
+
+						.star5 {
+							display: none;
+						}
+
+						.star6 {
+							display: none;
+						}
+
+						.star7 {
+							display: none;
+						}
+
+						.star8 {
+							display: none;
+						}
+					}
+
+					.svgSocial path {
+						color: white;
+						fill: currentcolor;
+					}
+					
+                    .faqImg {
+                        width: 98%;
+                        /* height: 300px; */
+                        object-fit: contain;
+                    }
+                    ul{
+                        padding: 20px;
+                    }
+                    
+                    .purchaseBtn {
+                        flex-direction: column;
+                        padding: 10px;
+                        color: white;
+                        text-align: center;
+                        background: linear-gradient(52.09deg, #40D00D -11.18%, #40D00D 58.92%, #EDF3A9 98.44%);
+                        border-radius: 4px;
+                    }
+
+				</style>
+
+				<!-- NAV SECTION -->
+				<%# include('partials/navbar.ejs') %>
+
+					<nav class="nav">
+						<p>
+							<a href="/">Home</a>
+						</p>
+						<p>
+							<a href="/presale">Pre-sale</a>
+						</p>
+						<p>
+							<a href="/coming">Meterverse</a>
+						</p>
+						<p>
+							<a href="/coming">NFT Marktetplace</a>
+						</p>
+						<p>
+							<a href="#tokenomics">Tokenomics</a>
+						</p>
+						<p>
+							<a href="/roadmap">Roadmap</a>
+						</p>
+						<p>
+							<a href="/white">White Paper</a>
+						</p>
+						<button id="login">Login</button>
+						<button id="reg" class="signup">Signup</button>
+					</nav>
+					<div class="mainBody">
+					<!-- Hero Section -->
+					<section class="hero--section">
+						<!-- navigation bar -->
+						<header>
+							<a href="/" class="logo">
+								<img src="../../public/img/agropic.png" alt="#">
+								<h2>AgroMetacoin</h2>
+							</a>
+
+							<div class="nav--links">
+								<p>
+									<a href="/presale">Pre-sale</a>
+								</p>
+								<p>
+									<a href="/coming">Meterverse</a>
+								</p>
+								<p>
+									<a href="/coming">NFT Marktetplace</a>
+								</p>
+								<p>
+									<a href="#tokenomics">Tokenomics</a>
+								</p>
+								<p>
+									<a href="/roadmap">Roadmap</a>
+								</p>
+								<p>
+									<a href="/white">White Paper</a>
+								</p>
+							</div>
+							<div class="registration">
+								<button id="login-d">Login</button>
+								<button id="reg-d">Signup</button>
+
+								<div class="hamburger--container">
+									<label for="check">
+										<input type="checkbox" id="check" />
+										<span></span>
+										<span></span>
+										<span></span>
+									</label>
+								</div>
+							</div>
+						</header>
+						<!-- main content -->
+                        <main style="position: relative;" class="hero">
+
+							<svg style="position: absolute; top: 20; right: 40px" class="star1 sm:hidden" width="36"
+								height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M36 17.9872C28.9387 18.6287 24.8816 19.2188 22.3909 21.1689C19.4636 23.4526 18.7703 27.6351 18 36C17.204 27.3272 16.485 23.1703 13.2753 20.938C10.7846 19.1932 6.75321 18.6287 0 18.0128C7.03566 17.3713 11.1184 16.7812 13.5835 14.8567C16.5364 12.5474 17.2297 8.39059 18 0C18.719 7.72345 19.3609 11.8546 21.7489 14.2409C24.1369 16.6272 28.2967 17.2944 36 17.9872Z"
+									fill="white" />
+							</svg>
+							<img src="/public/img/Bitcoin-1.png" style="position: absolute; left: 0; top: 100px" class="star2" alt="">
+							<img src="/public/img/sphere.png" style="position: absolute; left: 0; top: 200px; width: 40px; object-fit: contain;"	class="star3 sm:hidden" alt="">
+							<!-- VIDEO SOURCE -->
+                            <video width="320" height="240" controls>
+                                <source src="/public/img/faq.mp4" type="video/mp4">
+                              </video>
+                            <!-- VIDEO SOURCE -->
+							<svg style="position: absolute; bottom: 120px; right: 40px;" class="star4" width="47"
+								height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M23.4275 0L25.2206 18.7856L39.9933 6.74928L27.7564 21.2798L46.8551 23.0435L27.7564 24.8071L39.9933 39.3377L25.2206 27.3014L23.4275 46.087L21.6345 27.3014L6.86177 39.3377L19.0987 24.8071L0 23.0435L19.0987 21.2798L6.86177 6.74928L21.6345 18.7856L23.4275 0Z"
+									fill="white" />
+							</svg>
+							<button style="width: auto; padding: 10px;" id="airdropBtn">Buy Pre-sales</button>
+						</main>
+
+					</section>
+					<!-- Lorem -->
+					<article style="margin-top: 50px;" class="exp">
+                        <!-- FAQS -->
+						<div id="faqss" class="content">
+							<div class="img--mobile"></div>
+							<h2>HOW TO BUY AGRO-META COIN</h2>
+							<p class="sub">Follow these steps to buy Agro-Meta Coin.</p>
+
+							<div style="display: flex; align-items: center; flex-direction: column; justify-content: center; width: 100%;" class="questionss">
+								<div style="width: 100% !important; flex-direction: column;" class="q--1 flexCenter">
+                                    <!-- NUMBER ONE -->
+									<p class="header" style="width: 100%;">1. Go to the presale page</p>
+									<ul style="width: 100%;">
+										<li>Click on Pre-sale on your home screen or from your dashboard</li>
+									</ul>
+                                    <!-- NUMBER TWO -->
+									<p class="header" style="width: 100%;">2. Type the amount in USD you want to Purchase Agro-Meta Coin (e. g) 1000</p>
+									<ul style="width: 100%;">
+                                        <img src="/public/img/red.jpeg" class="faqImg" alt="">
+									</ul>
+                                    <!-- NUMBER THREE -->
+                                    <p class="header" style="width: 100%;">3. Choose your preferred coin or token (e. g) TRX</p>
+									<ul style="width: 100%;">
+                                        <img src="/public/img/blue1.jpeg" class="faqImg" alt="">
+									</ul>
+                                    <!-- NUMBER FOUR -->
+                                    <p class="header" style="width: 100%;">4. Paste your sponsors (whoever invited you) referral link so they can benefit from your purchase (optionally)</p>
+									<ul style="width: 100%;">
+                                        <img src="/public/img/blue2.jpeg" class="faqImg" alt="">
+									</ul>               
+                                    <!-- NUMBER FIVE -->
+                                    <p class="header" style="width: 100%;">5. Click the purchase button </p>
+									<ul style="width: 100%; background: #000; margin: 0;" class="flexCenter">
+                                        <img src="/public/img/blue3.jpeg" class="faqImg" alt="">
+									</ul>               
+                                    <!-- NUMBER FIVE -->
+                                    <p class="header" style="width: 100%;">6. Copy the address and send the required token or coin to the copied address from any dapp</p>
+									<ul style="width: 100%;">
+                                        <img src="/public/img/blue4.jpeg" class="faqImg" alt="">
+									</ul>               
+                                    <button style="width: auto; padding: 10px;" class="purchaseBtn">Buy Pre-sales</button>
+								</div>
+							</div>
+
+						</div>
+					</article>
+					<!-- Lorem ends -->
+
+					<!-- Trade chart end -->
+
+					<footer
+						style="background-color: transparent !important; display: flex; align-items: center !important; justify-content: space-between; max-width: 1000px; margin: auto;">
+						<div class="policy">
+							<a href="/" class="logo" style="display: flex; align-items: center; justify-content: left;">
+								<img style="height: 30px; margin-right: 5px;" src="../../public/img/agropic.png"
+									alt="#">
+								<h3>AgroMetacoin</h3>
+							</a>
+							<p>AGRO-META COIN (Pride Lands Dynasty PLD) is Africa’s First and Biggest Agricultural
+								metaverse
+								project which is created to bridge the gap between Blockchain, agriculture and
+								industrialization
+								sector. Also improving Africa's ecosystem and infrastructural developments to build a
+								better
+								Africa and the World.
+							</p>
+							<p>© 2022 Agrometa Coin (Pride lands Dynasty PLD</p>
+						</div>
+						<div class="links">
+							<a href="#" style="margin-bottom: 20px;">Home</a>
+							<a href="#visioon" style="margin-bottom: 20px;">Vision</a>
+							<a href="#missionnn" style="margin-bottom: 20px;">Misson</a>
+							<a href="#tokenomics" style="margin-bottom: 20px;">Lisiting</a>
+							<a href="#utilityy" style="margin-bottom: 20px;">Utility</a>
+							<a href="#faqss">FAQs</a>
+						</div>
+					</footer>
+
+					<!-- SOCIALS -->
+					<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 100px;">
+						<!-- TELEGRAM -->
+						<a href="https://t.me/agrometacoin">
+							<svg class="svgSocial"
+								style="height: 30px; border-radius: 50%; padding: 5px; margin-right: 10px; background-color: #34AADF "
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+								<path
+									d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z" />
+							</svg>
+						</a>
+						<!-- TWITTER -->
+						<!-- <a href='https://twitter.com/agro_coin?t=iuG0L3qqL5p1VtEj8A7aDQ&s=08'>
+							<svg class="svgSocial"
+								style="height: 30px; border-radius: 50%; padding: 5px; margin-right: 10px; background-color: #33CCFF; color: white !important"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+								<path
+									d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+							</svg>
+						</a> -->
+						<!-- DISCORD -->
+						<a href='https://discord.gg/jBcyeTAHjA'>
+							<svg class="svgSocial"
+								style="height: 30px; border-radius: 50%; padding: 5px; margin-right: 10px; background-color: #5865F2;"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+								<path
+									d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z" />
+							</svg>
+						</a>
+						<!-- YOUTUBE -->
+						<a href='https://youtube.com/channel/UCJjkmvXmprgLJWEh4v0Ecqg'>
+							<svg class="svgSocial"
+								style="height: 30px; border-radius: 50%; padding: 5px; margin-right: 10px; background-color: rgb(241, 34, 34)"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+								<path
+									d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+							</svg>
+						</a>
+					</div>
+				</div>
+
+					<!-- FOOTER -->
+					<%# include('partials/footer.ejs') %>
+						<!-- Javascript codes and links -->
+
+			</body>
+
+			</html>
