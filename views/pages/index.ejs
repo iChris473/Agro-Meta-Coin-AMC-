@@ -173,7 +173,7 @@
 									d="M23.4275 0L25.2206 18.7856L39.9933 6.74928L27.7564 21.2798L46.8551 23.0435L27.7564 24.8071L39.9933 39.3377L25.2206 27.3014L23.4275 46.087L21.6345 27.3014L6.86177 39.3377L19.0987 24.8071L0 23.0435L19.0987 21.2798L6.86177 6.74928L21.6345 18.7856L23.4275 0Z"
 									fill="white" />
 							</svg>
-							<button style="width: auto; padding: 10px; margin-top: 20px;" id="airdropBtn">Buy Pre-sales</button>
+							<button style="width: auto; padding: 10px; margin-top: 40px !important;" id="airdropBtn">Buy Pre-sales</button>
 						</main>
 					</section>
 
@@ -750,10 +750,10 @@
 				const popupModal = document.querySelector('.popupModal')
 				const boody = document.querySelector('.mainBody')
 
-				// setTimeout(() => {
-				// 	popupModal.style.display = 'block'
-				// 	boody.classList.add('modalState')
-				// }, 3200);
+				setTimeout(() => {
+					popupModal.style.display = 'block'
+					boody.classList.add('modalState')
+				}, 3200);
 
 				closeModal.addEventListener('click', () => {
 					popupModal.style.display = 'none'

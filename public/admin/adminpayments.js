@@ -37,7 +37,7 @@ async function getPaymentList() {
       });
 
       const resData =  await response.json();
-      //   console.log(resData)
+        console.log(resData)
       const mainList = resData.data.filter(list => (list.payment_status == "finished") || (list.payment_status == "partially_paid"))
 
       let serialNumber = 1
