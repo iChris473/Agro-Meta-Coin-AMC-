@@ -555,6 +555,13 @@
     background-size: 18rem;
     background-position-x: 6rem;
   }
+  article.exp .tokenomics div.pie .chart1 {
+    width: 100%;
+    height: 20rem;
+    background: url(../img/pie.png) no-repeat;
+    background-size: 18rem;
+    background-position-x: 5rem;
+  }
   article.exp .tokenomics div.pie h1 {
     width: 475px;
     height: auto;
@@ -1560,6 +1567,13 @@
     width: 100%;
     height: 20rem;
     background: url(../img/chatie.png) no-repeat;
+    background-size: 16rem;
+    background-position-x: 4rem;
+  }
+  article.exp .tokenomics div.pie2 .chart {
+    width: 100%;
+    height: 20rem;
+    background: url(../img/pie.png) no-repeat;
     background-size: 16rem;
     background-position-x: 4rem;
   }
@@ -5990,6 +6004,14 @@ button {
     width: 80%;
     height: 18rem;
     background: url(../img/chatie.png) no-repeat;
+    background-size: 20rem;
+    background-position-x: -1.5rem;
+   
+  }
+  article.exp .tokenomics div.pie2  {
+    width: 80%;
+    height: 18rem;
+    background: url(../img/pie.png) no-repeat;
     background-size: 20rem;
     background-position-x: -1.5rem;
    
